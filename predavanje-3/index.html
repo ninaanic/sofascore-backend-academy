@@ -1,0 +1,21 @@
+<!-- 1. primjer -->
+<!--
+<form method="POST" action="/post.php">
+    <input type="text" name="one" placeholder="one">
+    <input type="text" name="two" placeholder="two">
+    <input type="text" name="multi[]" placeholder="mutli">
+    <input type="text" name="multi[with-key]"
+           placeholder="mutli with key"
+               >
+    <button type="submit">Submit</button>
+</form>
+-->
+
+<!-- 2. primjer -->
+<form method="POST" action="/post.php"
+      enctype="multipart/form-data"
+>
+    <input type="file" name="files[]" multiple>
+    <button type="submit">Submit</button>
+</form>
+
