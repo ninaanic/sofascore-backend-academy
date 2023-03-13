@@ -26,6 +26,6 @@ class Slugger {
 		// sve u mala slova 
 		$sluggedString = strtolower($sluggedString);
 		
-		return "$sluggedString\n";
+		return $sluggedString;
 	}
 }

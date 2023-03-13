@@ -1,0 +1,25 @@
+CREATE TABLE Sport (
+	id 			SERIAL PRIMARY KEY,
+	name 		VARCHAR(255) NOT NULL,
+	slug 		VARCHAR(255) NOT NULL,
+	external_id VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE Tournament (
+	id 			SERIAL PRIMARY KEY,
+	name 		VARCHAR(255) NOT NULL,
+	slug 		VARCHAR(255) NOT NULL,
+	external_id VARCHAR(255) NOT NULL UNIQUE,
+	sport_id 	INTEGER NOT NULL REFERENCES Sport(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Event (
+	id 				SERIAL PRIMARY KEY,
+	external_id 	VARCHAR(255) NOT NULL UNIQUE,
+	home_team_id 	VARCHAR(255) NOT NULL,
+	away_team_id 	VARCHAR(255) NOT NULL,
+	start_date 		TIMESTAMPTZ NOT NULL,
+	home_score		INTEGER,
+	away_score		INTEGER,
+	tournament_id 	INTEGER NOT NULL REFERENCES Tournament(id) ON DELETE CASCADE
+);
