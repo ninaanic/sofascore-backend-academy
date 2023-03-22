@@ -12,15 +12,16 @@ use SimpleFW\Templating\Templating;
 class EventController
 {
     public function __construct(
+        private readonly Templating $templating,
         private readonly Connection $connection,
     ) {
     }
 
-    // TODO popravit 
     public function details(Request $request): Response
     {
         $eventId = $request->attributes['_route_params']['id'];
+        $events = $this->connection->query('SELECT * FROM event WHERE id = :id', ['id' => $eventId]);
 
-        $event = $this->connection->query('SELECT * FROM event WHERE id = :id', ['id' => $eventId]);
+        return new Response($this->templating->render('event/index.php', $events));
     }
 }

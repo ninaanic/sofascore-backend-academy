@@ -8,6 +8,7 @@ use App\Controller\TournamentsController;
 use App\Tools\Slugger;
 use SimpleFW\DependencyInjection\Container;
 use App\Database\Connection;
+use App\Controller\EventController;
 
 return static function (Container $container) {
     /*
@@ -18,12 +19,24 @@ return static function (Container $container) {
         HomeController::class,
         static fn (Container $container) => new HomeController(
             $container->get(SimpleFW\Templating\Templating::class),
+            $container->get(Connection::class),
         ),
     );
 
     $container->addFactory(
         TournamentsController::class,
-        static fn (Container $container) => new TournamentsController($container->get(SimpleFW\Templating\Templating::class)),
+        static fn (Container $container) => new TournamentsController(
+            $container->get(SimpleFW\Templating\Templating::class), 
+            $container->get(Connection::class),
+        ),
+    );
+
+    $container->addFactory(
+        EventController::class,
+        static fn (Container $container) => new EventController(
+            $container->get(SimpleFW\Templating\Templating::class), 
+            $container->get(Connection::class),
+        ),
     );
 //    $container->addFactory(
 //        'tournaments.controller',
@@ -48,6 +61,6 @@ return static function (Container $container) {
     // @TODO: Zadatak 3
     $container->addFactory(
         Connection::class,
-        static fn (Container $container) => new Connection($container->get('database.dsn'))
+        static fn (Container $container) => new Connection($container->getParameter('database.dsn'))
     );
 };
