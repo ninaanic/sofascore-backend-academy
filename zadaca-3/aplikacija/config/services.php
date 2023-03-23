@@ -9,6 +9,7 @@ use App\Tools\Slugger;
 use SimpleFW\DependencyInjection\Container;
 use App\Database\Connection;
 use App\Controller\EventController;
+use App\Command\ParseCommand;
 
 return static function (Container $container) {
     /*
@@ -50,6 +51,11 @@ return static function (Container $container) {
     $container->addFactory(
         ExampleCommand::class,
         static fn (Container $container) => new ExampleCommand($container->get(Slugger::class)),
+    );
+
+    $container->addFactory(
+        ParseCommand::class,
+        static fn (Container $container) => new ParseCommand($container->get(Connection::class)),
     );
 
     /*

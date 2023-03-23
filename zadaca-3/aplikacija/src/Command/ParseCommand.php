@@ -7,58 +7,35 @@ namespace App\Command;
 use App\Database\Connection;
 use App\Tools\JsonParser;
 use App\Tools\XmlFeedParser;
-use PDO;
 use SimpleFW\Console\CommandInterface;
 use SimpleFW\Console\Input;
 use SimpleFW\Console\Output;
 
 function insert_into_database($connection, $data) {
-    $sportName = $data->name;
-    $sportSlug = $data->slug;
-    $sportExternalId = $data->id;
+    $sportId = $connection->insert('sport', [
+        'external_id' => $data->id,
+        'name' => $data->name,
+        'slug' => $data->slug,
+    ]);
 
-    $stmt = $connection->prepare("INSERT INTO Sport(name, slug, external_id) VALUES (?, ?, ?)");
-    $stmt->bindParam(1, $sportName);
-    $stmt->bindParam(2, $sportSlug);
-    $stmt->bindParam(3, $sportExternalId, PDO::PARAM_STR);
-    $stmt->execute();
+    foreach ($data->tournaments as $tournament) {
+        $tournamentId = $connection->insert('tournament', [
+            'sport_id' => $sportId,
+            'external_id' => $tournament->id,
+            'name' => $tournament->name,
+            'slug' => $tournament->slug,
+        ]);
 
-    $sport_id = $connection->lastInsertId();
-
-    foreach($data->tournaments as $tournamentsJson) {
-        $tournamentName = $tournamentsJson->name;
-		$tournamentSlug =$tournamentsJson->slug;
-		$tournamenExternalId = $tournamentsJson->id;
-
-        $stmt = $connection->prepare("INSERT INTO Tournament(name, slug, external_id, sport_id) VALUES (?, ?, ?, ?)");
-        $stmt->bindParam(1, $tournamentName);
-        $stmt->bindParam(2, $tournamentSlug);
-        $stmt->bindParam(3, $tournamenExternalId, PDO::PARAM_STR);
-        $stmt->bindParam(4, $sport_id);
-        $stmt->execute();
-
-        $tournament_id = $connection->lastInsertId();
-
-        foreach($tournamentsJson->events as $eventJson) {
-            $eventExternalId = $eventJson->id;
-            $eventHomeTeamId = $eventJson->home_team_id;
-            $eventAwayTeamId = $eventJson->away_team_id;
-
-            $eventStartDate = $eventJson->start_date;
-            $timestamp = $eventStartDate->format('Y-m-d H:i:s.u e');
-
-            $eventHomeScore = $eventJson->home_score;
-            $eventAwayScore = $eventJson->away_score;
-
-            $stmt = $connection->prepare("INSERT INTO Event(external_id, home_team_id, away_team_id, start_date, home_score, away_score, tournament_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bindParam(1, $eventExternalId, PDO::PARAM_STR);
-            $stmt->bindParam(2, $eventHomeTeamId, PDO::PARAM_STR);
-            $stmt->bindParam(3, $eventAwayTeamId, PDO::PARAM_STR);
-            $stmt->bindParam(4, $timestamp);
-            $stmt->bindParam(5, $eventHomeScore);
-            $stmt->bindParam(6, $eventAwayScore);
-            $stmt->bindParam(7, $tournament_id);
-            $stmt->execute();
+        foreach ($tournament->events as $event) {
+            $connection->insert('event', [
+                'tournament_id' => $tournamentId,
+                'external_id' => $event->id,
+                'home_team_id' => $event->home_team_id,
+                'away_team_id' => $event->away_team_id,
+                'start_date' => $event->start_date->format('Y-m-d H:i:s.u e'),
+                'home_score' => $event->home_score,
+                'away_score' => $event->away_score,
+            ]);
         }
     }
 }
@@ -78,7 +55,8 @@ final class ParseCommand implements CommandInterface
         }
 
         $filename = $input->getArgument(1);
-        $filepath = '../../data/'.$filename;
+        $dir = getcwd();
+        $filepath = $dir.'/data/'.$filename;
 
         if (file_exists($filepath)) {
             $filetype = mime_content_type($filepath);
