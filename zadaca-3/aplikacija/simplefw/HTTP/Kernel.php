@@ -46,10 +46,10 @@ abstract class Kernel
 
             $controller = $this->container->has($controllerClass) ? $this->container->get($controllerClass) : new $controllerClass();
 
-            $response = $controller->$action($request);
+            //$response = $controller->$action($request);
             // @TODO: Zadatak 4, zamijeniti gornju liniju s ove dvije
-            // $actionArguments = $this->resolveArguments($controller::class, $action, $request);
-            // $response = $controller->$action(...$actionArguments);
+            $actionArguments = $this->resolveArguments($controller::class, $action, $request);
+            $response = $controller->$action(...$actionArguments);
 
             if (!$response instanceof Response) {
                 throw new ControllerDoesNotReturnResponseException($controllerClass, $action);
@@ -130,6 +130,18 @@ abstract class Kernel
         }
     }
 
+    private function castValue(string $type, $value) {
+        if ($type === 'int') {
+            return (int)$value;
+        } elseif ($type === 'string') {
+            return (string)$value;
+        } elseif ($type === 'bool') {
+            return (bool)$value;
+        } else {
+            return $value;
+        }
+    }
+
     private function resolveArguments(string $controllerClass, string $action, Request $request): array
     {
         $reflection = new \ReflectionMethod($controllerClass, $action);
@@ -137,6 +149,26 @@ abstract class Kernel
         $arguments = [];
 
         // @TODO: Zadatak 4
+
+        $routeParam = $request->attributes['_route_params'];
+
+        foreach($reflection->getParameters() as $parameter) {
+            $parameterName = $parameter->getName();
+            $parameterType = $parameter->getType();
+            $parameterTypeString = $parameterType ? $parameterType->getName() : null;
+
+            if ($parameterTypeString === Request::class) {
+                $arguments[$parameterName] = $request; // append 
+            } elseif (isset($routeParam[$parameterName])) {
+                $routeParamValue = $routeParam[$parameterName];
+                $castedValue = $this->castValue($parameterTypeString, $routeParamValue);
+                $arguments[$parameterName] = $castedValue;
+            } elseif ($parameterType->allowsNull()) { 
+                $arguments[$parameterName] = null;
+            } else {
+                continue; // skip argument 
+            }
+        }
 
         return $arguments;
     }
