@@ -17,29 +17,27 @@ final class TournamentsController
     ) {
     }
 
-    public function index(Request $request): Response
-    {
-        $slug = $request->attributes['_route_params']['slug'];
-        $tournaments = $this->connection->query('SELECT tournament.name, tournament.slug
-                                                FROM sport JOIN tournament 
-                                                ON sport.Id = tournament.sport_id
-                                                WHERE sport.slug LIKE :slug', ['slug' => $slug]);
+    private function getTournamentsFromDatabase(string $slug) {
+        $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
+        $tournaments = $this->connection->find('tournament', ['name', 'slug'], ['sport_id' => $sport['id']]);
 
-        return new Response($this->templating->render('tournament/index.php', $tournaments));
+        return $tournaments;
     }
 
-    /*
-    public function json(Request $request): Response
+    public function index(string $slug): Response
     {
-        $response = new Response(json_encode([
-            'T1',
-            'T2',
-            'T3',
-        ]));
+        $tournaments = $this->getTournamentsFromDatabase($slug);
 
+        return new Response($this->templating->render('tournament/index.php', ['tournaments' => $tournaments]));
+    }
+
+    public function jsonTorunaments(string $slug): Response
+    {
+        $tournaments = $this->getTournamentsFromDatabase($slug);
+
+        $response = new Response(json_encode($tournaments));
         $response->addHeader('content-type', 'application/json');
 
         return $response;
     }
-    */
 }

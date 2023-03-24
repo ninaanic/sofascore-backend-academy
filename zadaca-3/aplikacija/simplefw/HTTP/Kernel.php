@@ -130,7 +130,8 @@ abstract class Kernel
         }
     }
 
-    private function castValue(string $type, $value) {
+    private function castValue(string $type, $value) 
+    {
         if ($type === 'int') {
             return (int)$value;
         } elseif ($type === 'string') {

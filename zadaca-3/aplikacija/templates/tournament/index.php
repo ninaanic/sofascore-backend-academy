@@ -1,7 +1,8 @@
 <table>
-    <?php foreach ($tournaments as $tournament) { ?>
+    <?php foreach ($tournaments as $tournament): ?>
         <tr>
-            <td><?php echo $tournament; ?></td>
+            <td><?= htmlspecialchars($tournament['name']); ?></td>
+            <td><a href="/?page=tournament&amp;slug=<?= htmlspecialchars($tournament['slug']); ?>">Detalji</a></td>
         </tr>
-    <?php } ?>
+    <?php endforeach; ?>
 </table>

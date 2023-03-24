@@ -6,19 +6,10 @@ use PDO;
 class Connection {
 
     private PDO $pdo;
+    private static self $instance;
 
     public function __construct($dsn) {
         $this->pdo = new PDO($dsn);
-    }
-
-    public function query($query, $params = array()) {
-        $statement = $this->pdo->prepare($query);
-        $statement->execute($params);
-
-        if (explode(' ', $query)[0] == 'SELECT') {
-            $data = $statement->fetchAll();
-            return $data;
-        }
     }
 
     public function insert(string $table, array $params): int
@@ -56,12 +47,12 @@ class Connection {
 
     public function find(string $table, array $fields = [], array $where = []): array
     {
-        return $this->select($table, $fields, $where)->fetchAll(\PDO::FETCH_ASSOC) ?: [];
+        return $this->select($table, $fields, $where)->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
 
     public function findOne(string $table, array $fields = [], array $where = []): ?array
     {
-        return $this->select($table, $fields, $where, 1)->fetch(\PDO::FETCH_ASSOC) ?: null;
+        return $this->select($table, $fields, $where, 1)->fetch(PDO::FETCH_ASSOC) ?: null;
     }
 
     private function select(string $table, array $fields = [], array $where = [], ?int $limit = null): \PDOStatement
