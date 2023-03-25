@@ -58,6 +58,17 @@ class EventController
 
     public function jsonDetails(int $id): Response
     {
+
+        if ('PATCH' === $_SERVER['REQUEST_METHOD']) {
+            $payload = file_get_contents('php://input');
+            try {
+                $payload = json_decode($payload, true, flags: \JSON_THROW_ON_ERROR);
+            } catch (JsonException $e) {
+                http_response_code(400);
+            }
+            $this->connection->update('event', ['home_score' => $payload['home_score'], 'away_score' => $payload['away_score']], $id);
+        } 
+
         $details = $this->getEventDetailsFromDatabase($id);
 
         $response = new Response(json_encode($details));
@@ -75,7 +86,7 @@ class EventController
                 http_response_code(400);
                 $data = ['error' => 'Invalid json provided!'];
             }
-            
+
         $this->connection->update('event', ['home_score' => $payload['home_score'], 'away_score' => $payload['away_score']], $id);
         $data = $this->connection->findOne('event', ['home_team_id', 'away_team_id', 'start_date', 'home_score', 'away_score'], ['id' => $id]);
 
