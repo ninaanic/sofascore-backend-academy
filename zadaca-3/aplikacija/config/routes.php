@@ -18,6 +18,5 @@ return static function (Router $router) {
         ->addRoute(new Route('tournamentsJson', '/api/sport/{slug}', [TournamentsController::class, 'jsonTorunaments']))
         ->addRoute(new Route('eventsJson', '/api/tournament/{slug}', [EventController::class, 'jsonEvents']))
         ->addRoute(new Route('eventDetailsJson', '/api/event/{id}', [EventController::class, 'jsonDetails']))
-        //->addRoute(new Route('eventDetailsJsonPatch', '/api/event/{id}', [EventController::class, 'patchEvent']))
     ;
 };

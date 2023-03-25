@@ -33,7 +33,7 @@ final class HomeController
     {
         $sports = $this->getSportsFromDatabase();
 
-        $response = new Response(json_encode($sports));
+        $response = new Response(json_encode($sports, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
 
         return $response;

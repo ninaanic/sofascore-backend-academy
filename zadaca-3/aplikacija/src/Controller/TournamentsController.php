@@ -35,7 +35,7 @@ final class TournamentsController
     {
         $tournaments = $this->getTournamentsFromDatabase($slug);
 
-        $response = new Response(json_encode($tournaments));
+        $response = new Response(json_encode($tournaments, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
 
         return $response;
