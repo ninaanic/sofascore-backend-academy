@@ -39,6 +39,7 @@ final class ParseScheduleCommand implements CommandInterface
         }
 
         try {
+            // todo promijenit da gleda ekstenziju
             $parser = match ($mediaType = mime_content_type($filepath)) {
                 'application/json' => $this->jsonScheduleParser,
                 'text/xml' => $this->xmlScheduleParser,
@@ -63,17 +64,18 @@ final class ParseScheduleCommand implements CommandInterface
             $sportId = $this->connection->insert('sport', [
                 'name' => $sport->name,
                 'slug' => $sport->slug,
-                'external_id' => $sport->id,
+                'external_id' => $sport->externalId,
             ]);
 
             foreach ($sport->tournaments as $tournament) {
                 $tournamentId = $this->connection->insert('tournament', [
                     'name' => $tournament->name,
                     'slug' => $tournament->slug,
-                    'external_id' => $tournament->id,
+                    'external_id' => $tournament->externalId,
                     'sport_id' => $sportId,
                 ]);
 
+                // todo ako podatci već postoje treba ih ažurirati 
                 foreach ($tournament->events as $event) {
                     $this->connection->insert('event', [
                         'slug' => $event->slug,
@@ -81,7 +83,7 @@ final class ParseScheduleCommand implements CommandInterface
                         'home_score' => $event->homeScore,
                         'away_score' => $event->awayScore,
                         'start_date' => $event->startDate->format(\DateTimeInterface::ATOM),
-                        'external_id' => $event->id,
+                        'external_id' => $event->externalId,
                         'home_team_id' => $event->homeTeamId,
                         'away_team_id' => $event->awayTeamId,
                         'tournament_id' => $tournamentId,

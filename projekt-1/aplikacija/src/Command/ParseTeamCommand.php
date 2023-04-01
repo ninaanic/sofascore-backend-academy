@@ -39,6 +39,7 @@ final class ParseTeamCommand implements CommandInterface
         }
 
         try {
+            // todo promijenit da gleda ekstenziju
             $parser = match ($mediaType = mime_content_type($filepath)) {
                 'application/json' => $this->jsonTeamParser,
                 'text/xml' => $this->xmlTeamParser,
@@ -63,22 +64,23 @@ final class ParseTeamCommand implements CommandInterface
             $sportId = $this->connection->insert('sport', [
                 'name' => $sport->name,
                 'slug' => $sport->slug,
-                'external_id' => $sport->id,
+                'external_id' => $sport->externalId,
             ]);
 
             foreach ($sport->teams as $team) {
                 $teamId = $this->connection->insert('team', [
                     'name' => $team->name,
                     'slug' => $team->slug,
-                    'external_id' => $team->id,
+                    'external_id' => $team->externalId,
                     'sport_id' => $sportId,
                 ]);
 
+                // todo ako podatci već postoje treba ih ažurirati 
                 foreach ($team->players as $player) {
                     $this->connection->insert('player', [
                         'name' => $player->name,
                         'slug' => $player->slug,
-                        'external_id' => $player->id,
+                        'external_id' => $player->externalId,
                         'team_id' => $teamId,
                     ]);
                 }

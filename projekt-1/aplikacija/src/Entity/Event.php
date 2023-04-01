@@ -13,26 +13,26 @@ use SimpleFW\ORM\Attribute\Id;
 final class Event implements \JsonSerializable
 {
     #[Id]
-    private int $id;
+    public int $id;
     #[Column]
-    private string $slug;
+    public string $slug;
     #[Column]
-    private string $status;
+    public string $status;
     #[Column(name: 'home_score')]
-    private int $homeScore;
+    public int $homeScore;
     #[Column(name: 'away_score')]
-    private int $awayScore;
+    public int $awayScore;
     #[Column(name: 'start_date')]
-    private DateTimeImmutable $startDate;
+    public DateTimeImmutable $startDate;
     #[Column(name: 'external_id')]
-    private string $externalId;
+    public string $externalId;
     #[Column(name: 'home_team_id')]
-    private string $homeTeamId;
+    public string $homeTeamId;
     #[Column(name: 'away_team_id')]
-    private string $awayTeamId;
+    public string $awayTeamId;
     #[Column(name: 'tournament_id')]
 
-    private int $tournamentId;
+    public int $tournamentId;
 
     public function __construct(string $slug, ?PostStatusEnum $status = null, int $homeScore, int $awayScore, DateTimeImmutable $startDate,
                                 string $externalId, string $homeTeamId, string $awayTeamId)

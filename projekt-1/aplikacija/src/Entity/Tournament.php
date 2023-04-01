@@ -12,18 +12,18 @@ use SimpleFW\ORM\Attribute\Id;
 final class Tournament implements \JsonSerializable
 {
     #[Id]
-    private int $id;
+    public int $id;
     #[Column]
-    private string $name;
+    public string $name;
     #[Column]
-    private string $slug;
+    public string $slug;
     #[Column(name: 'external_id')]
-    private string $externalId;
+    public string $externalId;
     
     #[Column(name: 'sport_id')]
-    private int $sportId;
+    public int $sportId;
 
-    private array $events;
+    public array $events;
 
     public function __construct(string $name, string $slug, string $externalId, array $events)
     {

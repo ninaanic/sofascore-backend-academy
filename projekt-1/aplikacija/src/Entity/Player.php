@@ -12,16 +12,16 @@ use SimpleFW\ORM\Attribute\Id;
 final class Player implements \JsonSerializable
 {
     #[Id]
-    private int $id;
+    public int $id;
     #[Column]
-    private string $name;
+    public string $name;
     #[Column]
-    private string $slug;
+    public string $slug;
     #[Column(name: 'external_id')]
-    private string $externalId;
+    public string $externalId;
     
     #[Column(name: 'team_id')]
-    private int $teamId;
+    public int $teamId;
 
     public function __construct(string $name, string $slug, string $externalId)
     {
