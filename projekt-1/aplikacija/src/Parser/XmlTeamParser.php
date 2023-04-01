@@ -28,7 +28,9 @@ final class XmlTeamParser
         return new Sport(
             (string) $teams['sportName'],
             $this->slugger->slugify((string)  $teams['sportName'],),
-            (string) $teams['sportId']
+            (string) $teams['sportId'], 
+            [],
+            $teams_list
         );
     }
 
@@ -42,7 +44,8 @@ final class XmlTeamParser
         return new Team(
             (string) $team->Name,
             $this->slugger->slugify((string) $team->Name),
-            (string) $team['id']
+            (string) $team['id'], 
+            $players
         );
     }
 

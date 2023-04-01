@@ -19,15 +19,18 @@ final class Tournament implements \JsonSerializable
     private string $slug;
     #[Column(name: 'external_id')]
     private string $externalId;
-    //#[Column(name: 'sport_id')]
-    //private int $sportId;
+    
+    #[Column(name: 'sport_id')]
+    private int $sportId;
 
-    public function __construct(string $name, string $slug, string $externalId)
+    private array $events;
+
+    public function __construct(string $name, string $slug, string $externalId, array $events)
     {
         $this->name = $name;
         $this->slug = $slug;
         $this->externalId = $externalId;
-        //$this->sportId = $sportId;
+        $this->events = $events;
     }
 
     public function getId(): int
@@ -84,6 +87,19 @@ final class Tournament implements \JsonSerializable
         return $this;
     }
     */
+
+    public function getEvents(): array
+    {
+        return $this->events;
+    }
+
+    public function setEvents(array $events): self
+    {
+        $this->events = $events;
+
+        return $this;
+    }
+    
 
 
     public function jsonSerialize(): mixed

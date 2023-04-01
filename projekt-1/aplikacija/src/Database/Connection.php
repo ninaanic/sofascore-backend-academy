@@ -1,15 +1,31 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Database;
-use PDO;
 
-class Connection {
+final class Connection
+{
+    private \PDO $connection;
 
-    private PDO $pdo;
-    private static self $instance;
+    public function __construct(
+        private readonly string $dsn,
+    ) {
+    }
 
-    public function __construct($dsn) {
-        $this->pdo = new PDO($dsn);
+    public function startTransaction(): void
+    {
+        $this->connection()->exec('START TRANSACTION');
+    }
+
+    public function commit(): void
+    {
+        $this->connection()->exec('COMMIT');
+    }
+
+    public function rollback(): void
+    {
+        $this->connection()->exec('ROLLBACK');
     }
 
     public function insert(string $table, array $params): int
@@ -23,11 +39,11 @@ class Connection {
             implode(', ', array_map(static fn (string $field) => ':'.$field, $fields)),
         );
 
-        $statement = $this->pdo->prepare($sql);
+        $statement = $this->connection()->prepare($sql);
 
         $statement->execute($params);
 
-        return $this->pdo->lastInsertId();
+        return (int) $this->connection()->lastInsertId();
     }
 
     public function update(string $table, array $params, int $id): int
@@ -38,7 +54,7 @@ class Connection {
             implode(', ', array_map(static fn (string $field) => "$field = :$field", array_keys($params))),
         );
 
-        $statement = $this->pdo->prepare($sql);
+        $statement = $this->connection()->prepare($sql);
 
         $statement->execute($params + ['id' => $id]);
 
@@ -47,12 +63,12 @@ class Connection {
 
     public function find(string $table, array $fields = [], array $where = []): array
     {
-        return $this->select($table, $fields, $where)->fetchAll(PDO::FETCH_ASSOC) ?: [];
+        return $this->select($table, $fields, $where)->fetchAll(\PDO::FETCH_ASSOC) ?: [];
     }
 
     public function findOne(string $table, array $fields = [], array $where = []): ?array
     {
-        return $this->select($table, $fields, $where, 1)->fetch(PDO::FETCH_ASSOC) ?: null;
+        return $this->select($table, $fields, $where, 1)->fetch(\PDO::FETCH_ASSOC) ?: null;
     }
 
     private function select(string $table, array $fields = [], array $where = [], ?int $limit = null): \PDOStatement
@@ -74,11 +90,15 @@ class Connection {
             $sql .= sprintf(' LIMIT %d', $limit);
         }
 
-        $statement = $this->pdo->prepare($sql);
+        $statement = $this->connection()->prepare($sql);
 
         $statement->execute($where);
 
         return $statement;
     }
-    
+
+    private function connection(): \PDO
+    {
+        return $this->connection ??= new \PDO($this->dsn);
+    }
 }

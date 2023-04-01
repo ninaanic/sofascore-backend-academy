@@ -21,24 +21,23 @@ final class JsonScheduleParser
     {
         $sport = json_decode($json, true);
 
-        array_map(fn (array $tournament) => $this->createTournament($tournament), $sport['tournaments']);
-
-        return new Sport(
+        return new Sport (
             $sport['name'],
             $this->slugger->slugify($sport['name']),
-            $sport['id']
+            $sport['id'], 
+            array_map(fn (array $tournament) => $this->createTournament($tournament), $sport['tournaments']), 
+            []
         );
     }
 
     private function createTournament(array $tournament): Tournament
     {
 
-        array_map(fn (array $event) => $this->createEvent($event), $tournament['events']);
-
-        return new Tournament(
+        return new Tournament (
             $tournament['name'],
             $this->slugger->slugify($tournament['name']),
-            $tournament['id']
+            $tournament['id'], 
+            array_map(fn (array $event) => $this->createEvent($event), $tournament['events'])
         );
     }
 

@@ -26,10 +26,12 @@ final class XmlScheduleParser
             $tournaments[] = $this->createTournament($tournament);
         }
 
-        return new Sport(
+        return new Sport (
             (string) $schedule['sportName'],
             $this->slugger->slugify((string)  $schedule['sportName'],),
-            (string) $schedule['sportId']
+            (string) $schedule['sportId'], 
+            $tournaments, 
+            []
         );
     }
 
@@ -40,10 +42,11 @@ final class XmlScheduleParser
             $events[] = $this->createEvent($event);
         }
 
-        return new Tournament(
+        return new Tournament (
             (string) $tournament->Name,
             $this->slugger->slugify((string) $tournament->Name),
-            (string) $tournament['id']
+            (string) $tournament['id'], 
+            $events
         );
     }
 
@@ -52,7 +55,7 @@ final class XmlScheduleParser
         // review promijenit $event['id']
         $string_to_hash = $event['id'] . $event->HomeTeamId . $event->AwayTeamId . $event->StartDate;
         $slug = hash('sha256', $string_to_hash);
-        return new Event(
+        return new Event (
             (string) $slug,
             $event->Status,
             isset($event->HomeScore) ? (int) $event->HomeScore : null,
