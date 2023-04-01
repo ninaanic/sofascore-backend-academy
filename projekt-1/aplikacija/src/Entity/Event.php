@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use DateTimeImmutable;
 use SimpleFW\ORM\Attribute\Column;
 use SimpleFW\ORM\Attribute\Entity;
 use SimpleFW\ORM\Attribute\Id;
@@ -22,28 +23,28 @@ final class Event implements \JsonSerializable
     #[Column(name: 'away_score')]
     private int $awayScore;
     #[Column(name: 'start_date')]
-    private string $startDate;
+    private DateTimeImmutable $startDate;
     #[Column(name: 'external_id')]
     private string $externalId;
     #[Column(name: 'home_team_id')]
     private string $homeTeamId;
     #[Column(name: 'away_team_id')]
     private string $awayTeamId;
-    #[Column(name: 'tournament_id')]
-    private int $tournamentId;
+    //#[Column(name: 'tournament_id')]
+    //private int $tournamentId;
 
-    public function __construct(string $slug, ?PostStatusEnum $status = null, int $homeScore, int $awayScore, string $startDate,
-                                string $externalId, string $homeTeamId, string $awayTeamId, int $tournamentId)
+    public function __construct(string $slug, ?PostStatusEnum $status = null, int $homeScore, int $awayScore, DateTimeImmutable $startDate,
+                                string $externalId, string $homeTeamId, string $awayTeamId)
     {
         $this->slug = $slug;
-        $this->setStatus($status ?? EventStatusEnum::NotStarted);
+        $this->$status;
         $this->homeScore = $homeScore;
         $this->awayScore = $awayScore;
         $this->startDate = $startDate;
         $this->externalId = $externalId;
         $this->homeTeamId = $homeTeamId;
         $this->awayTeamId = $awayTeamId;
-        $this->tournamentId = $tournamentId;
+        //$this->tournamentId = $tournamentId;
     }
 
     public function getId(): int
@@ -100,14 +101,14 @@ final class Event implements \JsonSerializable
         return $this;
     }
 
-    public function getStartDate(): \DateTimeImmutable
+    public function getStartDate(): DateTimeImmutable
     {
-        return new \DateTimeImmutable($this->startDate);
+        return $this->startDate;
     }
 
-    public function setStartDate(\DateTimeImmutable $startDate): self
+    public function setStartDate(DateTimeImmutable $startDate): self
     {
-        $this->startDate = $startDate->format(\DateTimeInterface::ATOM);
+        $this->startDate = $startDate;
 
         return $this;
     }
@@ -148,6 +149,7 @@ final class Event implements \JsonSerializable
         return $this;
     }
 
+    /*
     public function getTournamentId(): int
     {
         return $this->tournamentId;
@@ -159,6 +161,7 @@ final class Event implements \JsonSerializable
 
         return $this;
     }
+    */
 
     public function jsonSerialize(): mixed
     {

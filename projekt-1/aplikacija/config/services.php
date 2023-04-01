@@ -7,6 +7,7 @@ use App\Controller\HomeController;
 use App\Controller\PostController;
 use App\Tools\Slugger;
 use SimpleFW\DependencyInjection\Container;
+use App\Database\Connection;
 
 return static function (Container $container) {
     /*
@@ -41,4 +42,9 @@ return static function (Container $container) {
      */
 
     $container->addFactory(Slugger::class, static fn () => new Slugger());
+
+    $container->addFactory(
+        Connection::class,
+        static fn (Container $container) => new Connection($container->getParameter('database.dsn'))
+    );
 };
