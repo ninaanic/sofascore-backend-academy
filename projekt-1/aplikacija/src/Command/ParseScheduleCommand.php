@@ -39,10 +39,9 @@ final class ParseScheduleCommand implements CommandInterface
         }
 
         try {
-            // todo promijenit da gleda ekstenziju
-            $parser = match ($mediaType = mime_content_type($filepath)) {
-                'application/json' => $this->jsonScheduleParser,
-                'text/xml' => $this->xmlScheduleParser,
+            $parser = match ($mediaType = pathinfo($filename, PATHINFO_EXTENSION)) {
+                'json' => $this->jsonScheduleParser,
+                'xml' => $this->xmlScheduleParser,
             };
         } catch (\UnhandledMatchError) {
             $output->writeln(sprintf('The file "%s" has an unknown media type "%s".', $filename, $mediaType));
@@ -61,33 +60,88 @@ final class ParseScheduleCommand implements CommandInterface
         try {
             $this->connection->startTransaction();
 
-            $sportId = $this->connection->insert('sport', [
-                'name' => $sport->name,
-                'slug' => $sport->slug,
-                'external_id' => $sport->externalId,
-            ]);
+            $existingSport = $this->connection->findOne('sport', [], ['external_id' => $sport->externalId]);
+            if ($existingSport !== null) {
+                $sportId = $existingSport['id'];
+                $this->connection->update('sport', [
+                    'name' => $sport->name,
+                    'slug' => $sport->slug,
+                    'external_id' => $sport->externalId,
+                ], $sportId);
+            } else {
+                $sportId = $this->connection->insert('sport', [
+                    'name' => $sport->name,
+                    'slug' => $sport->slug,
+                    'external_id' => $sport->externalId,
+                ]);
+            }
 
             foreach ($sport->tournaments as $tournament) {
-                $tournamentId = $this->connection->insert('tournament', [
-                    'name' => $tournament->name,
-                    'slug' => $tournament->slug,
-                    'external_id' => $tournament->externalId,
-                    'sport_id' => $sportId,
-                ]);
-
-                // todo ako podatci već postoje treba ih ažurirati 
-                foreach ($tournament->events as $event) {
-                    $this->connection->insert('event', [
-                        'slug' => $event->slug,
-                        'status' => $event->status,
-                        'home_score' => $event->homeScore,
-                        'away_score' => $event->awayScore,
-                        'start_date' => $event->startDate->format(\DateTimeInterface::ATOM),
-                        'external_id' => $event->externalId,
-                        'home_team_id' => $event->homeTeamId,
-                        'away_team_id' => $event->awayTeamId,
-                        'tournament_id' => $tournamentId,
+                $existingTournament = $this->connection->findOne('tournament', [], ['external_id' => $tournament->externalId]);
+                if ($existingTournament !== null) {
+                    $tournamentId = $existingTournament['id'];
+                    $this->connection->update('tournament', [
+                        'name' => $tournament->name,
+                        'slug' => $tournament->slug,
+                        'external_id' => $tournament->externalId,
+                        'sport_id' => $sportId,
+                    ], $tournamentId);
+                } else {
+                    $tournamentId = $this->connection->insert('tournament', [
+                        'name' => $tournament->name,
+                        'slug' => $tournament->slug,
+                        'external_id' => $tournament->externalId,
+                        'sport_id' => $sportId,
                     ]);
+                }
+
+                foreach ($tournament->events as $event) {
+                    $existingEvent = $this->connection->findOne('event', [], ['external_id' => $event->externalId]);
+                    $HomeTeam = $this->connection->findOne('team', [], ['external_id' => $event->homeTeamId]);
+                    $AwayTeam = $this->connection->findOne('team', [], ['external_id' => $event->awayTeamId]);
+
+                    if ($existingEvent !== null) {
+                        if ($HomeTeam !== null && $AwayTeam !== null) {
+                            $HomeTeamId = $HomeTeam['id'];
+                            $AwayTeamId = $AwayTeam['id'];
+                            $eventId = $existingEvent['id'];
+
+                            $string_to_hash = $tournamentId . $HomeTeamId . $AwayTeamId . $event->startDate->format(\DateTimeInterface::ATOM);
+                            $slug = hash('sha256', $string_to_hash);
+
+                            $this->connection->update('event', [
+                                'slug' => $slug,
+                                'home_score' => isset($event->homeScore) ? $event->homeScore : null,
+                                'away_score' => isset($event->awayScore) ? $event->awayScore : null,
+                                'start_date' => $event->startDate->format(\DateTimeInterface::ATOM),
+                                'external_id' => $event->externalId,
+                                'home_team_id' => $HomeTeamId,
+                                'away_team_id' => $AwayTeamId,
+                                'tournament_id' => $tournamentId,
+                                'status' => $event->status,
+                            ], $eventId);
+                        }
+                    } else {
+                        if ($HomeTeam !== null && $AwayTeam !== null) {
+                            $HomeTeamId = $HomeTeam['id'];
+                            $AwayTeamId = $AwayTeam['id'];
+
+                            $string_to_hash = $tournamentId . $HomeTeamId . $AwayTeamId . $event->startDate->format(\DateTimeInterface::ATOM);
+                            $slug = hash('sha256', $string_to_hash);
+
+                            $this->connection->insert('event', [
+                                'slug' => $slug,
+                                'home_score' => isset($event->homeScore) ? $event->homeScore : null,
+                                'away_score' => isset($event->awayScore) ? $event->awayScore : null,
+                                'start_date' => $event->startDate->format(\DateTimeInterface::ATOM),
+                                'external_id' => $event->externalId,
+                                'home_team_id' => $HomeTeamId,
+                                'away_team_id' => $AwayTeamId,
+                                'tournament_id' => $tournamentId,
+                                'status' => $event->status,
+                            ]);
+                        }
+                    }
                 }
             }
 

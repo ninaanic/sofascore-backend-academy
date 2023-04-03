@@ -40,13 +40,13 @@ CREATE TABLE player (
 
 CREATE TABLE event (
 	id 				SERIAL PRIMARY KEY,
+	slug            VARCHAR(255) NOT NULL,
+	home_score		INTEGER,
+	away_score		INTEGER,
+	start_date 		TIMESTAMP NOT NULL,
 	external_id 	CHAR(36) NOT NULL UNIQUE,
 	home_team_id 	INTEGER NOT NULL REFERENCES team(id) ON DELETE CASCADE,
 	away_team_id 	INTEGER NOT NULL REFERENCES team(id) ON DELETE CASCADE,
-    status          INTEGER NOT NULL,
-    slug            VARCHAR(255) NOT NULL,
-	start_date 		TIMESTAMP NOT NULL,
-	home_score		INTEGER,
-	away_score		INTEGER,
+    status          VARCHAR(255) NOT NULL,
 	tournament_id 	INTEGER NOT NULL REFERENCES tournament(id) ON DELETE CASCADE
 );

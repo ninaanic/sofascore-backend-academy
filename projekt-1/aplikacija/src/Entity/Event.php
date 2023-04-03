@@ -16,12 +16,10 @@ final class Event implements \JsonSerializable
     public int $id;
     #[Column]
     public string $slug;
-    #[Column]
-    public string $status;
     #[Column(name: 'home_score')]
-    public int $homeScore;
+    public ?int $homeScore;
     #[Column(name: 'away_score')]
-    public int $awayScore;
+    public ?int $awayScore;
     #[Column(name: 'start_date')]
     public DateTimeImmutable $startDate;
     #[Column(name: 'external_id')]
@@ -31,20 +29,22 @@ final class Event implements \JsonSerializable
     #[Column(name: 'away_team_id')]
     public string $awayTeamId;
     #[Column(name: 'tournament_id')]
+    #[Column]
+    public string $status;
 
     public int $tournamentId;
 
-    public function __construct(string $slug, ?PostStatusEnum $status = null, int $homeScore, int $awayScore, DateTimeImmutable $startDate,
-                                string $externalId, string $homeTeamId, string $awayTeamId)
+    public function __construct(string $slug, ?int $homeScore, ?int $awayScore, DateTimeImmutable $startDate,
+                                string $externalId, string $homeTeamId, string $awayTeamId, string $status)
     {
         $this->slug = $slug;
-        $this->$status = $status;
-        $this->homeScore = $homeScore;
-        $this->awayScore = $awayScore;
+        $this->homeScore = isset($homeScore) ? $homeScore : null;
+        $this->awayScore = isset($awayScore) ? $awayScore : null;
         $this->startDate = $startDate;
         $this->externalId = $externalId;
         $this->homeTeamId = $homeTeamId;
         $this->awayTeamId = $awayTeamId;
+        $this->setStatus(EventStatusEnum::from($status) ?? EventStatusEnum::NotStarted);
     }
 
     public function getId(): int

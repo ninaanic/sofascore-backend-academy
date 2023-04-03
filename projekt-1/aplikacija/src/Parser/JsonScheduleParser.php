@@ -22,9 +22,9 @@ final class JsonScheduleParser
         $sport = json_decode($json, true);
 
         return new Sport (
-            $sport['name'],
-            $this->slugger->slugify($sport['name']),
-            $sport['id'], 
+            $sport['sport']['name'],
+            $this->slugger->slugify($sport['sport']['name']),
+            $sport['sport']['id'], 
             array_map(fn (array $tournament) => $this->createTournament($tournament), $sport['tournaments']), 
             []
         );
@@ -37,24 +37,24 @@ final class JsonScheduleParser
             $tournament['name'],
             $this->slugger->slugify($tournament['name']),
             $tournament['id'], 
-            array_map(fn (array $event) => $this->createEvent($event), $tournament['events'])
+            array_map(fn (array $event) => $this->createEvent($event, ), $tournament['events'])
         );
     }
 
     private function createEvent(array $event): Event
     {
-        // review promijenit $event['id']
-        $string_to_hash = $event['id'] . $event['home_team_id'] . $event['away_team_id'] . $event['start_date'];
-        $slug = hash('sha256', $string_to_hash);
+        //$string_to_hash = $event . $event['home_team_id'] . $event['away_team_id'] . $event['start_date'];
+        //$slug = hash('sha256', $string_to_hash);
+        $status = isset($event['status']) ? (string) $event['status'] : 'not-started';
         return new Event(
-            $slug,
-            $event['status'], 
-            $event['home_score'],
-            $event['away_score'],
-            new DateTimeImmutable($event['start_date']),
-            $event['id'],
-            $event['home_team_id'],
-            $event['away_team_id']
+            (string) "",
+            isset($event['home_score']) ? (int) $event['home_score'] : null,
+            isset($event['away_score']) ? (int) $event['away_score'] : null,
+            new DateTimeImmutable((string) $event['start_date']),
+            (string) $event['id'],         
+            (string) $event['home_team_id'],
+            (string) $event['away_team_id'],
+            $status
         );
     }
 }

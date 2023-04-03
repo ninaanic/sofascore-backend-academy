@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Parser;
 
 use App\Entity\Event;
+use App\Entity\EventStatusEnum;
 use App\Entity\Sport;
 use App\Entity\Tournament;
 use App\Tools\Slugger;
@@ -38,9 +39,11 @@ final class XmlScheduleParser
     private function createTournament(\SimpleXMLElement $tournament): Tournament
     {
         $events = [];
-        foreach ($tournament->Events as $event) {
+        foreach ($tournament->Events->Event as $event) {
             $events[] = $this->createEvent($event);
         }
+
+        //var_dump($events);
 
         return new Tournament (
             (string) $tournament->Name,
@@ -52,18 +55,16 @@ final class XmlScheduleParser
 
     private function createEvent(\SimpleXMLElement $event): Event
     {
-        // review promijenit $event['id']
-        $string_to_hash = $event['id'] . $event->HomeTeamId . $event->AwayTeamId . $event->StartDate;
-        $slug = hash('sha256', $string_to_hash);
+        $status = isset($event->Status) ? (string) $event->Status : 'not-started';
         return new Event (
-            (string) $slug,
-            $event->Status,
+            (string) "",
             isset($event->HomeScore) ? (int) $event->HomeScore : null,
             isset($event->AwayScore) ? (int) $event->AwayScore : null,
             new DateTimeImmutable((string) $event->StartDate),
-            (string) $event['id'],
-            (string) $event->HomeTeamId,
-            (string) $event->AwayTeamId,
+            (string) $event['id'],         
+            (string) $event->HomeTeamId, 
+            (string) $event->AwayTeamId, 
+            $status
         );
     }
 }

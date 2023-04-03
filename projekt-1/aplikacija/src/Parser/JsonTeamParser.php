@@ -21,9 +21,9 @@ final class JsonTeamParser
         $sport = json_decode($json, true);
 
         return new Sport (
-            $sport['name'],
-            $this->slugger->slugify($sport['name']),
-            $sport['id'], 
+            $sport['sport']['name'],
+            $this->slugger->slugify($sport['sport']['name']),
+            $sport['sport']['id'], 
             [],
             array_map(fn (array $team) => $this->createTeam($team), $sport['teams'])
         );
@@ -35,7 +35,7 @@ final class JsonTeamParser
             $team['name'],
             $this->slugger->slugify($team['name']),
             $team['id'], 
-            array_map(fn (array $player) => $this->createTeam($player), $team['players'])
+            array_map(fn (array $player) => $this->createPlayer($player), $team['players'])
         );
     }
 

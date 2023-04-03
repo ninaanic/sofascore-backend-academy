@@ -39,10 +39,9 @@ final class ParseTeamCommand implements CommandInterface
         }
 
         try {
-            // todo promijenit da gleda ekstenziju
-            $parser = match ($mediaType = mime_content_type($filepath)) {
-                'application/json' => $this->jsonTeamParser,
-                'text/xml' => $this->xmlTeamParser,
+            $parser = match ($mediaType = pathinfo($filename, PATHINFO_EXTENSION)) {
+                'json' => $this->jsonTeamParser,
+                'xml' => $this->xmlTeamParser,
             };
         } catch (\UnhandledMatchError) {
             $output->writeln(sprintf('The file "%s" has an unknown media type "%s".', $filename, $mediaType));
@@ -61,28 +60,60 @@ final class ParseTeamCommand implements CommandInterface
         try {
             $this->connection->startTransaction();
 
-            $sportId = $this->connection->insert('sport', [
-                'name' => $sport->name,
-                'slug' => $sport->slug,
-                'external_id' => $sport->externalId,
-            ]);
+            $existingSport = $this->connection->findOne('sport', [], ['external_id' => $sport->externalId]);
+            if ($existingSport !== null) {
+                $sportId = $existingSport['id'];
+                $this->connection->update('sport', [
+                    'name' => $sport->name,
+                    'slug' => $sport->slug,
+                    'external_id' => $sport->externalId,
+                ], $sportId);
+            } else {
+                $sportId = $this->connection->insert('sport', [
+                    'name' => $sport->name,
+                    'slug' => $sport->slug,
+                    'external_id' => $sport->externalId,
+                ]);
+            }
 
             foreach ($sport->teams as $team) {
-                $teamId = $this->connection->insert('team', [
-                    'name' => $team->name,
-                    'slug' => $team->slug,
-                    'external_id' => $team->externalId,
-                    'sport_id' => $sportId,
-                ]);
 
-                // todo ako podatci već postoje treba ih ažurirati 
-                foreach ($team->players as $player) {
-                    $this->connection->insert('player', [
-                        'name' => $player->name,
-                        'slug' => $player->slug,
-                        'external_id' => $player->externalId,
-                        'team_id' => $teamId,
+                $existingTeam = $this->connection->findOne('team', [], ['external_id' => $team->externalId]);
+                if ($existingTeam !== null) {
+                    $teamId = $existingTeam['id'];
+                    $this->connection->update('team', [
+                        'name' => $team->name,
+                        'slug' => $team->slug,
+                        'external_id' => $team->externalId,
+                        'sport_id' => $sportId,
+                    ], $teamId);
+                } else {
+                    $teamId = $this->connection->insert('team', [
+                        'name' => $team->name,
+                        'slug' => $team->slug,
+                        'external_id' => $team->externalId,
+                        'sport_id' => $sportId,
                     ]);
+                }
+ 
+                foreach ($team->players as $player) {
+                    $existingPlayer = $this->connection->findOne('player', [], ['external_id' => $player->externalId]);
+                    if ($existingPlayer !== null) {
+                        $playerId = $existingPlayer['id'];
+                        $this->connection->update('player', [
+                            'name' => $player->name,
+                            'slug' => $player->slug,
+                            'external_id' => $player->externalId,
+                            'team_id' => $teamId,
+                        ], $playerId);
+                    } else {
+                        $this->connection->insert('player', [
+                            'name' => $player->name,
+                            'slug' => $player->slug,
+                            'external_id' => $player->externalId,
+                            'team_id' => $teamId,
+                        ]);
+                    }
                 }
             }
 

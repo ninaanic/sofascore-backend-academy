@@ -37,7 +37,7 @@ final class XmlTeamParser
     private function createTeam(\SimpleXMLElement $team): Team
     {
         $players = [];
-        foreach ($team->Players as $player) {
+        foreach ($team->Players->Player as $player) {
             $players[] = $this->createPlayer($player);
         }
 
