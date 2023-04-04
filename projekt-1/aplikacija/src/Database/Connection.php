@@ -61,7 +61,20 @@ final class Connection
         return $statement->rowCount();
     }
 
-    // todo delete
+    public function delete(string $table, int $id): int
+    {
+        $sql = sprintf(
+            'DELETE FROM %s WHERE id = :id',
+            $table
+        );
+
+        $statement = $this->connection()->prepare($sql);
+
+        $statement->execute(['id' => $id]);
+
+        return $statement->rowCount();
+    }
+
 
     public function find(string $table, array $fields = [], array $where = []): array
     {

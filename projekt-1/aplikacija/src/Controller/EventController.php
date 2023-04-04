@@ -20,53 +20,15 @@ final class EventController
     ) {
     }
 
-    private function getEvents(string $slug) {
-        $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $slug]);
-        $events = $this->connection->find('event', ['id', 'start_date'], ['tournament_id' => $tournament['id']]);
-        return $events;
-    }
-
-    // review - ne samo home_team_id nego i away
-    private function getEventsTeam(string $slug) {
-        $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
-        $events = $this->connection->find('event', ['id', 'start_date'], ['home_team_id' => $team['id']]);
-        return $events;
-    }
-
-    /*
-    private function getEventsOnDate(string $slug, DateTimeImmutable $date) {
-        // todo dovršit 
-        $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
-        $tournaments = $this->connection->find('event', ['id', 'slug'], ['sport_id' => $sport['id']]);
-        return $tournaments;
-    }
-    */
-
-    private function getEventsWithSlug(string $slug) {
-        $events = $this->connection->find('event', ['id', 'slug', 'start_date', 'home_score', 'away_score'],  ['slug' => $slug]);
-        return $events;
-    }
-    
-    private function getEventId(string $slug) {
-        $eventId = $this->connection->findOne('event', ['id'],  ['slug' => $slug]);
-        return $eventId['id'];
-    }
-
-    // review - ne samo home_team_id nego i away
-    private function getEventsWithTeamAndTournamentSlug(string $slug, string $tournamentSlug) {
-        $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
-        $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $tournamentSlug]);
-        $events = $this->connection->find('event', ['id', 'slug', 'start_date', 'home_score', 'away_score'],  ['home_team_id' => $team['id'], 'tournament_id' => $tournament['id']]);
-        return $events;
-    }
-
-
-
-
     public function index(string $slug): Response
     {
-        $events = $this->getEvents($slug);
-
+        $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $slug]);
+        if ($tournament !== null) {
+            $events = $this->connection->find('event', ['id', 'start_date'], ['tournament_id' => $tournament['id']]);
+        } else {
+            throw new HttpException(404, "404 not found");
+        }
+    
         if ($events === []) {
             throw new HttpException(404, "404 not found");
         }
@@ -76,26 +38,10 @@ final class EventController
 
         return $response;
     }
-
-    /*
-    public function eventOnDateS(string $slug, DateTimeImmutable $date): Response
-    {
-        $events = $this->getEventsOnDate($slug, $date);
-
-        if ($events === []) {
-            throw new HttpException(404, "404 not found");
-        }
-
-        $response = new Response(json_encode($events, JSON_PRETTY_PRINT));
-        $response->addHeader('content-type', 'application/json');
-
-        return $response;
-    }
-    */
 
     public function slug(string $slug): Response
     {
-        $event = $this->getEventsWithSlug($slug);
+        $event = $this->connection->find('event', ['id', 'slug', 'start_date', 'home_score', 'away_score'],  ['slug' => $slug]);
 
         if ($event === []) {
             throw new HttpException(404, "404 not found");
@@ -109,7 +55,8 @@ final class EventController
 
     public function update(string $slug): Response
     {
-        $eventId = $this->getEventId($slug);
+        $event = $this->connection->findOne('event', ['id'],  ['slug' => $slug]);
+        $eventId = $event['id'];
 
         if ($eventId === null) {
             throw new HttpException(404, "404 not found");
@@ -123,69 +70,124 @@ final class EventController
         }
         $this->connection->update('event', ['home_score' => $payload['home_score'], 'away_score' => $payload['away_score']], $eventId);
 
-        $event = $this->getEventsWithSlug($slug);
+        $event = $this->connection->find('event', ['id', 'slug', 'start_date', 'home_score', 'away_score'],  ['slug' => $slug]);
         
         $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
 
         return $response;
     }
-
-
-    /*
     public function delete(string $slug): Response
     {
-        $event = $this->getEventsWithSlug($slug);
+        $event = $this->connection->findOne('event', ['id'],  ['slug' => $slug]);
 
-        if ($event === []) {
+        if ($event === null) {
             throw new HttpException(404, "404 not found");
         }
 
-        // todo delete
+        $rowsAffected = $this->connection->delete('event', $event['id']);
 
-        $payload = file_get_contents('php://input');
-        try {
-            $payload = json_decode($payload, true, flags: \JSON_THROW_ON_ERROR);
-        } catch (JsonException $e) {
-            throw new HttpException(404, "404 not found");
+        if ($rowsAffected > 0) {
+            $response = new Response("200 OK", 200);
+        } else {
+            $response = new Response("500 Internal Server Error", 500);
         }
-        $this->connection->update('event', ['home_score' => $payload['home_score'], 'away_score' => $payload['away_score']], $eventId);
 
-        $event = $this->getEventsWithSlug($slug);
-        
-        $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
-
         return $response;
     }
-    */
-
-    public function teamSlug_tournamentSlug(string $slug, string $tournamentSlug): Response
+    
+    public function team_tournament_slug(string $slug, string $tournamentSlug): Response
     {
-        $event = $this->getEventsWithTeamAndTournamentSlug($slug, $tournamentSlug);
-
-        if ($event === []) {
+        $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
+        if ($team !== null) {
+            $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $tournamentSlug]);
+            if ($tournament !== null) {
+                $events_home = $this->connection->find('event', ['id', 'start_date'],  ['home_team_id' => $team['id'], 'tournament_id' => $tournament['id']]); 
+                $events_away = $this->connection->find('event', ['id', 'start_date'],  ['away_team_id' => $team['id'], 'tournament_id' => $tournament['id']]);
+            } else {
+                throw new HttpException(404, "404 not found");
+            }
+        } else {
             throw new HttpException(404, "404 not found");
         }
 
-        $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
+        if ($events_home === [] && $events_away === []) {
+            throw new HttpException(404, "404 not found");
+        }
+
+        $all_events = array_merge($events_home, $events_away);
+
+        $response = new Response(json_encode($all_events, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
 
         return $response;
     }
-
 
     public function event_team(string $slug): Response
     {
-        $event = $this->getEventsTeam($slug);
+        $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
+        if ($team !== null) {
+            $events_home = $this->connection->find('event', ['id', 'start_date'], ['home_team_id' => $team['id']]);
+            $events_away = $this->connection->find('event', ['id', 'start_date'], ['away_team_id' => $team['id']]);
 
-        if ($event === []) {
+        } else {
             throw new HttpException(404, "404 not found");
         }
 
-        $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
+        if ($events_home === [] && $events_away === []) {
+            throw new HttpException(404, "404 not found");
+        }
+
+        $all_events = array_merge($events_home, $events_away);
+
+        $response = new Response(json_encode($all_events, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
 
         return $response;
     }
+
+    public function date_sport(string $slug, string $date): Response
+    {
+        $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
+        if ($sport !== null) {
+            $tournament = $this->connection->findOne('tournament', ['id'], ['sport_id' => $sport['id']]);
+            if ($tournament !== null) {
+                $events = $this->connection->find('event', ['id', 'start_date'], ['start_date' => $date, 'tournament_id' => $tournament['id']]);
+            } else {
+                throw new HttpException(404, "404 not found");
+            }
+        } else {
+            throw new HttpException(404, "404 not found");
+        }
+
+        if ($events === []) {
+            throw new HttpException(404, "404 not found");
+        }
+
+        $response = new Response(json_encode($events, JSON_PRETTY_PRINT));
+        $response->addHeader('content-type', 'application/json');
+
+        return $response;
+    }
+
+    public function date_tournament(string $slug, string $date): Response
+    {
+        $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $slug]);
+        if ($tournament !== null) {
+            $events = $this->connection->find('event', ['id', 'start_date'], ['start_date' => $date, 'tournament_id' => $tournament['id']]);
+        } else {
+            throw new HttpException(404, "404 not found");
+        }
+
+        if ($events === []) {
+            throw new HttpException(404, "404 not found");
+        }
+
+        $response = new Response(json_encode($events, JSON_PRETTY_PRINT));
+        $response->addHeader('content-type', 'application/json');
+
+        return $response;
+    }
+
 }

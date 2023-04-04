@@ -18,19 +18,9 @@ final class HomeController
     ) {
     }
 
-    private function getSports() {
-        $sports = $this->connection->find('sport', ['name']);
-        return $sports;
-    }
-
-    private function getSportWithSlug(string $slug) {
-        $sports = $this->connection->find('sport', ['name', 'slug'],  ['slug' => $slug]);
-        return $sports;
-    }
-
     public function __invoke(Request $request): Response
     {
-        $sports = $this->getSports();
+        $sports = $this->connection->find('sport', ['name']);
 
         if ($sports === []) {
             throw new HttpException(404, "404 not found");
@@ -44,7 +34,7 @@ final class HomeController
 
     public function slug(string $slug): Response
     {
-        $sport = $this->getSportWithSlug($slug);
+        $sport = $this->connection->find('sport', ['name', 'slug'],  ['slug' => $slug]);
 
         if ($sport === []) {
             throw new HttpException(404, "404 not found");

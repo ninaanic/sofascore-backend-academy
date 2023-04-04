@@ -17,24 +17,16 @@ final class TournamentsController
         private readonly Connection $connection,
     ) {
     }
-
-    private function getTournaments(string $slug) {
-        $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
-        $tournaments = $this->connection->find('tournament', ['name', 'slug'], ['sport_id' => $sport['id']]);
-        return $tournaments;
-    }
-
     
-    private function getTournamentsWithSlug(string $slug) {
-        $tournaments = $this->connection->find('tournament', ['name', 'slug'],  ['slug' => $slug]);
-        return $tournaments;
-    }
-    
-
     public function index(string $slug): Response
     {
-        $tournaments = $this->getTournaments($slug);
-
+        $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
+        if ($sport !== null) {
+            $tournaments = $this->connection->find('tournament', ['name', 'slug'], ['sport_id' => $sport['id']]);
+        } else {
+            throw new HttpException(404, "404 not found");
+        }
+        
         if ($tournaments === []) {
             throw new HttpException(404, "404 not found");
         }
@@ -47,7 +39,7 @@ final class TournamentsController
 
     public function slug(string $slug): Response
     {
-        $tournament = $this->getTournamentsWithSlug($slug);
+        $tournament = $this->connection->find('tournament', ['name', 'slug'],  ['slug' => $slug]);
 
         if ($tournament === []) {
             throw new HttpException(404, "404 not found");

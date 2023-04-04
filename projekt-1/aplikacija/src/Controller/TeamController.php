@@ -17,47 +17,15 @@ final class TeamController
     ) {
     }
 
-    /*
-
-    private function getEvents(string $slug) {
-        $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $slug]);
-        $events = $this->connection->find('event', ['id', 'start_date'], ['tournament_id' => $tournament['id']]);
-        return $events;
-    }
-
-    */
-
-    private function getTeamsWithSlug(string $slug) {
-        $teams = $this->connection->find('team', ['name', 'slug'],  ['slug' => $slug]);
-        return $teams;
-    }
-
-    /*
-    public function index(string $slug): Response
-    {
-        $events = $this->getEvents($slug);
-
-        if ($events === []) {
-            throw new HttpException(404, "404 not found");
-        }
-
-        $response = new Response(json_encode($events, JSON_PRETTY_PRINT));
-        $response->addHeader('content-type', 'application/json');
-
-        return $response;
-    }
-    */
-
-
     public function slug(string $slug): Response
     {
-        $team = $this->getTeamsWithSlug($slug);
+        $teams = $this->connection->find('team', ['name', 'slug'],  ['slug' => $slug]);
 
-        if ($team === []) {
+        if ($teams === []) {
             throw new HttpException(404, "404 not found");
         }
 
-        $response = new Response(json_encode($team, JSON_PRETTY_PRINT));
+        $response = new Response(json_encode($teams, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
 
         return $response;
