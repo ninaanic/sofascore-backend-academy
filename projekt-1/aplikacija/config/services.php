@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Command\ExampleCommand;
 use App\Controller\HomeController;
+use App\Controller\TournamentsController;
 use App\Controller\PostController;
 use App\Tools\Slugger;
 use SimpleFW\DependencyInjection\Container;
@@ -14,6 +15,9 @@ use App\Parser\XmlScheduleParser;
 use App\Command\ParseTeamCommand;
 use App\Parser\JsonTeamParser;
 use App\Parser\XmlTeamParser;
+use App\Controller\EventController;
+use App\Controller\TeamController;
+use App\Controller\PlayerController;
 
 return static function (Container $container) {
     /*
@@ -24,6 +28,39 @@ return static function (Container $container) {
         HomeController::class,
         static fn (Container $container) => new HomeController(
             $container->get(SimpleFW\Templating\Templating::class),
+            $container->get(Connection::class),
+        ),
+    );
+
+    $container->addFactory(
+        TournamentsController::class,
+        static fn (Container $container) => new TournamentsController(
+            $container->get(SimpleFW\Templating\Templating::class),
+            $container->get(Connection::class),
+        ),
+    );
+
+    $container->addFactory(
+        EventController::class,
+        static fn (Container $container) => new EventController(
+            $container->get(SimpleFW\Templating\Templating::class),
+            $container->get(Connection::class),
+        ),
+    );
+
+    $container->addFactory(
+        TeamController::class,
+        static fn (Container $container) => new TeamController(
+            $container->get(SimpleFW\Templating\Templating::class),
+            $container->get(Connection::class),
+        ),
+    );
+    
+    $container->addFactory(
+        PlayerController::class,
+        static fn (Container $container) => new PlayerController(
+            $container->get(SimpleFW\Templating\Templating::class),
+            $container->get(Connection::class),
         ),
     );
 

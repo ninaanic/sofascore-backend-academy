@@ -6,10 +6,33 @@ use App\Controller\HomeController;
 use App\Controller\PostController;
 use SimpleFW\Routing\Route;
 use SimpleFW\Routing\Router;
+use App\Controller\TournamentsController;
+use App\Controller\EventController;
+use App\Controller\TeamController;
+use App\Controller\PlayerController;
 
 return static function (Router $router) {
     $router
         ->addRoute(new Route('home', '/', HomeController::class))
+        ->addRoute(new Route('sport-slug', '/sport/{slug}', [HomeController::class, 'slug'], method: 'GET'))
+        ->addRoute(new Route('tournaments', '/sport/{slug}/tournaments', [TournamentsController::class, 'index'],  method: 'GET'))
+        ->addRoute(new Route('tournament-slug', '/tournament/{slug}', [TournamentsController::class, 'slug'],  method: 'GET'))
+        ->addRoute(new Route('events-tournament', '/tournament/{slug}/events', [EventController::class, 'index'],  method: 'GET'))
+        ->addRoute(new Route('event-team', '/team/{slug}/events', [EventController::class, 'event_team'],  method: 'GET'))
+        ->addRoute(new Route('event-slug', '/event/{slug}', [EventController::class, 'slug'],  method: 'GET'))
+
+        // todo 
+        //->addRoute(new Route('event-date-s', '/sport/{slug}/events/{date}', [EventController::class, 'eventOnDateS'],  method: 'GET'))
+        //->addRoute(new Route('event-date-t', '/tournament/{slug}/events/{date}', [EventController::class, 'eventOnDateT'],  method: 'GET'))
+        //->addRoute(new Route('event-slug-patch', '/event/{slug}', [EventController::class, 'slug_patch'], method: 'PATCH'))
+        //->addRoute(new Route('event-slug-delete', ' /event/{slug}', [EventController::class, 'slug_delete'], method: 'DELETE'))
+        //->addRoute(new Route('event-teamSlug-tournamentSlug', '/team/{slug}/tournament/{tournamentSlug}/events', [EventController::class, 'teamSlug_tournamentSlug'],  method: 'GET'))
+
+        ->addRoute(new Route('team-slug', '/team/{slug}', [TeamController::class, 'slug'],  method: 'GET'))
+        ->addRoute(new Route('players', '/team/{slug}/players', [PlayerController::class, 'index'],  method: 'GET'))
+        ->addRoute(new Route('player-slug', '/player/{slug}', [PlayerController::class, 'slug'],  method: 'GET'))
+
+
         ->addRoute(new Route('post-index', '/post', [PostController::class, 'index'], method: 'GET'))
         ->addRoute(new Route('post-create', '/post', [PostController::class, 'create'], method: 'POST'))
         ->addRoute(new Route('post-show', '/post/{id}', [PostController::class, 'show'], method: 'GET'))
