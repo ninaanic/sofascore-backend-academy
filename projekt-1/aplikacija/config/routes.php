@@ -20,13 +20,14 @@ return static function (Router $router) {
         ->addRoute(new Route('events-tournament', '/tournament/{slug}/events', [EventController::class, 'index'],  method: 'GET'))
         ->addRoute(new Route('event-team', '/team/{slug}/events', [EventController::class, 'event_team'],  method: 'GET'))
         ->addRoute(new Route('event-slug', '/event/{slug}', [EventController::class, 'slug'],  method: 'GET'))
+        ->addRoute(new Route('event-update', '/event/{slug}', [EventController::class, 'update'], method: 'PATCH'))
+        //->addRoute(new Route('event-delete', ' /event/{slug}', [EventController::class, 'delete'], method: 'DELETE'))
+        ->addRoute(new Route('event-teamSlug-tournamentSlug', '/team/{slug}/tournament/{tournamentSlug}/events', [EventController::class, 'teamSlug_tournamentSlug'],  method: 'GET'))
 
         // todo 
         //->addRoute(new Route('event-date-s', '/sport/{slug}/events/{date}', [EventController::class, 'eventOnDateS'],  method: 'GET'))
         //->addRoute(new Route('event-date-t', '/tournament/{slug}/events/{date}', [EventController::class, 'eventOnDateT'],  method: 'GET'))
-        //->addRoute(new Route('event-slug-patch', '/event/{slug}', [EventController::class, 'slug_patch'], method: 'PATCH'))
-        //->addRoute(new Route('event-slug-delete', ' /event/{slug}', [EventController::class, 'slug_delete'], method: 'DELETE'))
-        //->addRoute(new Route('event-teamSlug-tournamentSlug', '/team/{slug}/tournament/{tournamentSlug}/events', [EventController::class, 'teamSlug_tournamentSlug'],  method: 'GET'))
+        
 
         ->addRoute(new Route('team-slug', '/team/{slug}', [TeamController::class, 'slug'],  method: 'GET'))
         ->addRoute(new Route('players', '/team/{slug}/players', [PlayerController::class, 'index'],  method: 'GET'))

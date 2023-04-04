@@ -61,6 +61,8 @@ final class Connection
         return $statement->rowCount();
     }
 
+    // todo delete
+
     public function find(string $table, array $fields = [], array $where = []): array
     {
         return $this->select($table, $fields, $where)->fetchAll(\PDO::FETCH_ASSOC) ?: [];

@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Database\Connection;
 use DateTimeImmutable;
+use JsonException;
 use SimpleFW\HTTP\Exception\HttpException;
 use SimpleFW\HTTP\Request;
 use SimpleFW\HTTP\Response;
@@ -25,6 +26,7 @@ final class EventController
         return $events;
     }
 
+    // review - ne samo home_team_id nego i away
     private function getEventsTeam(string $slug) {
         $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
         $events = $this->connection->find('event', ['id', 'start_date'], ['home_team_id' => $team['id']]);
@@ -41,7 +43,20 @@ final class EventController
     */
 
     private function getEventsWithSlug(string $slug) {
-        $events = $this->connection->find('event', ['id', 'slug', 'start_date'],  ['slug' => $slug]);
+        $events = $this->connection->find('event', ['id', 'slug', 'start_date', 'home_score', 'away_score'],  ['slug' => $slug]);
+        return $events;
+    }
+    
+    private function getEventId(string $slug) {
+        $eventId = $this->connection->findOne('event', ['id'],  ['slug' => $slug]);
+        return $eventId['id'];
+    }
+
+    // review - ne samo home_team_id nego i away
+    private function getEventsWithTeamAndTournamentSlug(string $slug, string $tournamentSlug) {
+        $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
+        $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $tournamentSlug]);
+        $events = $this->connection->find('event', ['id', 'slug', 'start_date', 'home_score', 'away_score'],  ['home_team_id' => $team['id'], 'tournament_id' => $tournament['id']]);
         return $events;
     }
 
@@ -81,6 +96,73 @@ final class EventController
     public function slug(string $slug): Response
     {
         $event = $this->getEventsWithSlug($slug);
+
+        if ($event === []) {
+            throw new HttpException(404, "404 not found");
+        }
+
+        $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
+        $response->addHeader('content-type', 'application/json');
+
+        return $response;
+    }
+
+    public function update(string $slug): Response
+    {
+        $eventId = $this->getEventId($slug);
+
+        if ($eventId === null) {
+            throw new HttpException(404, "404 not found");
+        }
+
+        $payload = file_get_contents('php://input');
+        try {
+            $payload = json_decode($payload, true, flags: \JSON_THROW_ON_ERROR);
+        } catch (JsonException $e) {
+            throw new HttpException(404, "404 not found");
+        }
+        $this->connection->update('event', ['home_score' => $payload['home_score'], 'away_score' => $payload['away_score']], $eventId);
+
+        $event = $this->getEventsWithSlug($slug);
+        
+        $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
+        $response->addHeader('content-type', 'application/json');
+
+        return $response;
+    }
+
+
+    /*
+    public function delete(string $slug): Response
+    {
+        $event = $this->getEventsWithSlug($slug);
+
+        if ($event === []) {
+            throw new HttpException(404, "404 not found");
+        }
+
+        // todo delete
+
+        $payload = file_get_contents('php://input');
+        try {
+            $payload = json_decode($payload, true, flags: \JSON_THROW_ON_ERROR);
+        } catch (JsonException $e) {
+            throw new HttpException(404, "404 not found");
+        }
+        $this->connection->update('event', ['home_score' => $payload['home_score'], 'away_score' => $payload['away_score']], $eventId);
+
+        $event = $this->getEventsWithSlug($slug);
+        
+        $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
+        $response->addHeader('content-type', 'application/json');
+
+        return $response;
+    }
+    */
+
+    public function teamSlug_tournamentSlug(string $slug, string $tournamentSlug): Response
+    {
+        $event = $this->getEventsWithTeamAndTournamentSlug($slug, $tournamentSlug);
 
         if ($event === []) {
             throw new HttpException(404, "404 not found");
