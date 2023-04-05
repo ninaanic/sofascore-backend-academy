@@ -1,2 +1,4 @@
 /var
 .php-cs-fixer.cache
+**/.DS_Store
+/.idea

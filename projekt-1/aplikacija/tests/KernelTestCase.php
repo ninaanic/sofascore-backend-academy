@@ -13,7 +13,7 @@ abstract class KernelTestCase
         $kernel = new Kernel();
         $kernel->boot();
 
-        $kernel->getContainer()->setParameter('database.dsn', 'pgsql:host=localhost;dbname=test;user=postgres;password=pass');
+        $kernel->getContainer()->setParameter('database.dsn', 'pgsql:host=localhost;port=5433;dbname=projekt-1_tests;user=postgres;password=nina');
 
         return $kernel;
     }
