@@ -9,7 +9,9 @@ use App\Parser\JsonScheduleParser;
 use App\Parser\XmlScheduleParser;
 use SimpleFW\Console\CommandInterface;
 use SimpleFW\Console\Input;
+use SimpleFW\Console\InputInterface;
 use SimpleFW\Console\Output;
+use SimpleFW\Console\OutputInterface;
 
 final class ParseScheduleCommand implements CommandInterface
 {
@@ -21,7 +23,7 @@ final class ParseScheduleCommand implements CommandInterface
     ) {
     }
 
-    public function execute(Input $input, Output $output): int
+    public function execute(InputInterface $input, OutputInterface $output): int
     {
         if (!$input->hasArgument(1)) {
             $output->writeln('Required argument filename missing.');
