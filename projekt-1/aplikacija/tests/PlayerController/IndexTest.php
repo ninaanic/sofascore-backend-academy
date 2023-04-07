@@ -24,9 +24,9 @@ final class IndexTest extends KernelTestCase
         $queryBuilder->insert('player', ['name' => 'Toni Kovacevic', 'slug' => 'toni-kovacevic', 'external_id' => 'f4dcd694-c4da-4b01-b60e-fa27b7da25f2', 'team_id' => 1]);
         $queryBuilder->insert('player', ['name' => 'Dante Exum', 'slug' => 'dante-exum', 'external_id' => '0c387e97-dd47-45f4-831d-ca9a8a796c3d', 'team_id' => 2]);
 
-        $homeController = $kernel->getContainer()->get(PlayerController::class);
+        $controller = $kernel->getContainer()->get(PlayerController::class);
 
-        $response = $homeController->index('nk-rudes');
+        $response = $controller->index('nk-rudes');
 
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
@@ -34,7 +34,7 @@ final class IndexTest extends KernelTestCase
             ['id' => 1, 'name' => 'Toni Kovacevic'],
         ], JSON_PRETTY_PRINT), $response->getContent());
 
-        $response = $homeController->index('utah-jazz');
+        $response = $controller->index('utah-jazz');
 
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());

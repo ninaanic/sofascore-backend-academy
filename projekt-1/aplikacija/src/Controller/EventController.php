@@ -149,11 +149,17 @@ final class EventController
 
     public function date_sport(string $slug, string $date): Response
     {
+        $events = [];
         $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
         if ($sport !== null) {
-            $tournament = $this->connection->findOne('tournament', ['id'], ['sport_id' => $sport['id']]);
-            if ($tournament !== null) {
-                $events = $this->connection->find('event', ['id', 'start_date'], ['start_date' => $date, 'tournament_id' => $tournament['id']]);
+            $tournament = $this->connection->find('tournament', ['id'], ['sport_id' => $sport['id']]);
+            if ($tournament !== []) {
+                foreach ($tournament as $t) {
+                    $result = $this->connection->find('event', ['id', 'start_date'], ['start_date' => $date, 'tournament_id' => $t['id']]);
+                    if ($result !== []) {
+                        array_push($events, $result);
+                    }
+                }
             } else {
                 throw new HttpException(404, "404 not found");
             }

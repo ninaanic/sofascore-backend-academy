@@ -23,10 +23,14 @@ final class SlugTest extends KernelTestCase
 
         $queryBuilder->insert('team', ['name' => 'NK Rudeš', 'slug' => 'nk-rudes', 'external_id' => '2de50c2a-b422-438f-aae7-3fcc54b82cb9', 'sport_id' => 1]);
         $queryBuilder->insert('team', ['name' => 'Utah Jazz', 'slug' => 'utah-jazz', 'external_id' => '3156017d-d948-42c1-b829-b4053c048eea', 'sport_id' => 2]);
+        $queryBuilder->insert('team', ['name' => 'Real Zaragoza', 'slug' => 'real-zaragoza', 'external_id' => '299aa3ad-55f3-46eb-b713-bc88297aea14', 'sport_id' => 1]);
+        $queryBuilder->insert('team', ['name' => 'Albacete Balompié', 'slug' => 'albacete-balompie', 'external_id' => '38622929-a799-4cee-ba47-bbb7209f92c1', 'sport_id' => 1]);
+        $queryBuilder->insert('team', ['name' => 'Charlotte Hornets', 'slug' => 'charlotte-hornets', 'external_id' => 'f556694c-c22a-49a3-9043-e8e1c49ed2fb', 'sport_id' => 2]);
+        $queryBuilder->insert('team', ['name' => 'Miami Heat', 'slug' => 'miami-heat', 'external_id' => '4c40404b-a0f6-42e4-b1ea-8a791f07cf1a', 'sport_id' => 2]);
 
-        $homeController = $kernel->getContainer()->get(TeamController::class);
+        $controller = $kernel->getContainer()->get(TeamController::class);
 
-        $response = $homeController->slug('nk-rudes');
+        $response = $controller->slug('nk-rudes');
 
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
@@ -34,7 +38,7 @@ final class SlugTest extends KernelTestCase
             ['name' => 'NK Rudeš', 'slug' => 'nk-rudes'],
         ], JSON_PRETTY_PRINT), $response->getContent());
 
-        $response = $homeController->slug('utah-jazz');
+        $response = $controller->slug('utah-jazz');
 
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());

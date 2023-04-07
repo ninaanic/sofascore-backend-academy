@@ -24,9 +24,9 @@ final class SlugTest extends KernelTestCase
         $queryBuilder->insert('player', ['name' => 'Toni Kovacevic', 'slug' => 'toni-kovacevic', 'external_id' => 'f4dcd694-c4da-4b01-b60e-fa27b7da25f2', 'team_id' => 1]);
         $queryBuilder->insert('player', ['name' => 'Dante Exum', 'slug' => 'dante-exum', 'external_id' => '0c387e97-dd47-45f4-831d-ca9a8a796c3d', 'team_id' => 2]);
 
-        $homeController = $kernel->getContainer()->get(PlayerController::class);
+        $controller = $kernel->getContainer()->get(PlayerController::class);
 
-        $response = $homeController->slug('toni-kovacevic');
+        $response = $controller->slug('toni-kovacevic');
 
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
@@ -34,7 +34,7 @@ final class SlugTest extends KernelTestCase
             ['name' => 'Toni Kovacevic', 'slug' => 'toni-kovacevic'],
         ], JSON_PRETTY_PRINT), $response->getContent());
 
-        $response = $homeController->slug('dante-exum');
+        $response = $controller->slug('dante-exum');
 
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
