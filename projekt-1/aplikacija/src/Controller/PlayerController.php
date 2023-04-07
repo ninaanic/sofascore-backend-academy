@@ -21,7 +21,7 @@ final class PlayerController
     {
         $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
         if ($team !== null) {
-            $players = $this->connection->find('player', ['name', 'slug'],  ['team_id' => $team['id']]);
+            $players = $this->connection->find('player', ['id', 'name'],  ['team_id' => $team['id']]);
         } else {
             throw new HttpException(404, "404 not found");
         }

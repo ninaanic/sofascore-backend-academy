@@ -18,9 +18,9 @@ final class HomeController
     ) {
     }
 
-    public function __invoke(Request $request): Response
+    public function __invoke(): Response
     {
-        $sports = $this->connection->find('sport', ['name']);
+        $sports = $this->connection->find('sport', ['id', 'name']);
 
         if ($sports === []) {
             throw new HttpException(404, "404 not found");

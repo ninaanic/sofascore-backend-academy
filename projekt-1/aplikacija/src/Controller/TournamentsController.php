@@ -22,7 +22,7 @@ final class TournamentsController
     {
         $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
         if ($sport !== null) {
-            $tournaments = $this->connection->find('tournament', ['name', 'slug'], ['sport_id' => $sport['id']]);
+            $tournaments = $this->connection->find('tournament', ['id', 'name'], ['sport_id' => $sport['id']]);
         } else {
             throw new HttpException(404, "404 not found");
         }
