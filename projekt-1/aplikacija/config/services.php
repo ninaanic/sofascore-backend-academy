@@ -18,6 +18,7 @@ use App\Parser\XmlTeamParser;
 use App\Controller\EventController;
 use App\Controller\TeamController;
 use App\Controller\PlayerController;
+use App\Controller\StandingsController;
 use App\Command\CalculateStandingsCommand;
 
 return static function (Container $container) {
@@ -60,6 +61,14 @@ return static function (Container $container) {
     $container->addFactory(
         PlayerController::class,
         static fn (Container $container) => new PlayerController(
+            $container->get(SimpleFW\Templating\Templating::class),
+            $container->get(Connection::class),
+        ),
+    );
+
+    $container->addFactory(
+        StandingsController::class,
+        static fn (Container $container) => new StandingsController(
             $container->get(SimpleFW\Templating\Templating::class),
             $container->get(Connection::class),
         ),

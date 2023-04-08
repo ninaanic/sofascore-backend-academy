@@ -10,6 +10,7 @@ use App\Controller\TournamentsController;
 use App\Controller\EventController;
 use App\Controller\TeamController;
 use App\Controller\PlayerController;
+use App\Controller\StandingsController;
 
 return static function (Router $router) {
     $router
@@ -32,6 +33,8 @@ return static function (Router $router) {
 
         ->addRoute(new Route('players', '/team/{slug}/players', [PlayerController::class, 'index'],  method: 'GET'))
         ->addRoute(new Route('player-slug', '/player/{slug}', [PlayerController::class, 'slug'],  method: 'GET'))
+
+        ->addRoute(new Route('standings', '/tournament/{slug}/standings', [StandingsController::class, 'index'],  method: 'GET'))
 
         ->addRoute(new Route('post-index', '/post', [PostController::class, 'index'], method: 'GET'))
         ->addRoute(new Route('post-create', '/post', [PostController::class, 'create'], method: 'POST'))
