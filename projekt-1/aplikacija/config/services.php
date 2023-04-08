@@ -18,6 +18,7 @@ use App\Parser\XmlTeamParser;
 use App\Controller\EventController;
 use App\Controller\TeamController;
 use App\Controller\PlayerController;
+use App\Command\CalculateStandingsCommand;
 
 return static function (Container $container) {
     /*
@@ -97,6 +98,13 @@ return static function (Container $container) {
             $container->get(JsonTeamParser::class),
             $container->get(XmlTeamParser::class),
             $container->getParameter('kernel.project_dir'),
+        ),
+    );
+
+    $container->addFactory(
+        CalculateStandingsCommand::class,
+        static fn (Container $container) => new CalculateStandingsCommand(
+            $container->get(Connection::class),
         ),
     );
 

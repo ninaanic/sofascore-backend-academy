@@ -50,3 +50,17 @@ CREATE TABLE event (
     status          VARCHAR(255) NOT NULL,
 	tournament_id 	INTEGER NOT NULL REFERENCES tournament(id) ON DELETE CASCADE
 );
+
+CREATE TABLE standings (
+	id 				SERIAL PRIMARY KEY,
+	position 		INTEGER NOT NULL,
+	matches 		INTEGER NOT NULL,
+	wins 			INTEGER NOT NULL,
+	looses	 		INTEGER NOT NULL,
+	draws	 		INTEGER NOT NULL,
+	scores_for 		INTEGER NOT NULL,
+	scores_against 	INTEGER NOT NULL,
+	points			INTEGER NOT NULL,
+	tournament_id 	INTEGER NOT NULL REFERENCES tournament(id) ON DELETE CASCADE,
+	team_id 		INTEGER NOT NULL REFERENCES team(id) ON DELETE CASCADE
+);	
