@@ -10,11 +10,12 @@ use App\Parser\XmlTeamParser;
 use SimpleFW\Console\CommandInterface;
 use SimpleFW\Console\InputInterface;
 use SimpleFW\Console\OutputInterface;
+use SimpleFW\ORM\EntityManager;
 
 final class ParseTeamCommand implements CommandInterface
 {
     public function __construct(
-        private readonly Connection $connection,
+        private readonly EntityManager $entityManager,
         private readonly JsonTeamParser $jsonTeamParser,
         private readonly XmlTeamParser $xmlTeamParser,
         private readonly string $projectDir,

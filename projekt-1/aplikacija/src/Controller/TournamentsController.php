@@ -8,13 +8,13 @@ use App\Database\Connection;
 use SimpleFW\HTTP\Exception\HttpException;
 use SimpleFW\HTTP\Request;
 use SimpleFW\HTTP\Response;
+use SimpleFW\ORM\EntityManager;
 use SimpleFW\Templating\Templating;
 
 final class TournamentsController
 {
     public function __construct(
-        private readonly Templating $templating,
-        private readonly Connection $connection,
+        private readonly EntityManager $entityManager,
     ) {
     }
     

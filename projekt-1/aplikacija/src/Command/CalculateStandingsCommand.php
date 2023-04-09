@@ -8,11 +8,12 @@ use App\Database\Connection;
 use SimpleFW\Console\CommandInterface;
 use SimpleFW\Console\InputInterface;
 use SimpleFW\Console\OutputInterface;
+use SimpleFW\ORM\EntityManager;
 
 final class CalculateStandingsCommand implements CommandInterface
 {
     public function __construct(
-        private readonly Connection $connection,
+        private readonly EntityManager $entityManager,
     ) {
     }
 

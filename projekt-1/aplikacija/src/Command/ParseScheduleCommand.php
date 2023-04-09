@@ -12,11 +12,12 @@ use SimpleFW\Console\Input;
 use SimpleFW\Console\InputInterface;
 use SimpleFW\Console\Output;
 use SimpleFW\Console\OutputInterface;
+use SimpleFW\ORM\EntityManager;
 
 final class ParseScheduleCommand implements CommandInterface
 {
     public function __construct(
-        private readonly Connection $connection,
+        private readonly EntityManager $entityManager,
         private readonly JsonScheduleParser $jsonScheduleParser,
         private readonly XmlScheduleParser $xmlScheduleParser,
         private readonly string $projectDir,

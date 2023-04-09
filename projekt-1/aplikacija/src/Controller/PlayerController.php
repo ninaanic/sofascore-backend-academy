@@ -5,23 +5,25 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Database\Connection;
+use App\Entity\Player;
+use App\Entity\Team;
 use SimpleFW\HTTP\Exception\HttpException;
 use SimpleFW\HTTP\Response;
+use SimpleFW\ORM\EntityManager;
 use SimpleFW\Templating\Templating;
 
 final class PlayerController
 {
     public function __construct(
-        private readonly Templating $templating,
-        private readonly Connection $connection,
+        private readonly EntityManager $entityManager,
     ) {
     }
 
     public function index(string $slug): Response
     {
-        $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
+        $team = $this->entityManager->findOneBy(Team::class, ['slug' => $slug]);
         if ($team !== null) {
-            $players = $this->connection->find('player', ['id', 'name'],  ['team_id' => $team['id']]);
+            $players = $this->entityManager->findBy(Player::class,  ['teamId' => $team->getId()]);
         } else {
             throw new HttpException(404, "404 not found");
         }
@@ -38,7 +40,7 @@ final class PlayerController
 
     public function slug(string $slug): Response
     {
-        $players = $this->connection->find('player', ['name', 'slug'],  ['slug' => $slug]);
+        $players = $this->entityManager->findBy(Player::class,  ['slug' => $slug]);
 
         if ($players === []) {
             throw new HttpException(404, "404 not found");

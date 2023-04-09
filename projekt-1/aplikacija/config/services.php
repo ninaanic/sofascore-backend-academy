@@ -8,7 +8,6 @@ use App\Controller\TournamentsController;
 use App\Controller\PostController;
 use App\Tools\Slugger;
 use SimpleFW\DependencyInjection\Container;
-use App\Database\Connection;
 use App\Command\ParseScheduleCommand;
 use App\Parser\JsonScheduleParser;
 use App\Parser\XmlScheduleParser;
@@ -29,48 +28,42 @@ return static function (Container $container) {
     $container->addFactory(
         HomeController::class,
         static fn (Container $container) => new HomeController(
-            $container->get(SimpleFW\Templating\Templating::class),
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
         ),
     );
 
     $container->addFactory(
         TournamentsController::class,
         static fn (Container $container) => new TournamentsController(
-            $container->get(SimpleFW\Templating\Templating::class),
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
         ),
     );
 
     $container->addFactory(
         EventController::class,
         static fn (Container $container) => new EventController(
-            $container->get(SimpleFW\Templating\Templating::class),
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
         ),
     );
 
     $container->addFactory(
         TeamController::class,
         static fn (Container $container) => new TeamController(
-            $container->get(SimpleFW\Templating\Templating::class),
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
         ),
     );
     
     $container->addFactory(
         PlayerController::class,
         static fn (Container $container) => new PlayerController(
-            $container->get(SimpleFW\Templating\Templating::class),
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
         ),
     );
 
     $container->addFactory(
         StandingsController::class,
         static fn (Container $container) => new StandingsController(
-            $container->get(SimpleFW\Templating\Templating::class),
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
         ),
     );
 
@@ -93,7 +86,7 @@ return static function (Container $container) {
     $container->addFactory(
         ParseScheduleCommand::class,
         static fn (Container $container) => new ParseScheduleCommand(
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
             $container->get(JsonScheduleParser::class),
             $container->get(XmlScheduleParser::class),
             $container->getParameter('kernel.project_dir'),
@@ -103,7 +96,7 @@ return static function (Container $container) {
     $container->addFactory(
         ParseTeamCommand::class,
         static fn (Container $container) => new ParseTeamCommand(
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
             $container->get(JsonTeamParser::class),
             $container->get(XmlTeamParser::class),
             $container->getParameter('kernel.project_dir'),
@@ -113,7 +106,7 @@ return static function (Container $container) {
     $container->addFactory(
         CalculateStandingsCommand::class,
         static fn (Container $container) => new CalculateStandingsCommand(
-            $container->get(Connection::class),
+            $container->get(SimpleFW\ORM\EntityManager::class),
         ),
     );
 
@@ -138,9 +131,4 @@ return static function (Container $container) {
     $container->addFactory(XmlScheduleParser::class, static fn (Container $container) => new XmlScheduleParser(
         $container->get(Slugger::class),
     ));
-
-    $container->addFactory(
-        Connection::class,
-        static fn (Container $container) => new Connection($container->getParameter('database.dsn'))
-    );
 };
