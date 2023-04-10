@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use App\Database\Connection;
+use App\Entity\Event;
+use App\Entity\Sport;
+use App\Entity\Standings;
+use App\Entity\Team;
+use App\Entity\Tournament;
 use SimpleFW\Console\CommandInterface;
 use SimpleFW\Console\InputInterface;
 use SimpleFW\Console\OutputInterface;
@@ -20,19 +24,17 @@ final class CalculateStandingsCommand implements CommandInterface
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         try {
-            $this->connection->startTransaction();
-
-            $tournaments = $this->connection->find('tournament');
+            $tournaments = $this->entityManager->findBy(Tournament::class, []);
 
             foreach($tournaments as $tournament) {
-                $tournamentId = $tournament['id'];
-                $teams = $this->connection->find('team', [], ['sport_id' => $tournament['sport_id']]);
+                $tournamentId = $tournament->getId();
+                $teams = $this->entityManager->findBy(Team::class, ['sportId' => $tournament->getSportId()]);
 
                 foreach($teams as $team) {
-                    $teamId = $team['id'];
+                    $teamId = $team->getId();
                     
-                    $home_events = $this->connection->find('event', [], ['tournament_id' => $tournamentId, 'status' => 'finished', 'home_team_id' => $teamId]);
-                    $away_events = $this->connection->find('event', [], ['tournament_id' => $tournamentId, 'status' => 'finished', 'away_team_id' => $teamId]);
+                    $home_events = $this->entityManager->findBy(Event::class, ['tournamentId' => $tournamentId, 'status' => 'finished', 'homeTeamId' => $teamId]);
+                    $away_events = $this->entityManager->findBy(Event::class, ['tournamentId' => $tournamentId, 'status' => 'finished', 'awayTeamId' => $teamId]);
 
                     if ($home_events !== [] && $away_events !== []) {
                         $no_home_events = count($home_events);
@@ -46,12 +48,12 @@ final class CalculateStandingsCommand implements CommandInterface
                         $scores_agains = 0;
                         $points = 0;
 
-                        $sports = $this->connection->find('sport', [], ['id' => $tournament['sport_id']]);
+                        $sports = $this->entityManager->findBy(Sport::class, ['id' => $tournament->getSportId()]);
                         foreach($sports as $sport) {
-                            if ($sport['slug'] === 'football') {
+                            if ($sport->getSlug() === 'football') {
                                 foreach($home_events as $home_event) {
-                                    $home_score = $home_event['home_score'];
-                                    $away_score = $home_event['away_score'];
+                                    $home_score = $home_event->getHomeScore();
+                                    $away_score = $home_event->getAwayScore();
         
                                     if (isset($home_score) && isset($away_score)) {
                                         $scores_for += $home_score;
@@ -69,8 +71,8 @@ final class CalculateStandingsCommand implements CommandInterface
                                 }
         
                                 foreach($away_events as $away_event) {
-                                    $home_score = $away_event['home_score'];
-                                    $away_score = $away_event['away_score'];
+                                    $home_score = $away_event->getHomeScore();
+                                    $away_score = $away_event->getAwayScore();
         
                                     if (isset($home_score) && isset($away_score)) {
                                         $scores_for += $away_score;
@@ -86,10 +88,10 @@ final class CalculateStandingsCommand implements CommandInterface
                                         }
                                     }
                                 }
-                            } elseif ($sport['slug'] === 'basketball') {
+                            } elseif ($sport->getSlug() === 'basketball') {
                                 foreach($home_events as $home_event) {
-                                    $home_score = $home_event['home_score'];
-                                    $away_score = $home_event['away_score'];
+                                    $home_score = $home_event->getHomeScore();
+                                    $away_score = $home_event->getAwayScore();
         
                                     if (isset($home_score) && isset($away_score)) {
                                         $scores_for += $home_score;
@@ -105,8 +107,8 @@ final class CalculateStandingsCommand implements CommandInterface
                                 }
         
                                 foreach($away_events as $away_event) {
-                                    $home_score = $away_event['home_score'];
-                                    $away_score = $away_event['away_score'];
+                                    $home_score = $away_event->getHomeScore();
+                                    $away_score = $away_event->getAwayScore();
         
                                     if (isset($home_score) && isset($away_score)) {
                                         $scores_for += $away_score;
@@ -123,61 +125,48 @@ final class CalculateStandingsCommand implements CommandInterface
                             }
                         }
 
-                        $existingStanding = $this->connection->findOne('standings', [], ['tournament_id' => $tournamentId, 'team_id' => $teamId]);
+                        $standing = $this->entityManager->findOneBy(Standings::class, ['tournamentId' => $tournamentId, 'teamId' => $teamId]);
 
-                        if ($existingStanding !== null) {
-                            $standingId = $existingStanding['id'];
-                            $this->connection->update('standings', [
-                                'position' => 0,
-                                'matches' => $matches,
-                                'wins' => $wins,
-                                'looses' => $looses,
-                                'draws' => $draws,
-                                'scores_for' => $scores_for,
-                                'scores_against' => $scores_agains,
-                                'points' => $points,
-                                'tournament_id' => $tournamentId,
-                                'team_id' => $teamId,
-                            ], $standingId);
+                        if ($standing !== null) {
+                            $standing->setPosition(0);
+                            $standing->setMatches($matches);
+                            $standing->setWins($wins);
+                            $standing->setLooses($looses);
+                            $standing->setDraws($draws);
+                            $standing->setScoresFor($scores_for);
+                            $standing->setScoresAgainst($scores_agains);
+                            $standing->setPoints($points);
                         } else {
-                            $this->connection->insert('standings', [
-                                'position' => 0,
-                                'matches' => $matches,
-                                'wins' => $wins,
-                                'looses' => $looses,
-                                'draws' => $draws,
-                                'scores_for' => $scores_for,
-                                'scores_against' => $scores_agains,
-                                'points' => $points,
-                                'tournament_id' => $tournamentId,
-                                'team_id' => $teamId,
-                            ]);
+                            $standing = new Standings(
+                                0, $matches, $wins, $looses, $draws, $scores_for, $scores_agains, $points
+                            );
+                            $standing->setTournamentId($tournamentId);
+                            $standing->setTeamId($teamId);
                         }
+                        $this->entityManager->persist($standing);
+                        $this->entityManager->flush();
 
                         // odredivanje pozicija (positions) po broju bodova (points)
-                        $standings = $this->connection->find('standings', [], ['tournament_id' => $tournamentId]);
+                        $standings = $this->entityManager->findBy(Standings::class, ['tournamentId' => $tournamentId]);
                         $points = array();
                         foreach($standings as $key => $val) {
-                            $points[$key] = $val['points'];
+                            $points[$key] = $val->getPoints();
                         }
                         array_multisort($points, SORT_DESC, $standings);
                         
                         foreach($standings as $standing) {
-                            $standingId = $standing['id'];
                             $position = array_search($standing, $standings) + 1;
-                            $this->connection->update('standings', ['position' => $position], $standingId);
+                            $standing->setPosition($position);
+                            $this->entityManager->persist($standing);
+                            $this->entityManager->flush();
                         }
                     }
                 }
             }
 
-            $this->connection->commit();
-
             $output->writeln('The standings table was successfully created/updated.');
 
         } catch (\PDOException $e) {
-            $this->connection->rollback();
-
             $output->writeln(sprintf('The following error occurred: %s', $e->getMessage()));
             $output->writeln($e->getTraceAsString());
 

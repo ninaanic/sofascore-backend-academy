@@ -84,6 +84,8 @@ final class XmlScheduleParser
                             $status
                         );
                         $event->setTournamentId($tournament->getId());
+                        $this->entityManager->persist($event);
+                        $this->entityManager->flush();
                     }
                 } else {
                     if ($homeTeam !== null && $awayTeam !== null) {
@@ -95,17 +97,16 @@ final class XmlScheduleParser
                         $status = isset($eventData->Status) ? (string) $eventData->Status : 'not-started';
 
                         $event->setSlug($slug);
-                        $event->setHomeScore($eventData->HomeScore);
-                        $event->setAwayScore($eventData->AwayScore);
-                        $event->setStartDate($eventData->StartDate);
+                        $event->setHomeScore( (int) $eventData->HomeScore);
+                        $event->setAwayScore( (int) $eventData->AwayScore);
+                        $event->setStartDate( (string) $eventData->StartDate);
                         $event->setHomeTeamId($HomeTeamId);
                         $event->setAwayTeamId($AwayTeamId);
                         $event->setStatus(EventStatusEnum::from($status) ?? EventStatusEnum::NotStarted);
+                        $this->entityManager->persist($event);
+                        $this->entityManager->flush();
                     }
                 }
-                $this->entityManager->persist($event);
-                $this->entityManager->flush();
-
             }
         }
     }

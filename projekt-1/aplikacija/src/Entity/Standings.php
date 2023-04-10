@@ -36,7 +36,7 @@ final class Standings implements \JsonSerializable
     #[Column(name: 'team_id')]
     public int $teamId;
 
-    public function __construct(int $position, int $matches, int $wins, int $looses, int $draws, int $scoresFor, int $scoresAgainst, int $points, int $tournamentId, int $teamId)
+    public function __construct(int $position, int $matches, int $wins, int $looses, int $draws, int $scoresFor, int $scoresAgainst, int $points)
     {
         $this->position = $position;
         $this->matches = $matches;
@@ -46,8 +46,6 @@ final class Standings implements \JsonSerializable
         $this->scoresFor = $scoresFor;
         $this->scoresAgainst = $scoresAgainst;
         $this->points = $points;
-        $this->tournamentId = $tournamentId;
-        $this->teamId = $teamId;
     }
 
     public function getId(): int

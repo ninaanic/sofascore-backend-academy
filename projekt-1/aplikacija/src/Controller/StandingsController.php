@@ -24,7 +24,7 @@ final class StandingsController
     {
         $tournament = $this->entityManager->findOneBy(Tournament::class, ['slug' => $slug]);
         if ($tournament !== null) {
-            $standings = $this->entityManager->findBy(Standings::class, ['tournamentId' => $tournament->getId()]);
+            $standings = $this->entityManager->findBy(Standings::class, ['tournamentId' => $tournament->getId()], ['position' => 'ASC']);
         } else {
             throw new HttpException(404, "404 not found");
         }

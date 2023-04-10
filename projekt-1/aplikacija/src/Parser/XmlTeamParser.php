@@ -56,21 +56,22 @@ final class XmlTeamParser
             $this->entityManager->flush();
 
             foreach ($teamData->Players->Player as $playerData) {
-                $playerExternalId = isset($playerData['id']) ? (string) $playerData['id'] : '';
-                $player = $this->entityManager->findOneBy(Player::class, ['externalId' => $playerExternalId]);
-                if (!$player) {
-                    $player = new Player(
-                        (string) $playerData->Name,
-                        $this->slugger->slugify((string) $playerData->Name),
-                        $playerExternalId,
-                    );
-                    $player->setTeamId($team->getId());
-                } else {
-                    $player->setName((string) $playerData->Name);
-                    $player->setSlug($this->slugger->slugify((string) $playerData->Name));
+                if (isset($playerData['id'])) {
+                    $player = $this->entityManager->findOneBy(Player::class, ['externalId' => $playerData['id']]);
+                    if (!$player) {
+                        $player = new Player(
+                            (string) $playerData->Name,
+                            $this->slugger->slugify((string) $playerData->Name),
+                            $playerData['id'],
+                        );
+                        $player->setTeamId($team->getId());
+                    } else {
+                        $player->setName((string) $playerData->Name);
+                        $player->setSlug($this->slugger->slugify((string) $playerData->Name));
+                    }
+                    $this->entityManager->persist($player);
+                    $this->entityManager->flush();
                 }
-                $this->entityManager->persist($player);
-                $this->entityManager->flush();
             }
         }
     }
