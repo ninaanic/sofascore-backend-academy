@@ -58,50 +58,10 @@ final class ParseTeamCommand implements CommandInterface
             return self::FAILURE;
         }
 
-        $sport = $parser->parse($content);
-
         try {
-            $sportEntity = $this->entityManager->findOneBy(Sport::class, ['externalId' => $sport->externalId]);
-            if ($sportEntity !== null) {
-                $sportEntity->setName($sport->name);
-                $sportEntity->setSlug($sport->slug);
-            } else {
-                $sportEntity = new Sport($sport->name, $sport->slug, $sport->externalId);
-                $this->entityManager->persist($sportEntity);
-            }
-
-            foreach ($sport->getTeams() as $team) {
-
-                $teamEntity = $this->entityManager->findOneBy(Team::class, ['externalId' => $team->externalId]);
-                if ($teamEntity !== null) {
-                    $teamEntity->setName($team->name);
-                    $teamEntity->setSlug($team->slug);
-                    $teamEntity->setSportId($sportEntity->getId());
-                } else {
-                    $teamEntity = new Team($team->name, $team->slug, $team->externalId);
-                    $teamEntity->setSportId($sportEntity->getId());
-                    $this->entityManager->persist($teamEntity);
-                }
- 
-                foreach ($team->getPlayers() as $player) {
-                    $playerEntity = $this->entityManager->findOneBy(Player::class, ['externalId' => $player->externalId]);
-                    if ($playerEntity !== null) {
-                        $playerEntity->setName($player->name);
-                        $playerEntity->setSlug($player->slug);
-                        $playerEntity->setTeamId($teamEntity->getId());
-                    } else {
-                        $playerEntity = new Player($player->name, $player->slug, $player->externalId);
-                        $playerEntity->setTeamId($teamEntity->getId());
-                        $this->entityManager->persist($playerEntity);
-                    }
-                }
-            }
-
-            $this->entityManager->flush();
-
+            $parser->parse($content);
             $output->writeln('The file was successfully parsed.');
         } catch (\PDOException $e) {
-            
             $output->writeln(sprintf('The following error occurred: %s', $e->getMessage()));
             $output->writeln($e->getTraceAsString());
 

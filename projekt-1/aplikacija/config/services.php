@@ -121,7 +121,7 @@ return static function (Container $container) {
     ));
 
     $container->addFactory(JsonScheduleParser::class, static fn (Container $container) => new JsonScheduleParser(
-        $container->get(Slugger::class),
+        $container->get(Slugger::class), $container->get(SimpleFW\ORM\EntityManager::class),
     ));
 
     $container->addFactory(XmlTeamParser::class, static fn (Container $container) => new XmlTeamParser(
@@ -129,6 +129,6 @@ return static function (Container $container) {
     ));
 
     $container->addFactory(XmlScheduleParser::class, static fn (Container $container) => new XmlScheduleParser(
-        $container->get(Slugger::class),
+        $container->get(Slugger::class), $container->get(SimpleFW\ORM\EntityManager::class),
     ));
 };

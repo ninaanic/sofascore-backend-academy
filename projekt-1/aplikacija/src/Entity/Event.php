@@ -31,23 +31,25 @@ final class Event implements \JsonSerializable
     #[Column]
     public string $status;
 
+    public string $homeTeamId_string;
+    public string $awayTeamId_string;
+
 
     #[Column(name: 'tournament_id')]
     public int $tournamentId;
 
     public function __construct(string $slug, ?int $homeScore, ?int $awayScore, string $startDate,
-                                string $externalId, int $homeTeamId, int $awayTeamId, string $status, int $tournamentId)
+                                string $externalId, int $homeTeamId, int $awayTeamId, string $status)
     {
         $this->slug = $slug;
-       // $this->homeScore = isset($homeScore) ? $homeScore : null;
-        $this->homeScore = $homeScore;
+        $this->homeScore = isset($homeScore) ? $homeScore : null;
         $this->awayScore = isset($awayScore) ? $awayScore : null;
         $this->startDate = $startDate;
         $this->externalId = $externalId;
         $this->homeTeamId = $homeTeamId;
         $this->awayTeamId = $awayTeamId;
         $this->setStatus(EventStatusEnum::from($status) ?? EventStatusEnum::NotStarted);
-        $this->tournamentId = $tournamentId;
+        //$this->tournamentId = $tournamentId;
     }
 
     public function getId(): int
@@ -160,6 +162,30 @@ final class Event implements \JsonSerializable
     public function setTournamentId(int $tournamentId): self
     {
         $this->tournamentId = $tournamentId;
+
+        return $this;
+    }
+
+    public function getHomeTeamId_strig(): string
+    {
+        return $this->homeTeamId_string;
+    }
+
+    public function setHomeTeamId_strig(string $homeTeamId_string): self
+    {
+        $this->homeTeamId_string = $homeTeamId_string;
+
+        return $this;
+    }
+
+    public function getAwayTeamId_string(): string
+    {
+        return $this->awayTeamId_string;
+    }
+
+    public function setAwayTeamId_string(string $awayTeamId_string): self
+    {
+        $this->awayTeamId_string = $awayTeamId_string;
 
         return $this;
     }

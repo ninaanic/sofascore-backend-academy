@@ -9,74 +9,69 @@ use App\Entity\Team;
 use App\Entity\Player;
 use App\Tools\Slugger;
 use SimpleFW\ORM\EntityManager;
+use SimpleXMLElement;
 
 final class XmlTeamParser
 {
     public function __construct(
         private readonly Slugger $slugger,
-        private readonly EntityManager $entityManager
-    ) {
-    }
+        private readonly EntityManager $entityManager,
+    ) {}
 
-    public function parse(string $xml): Sport
+    public function parse(string $xml): void
     {
-        $sportData = new \SimpleXMLElement($xml);
+        $sportData = new SimpleXMLElement($xml);
 
-        $sport = new Sport(
-            (string) $sportData['sportName'],
-            $this->slugger->slugify((string)  $sportData['sportName'],),
-            (string) $sportData['sportId']
-        );
-        $this->entityManager->persist($sport);
-        $this->entityManager->flush();
+        $sportExternalId = (string) $sportData['sportId'];
 
-        $teams = [];
-        foreach ($sportData->Team as $teamData) {
-            $teams[] = $this->createTeam($teamData, $sport->getId());
+        $sport = $this->entityManager->findOneBy(Sport::class, ['externalId' => $sportExternalId]);
+        if (!$sport) {
+            $sport = new Sport(
+                (string) $sportData['sportName'],
+                $this->slugger->slugify((string) $sportData['sportName']),
+                $sportExternalId,
+            );
+        } else {
+            $sport->setName((string) $sportData['sportName']);
+            $sport->setSlug($this->slugger->slugify((string) $sportData['sportName']));
         }
-        $sport->setTeams($teams);
         $this->entityManager->persist($sport);
         $this->entityManager->flush();
 
-        return $sport;
-    }
+        foreach ($sportData->Team as $teamData) {
+            $teamExternalId = (string) $teamData['id'];
+            $team = $this->entityManager->findOneBy(Team::class, ['externalId' => $teamExternalId]);
+            if (!$team) {
+                $team = new Team(
+                    (string) $teamData->Name,
+                    $this->slugger->slugify((string) $teamData->Name),
+                    $teamExternalId,
+                );
+                $team->setSportId($sport->getId());
+            } else {
+                $team->setName((string) $teamData->Name);
+                $team->setSlug($this->slugger->slugify((string) $teamData->Name));
+            }
+            $this->entityManager->persist($team);
+            $this->entityManager->flush();
 
-    private function createTeam(\SimpleXMLElement $teamData, int $sportId): Team
-    {
-        $team = new Team(
-            (string) $teamData->Name,
-            $this->slugger->slugify((string) $teamData->Name),
-            (string) $teamData['id'], 
-        );
-        $team->setSportId($sportId);
-        $this->entityManager->persist($team);
-        $this->entityManager->flush();
-
-        $players = [];
-        foreach ($teamData->Players->Player as $playerData) {
-            if (isset($playerData['id'])) {
-                $players[] = $this->createPlayer($playerData, $team->getId());
+            foreach ($teamData->Players->Player as $playerData) {
+                $playerExternalId = isset($playerData['id']) ? (string) $playerData['id'] : '';
+                $player = $this->entityManager->findOneBy(Player::class, ['externalId' => $playerExternalId]);
+                if (!$player) {
+                    $player = new Player(
+                        (string) $playerData->Name,
+                        $this->slugger->slugify((string) $playerData->Name),
+                        $playerExternalId,
+                    );
+                    $player->setTeamId($team->getId());
+                } else {
+                    $player->setName((string) $playerData->Name);
+                    $player->setSlug($this->slugger->slugify((string) $playerData->Name));
+                }
+                $this->entityManager->persist($player);
+                $this->entityManager->flush();
             }
         }
-        $team->setPlayers($players);
-        $this->entityManager->persist($team);
-        $this->entityManager->flush();
-
-        return $team;
-    }
-
-    private function createPlayer(\SimpleXMLElement $playerData, int $teamId): Player
-    {
-        $player = new Player(
-            (string) $playerData->Name,
-            $this->slugger->slugify((string) $playerData->Name),
-            (string) $playerData['id']
-        );
-
-        $player->setTeamId($teamId);
-        $this->entityManager->persist($player);
-        $this->entityManager->flush();
-
-        return $player;
     }
 }
