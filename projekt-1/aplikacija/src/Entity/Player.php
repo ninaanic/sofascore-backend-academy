@@ -28,7 +28,7 @@ final class Player implements \JsonSerializable
         $this->name = $name;
         $this->slug = $slug;
         $this->externalId = $externalId;
-       // $this->teamId = $teamId;
+        //$this->teamId = $teamId;
     }
 
     public function getId(): int
@@ -72,7 +72,7 @@ final class Player implements \JsonSerializable
         return $this;
     }
 
-    /*
+    
     public function getTeamId(): int
     {
         return $this->teamId;
@@ -84,7 +84,7 @@ final class Player implements \JsonSerializable
 
         return $this;
     }
-    */
+    
 
 
     public function jsonSerialize(): mixed

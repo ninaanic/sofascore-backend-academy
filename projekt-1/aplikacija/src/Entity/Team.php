@@ -25,12 +25,13 @@ final class Team implements \JsonSerializable
 
     public array $players;
 
-    public function __construct(string $name, string $slug, string $externalId, array $players)
+    public function __construct(string $name, string $slug, string $externalId)
     {
         $this->name = $name;
         $this->slug = $slug;
         $this->externalId = $externalId;
-        $this->players = $players;
+        //$this->sportId = $sportId;
+        //$this->players = $players;
     }
 
     public function getId(): int
@@ -73,8 +74,7 @@ final class Team implements \JsonSerializable
 
         return $this;
     }
-
-    /*
+    
     public function getSportId(): int
     {
         return $this->sportId;
@@ -86,7 +86,6 @@ final class Team implements \JsonSerializable
 
         return $this;
     }
-    */
 
     public function getPlayers(): array
     {

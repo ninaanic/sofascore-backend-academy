@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Database\Connection;
+use App\Entity\Sport;
+use App\Entity\Tournament;
 use SimpleFW\HTTP\Exception\HttpException;
 use SimpleFW\HTTP\Request;
 use SimpleFW\HTTP\Response;
@@ -20,9 +22,9 @@ final class TournamentsController
     
     public function index(string $slug): Response
     {
-        $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
+        $sport = $this->entityManager->findOneBy(Sport::class, ['slug' => $slug]);
         if ($sport !== null) {
-            $tournaments = $this->connection->find('tournament', ['id', 'name'], ['sport_id' => $sport['id']]);
+            $tournaments = $this->entityManager->findBy(Tournament::class, ['sportId' => $sport->getId()]);
         } else {
             throw new HttpException(404, "404 not found");
         }
@@ -39,7 +41,7 @@ final class TournamentsController
 
     public function slug(string $slug): Response
     {
-        $tournament = $this->connection->find('tournament', ['name', 'slug'],  ['slug' => $slug]);
+        $tournament = $this->entityManager->findBy(Tournament::class, ['slug' => $slug]);
 
         if ($tournament === []) {
             throw new HttpException(404, "404 not found");

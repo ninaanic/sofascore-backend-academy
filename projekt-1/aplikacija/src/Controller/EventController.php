@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Database\Connection;
+use App\Entity\Event;
+use App\Entity\Sport;
+use App\Entity\Team;
+use App\Entity\Tournament;
 use DateTimeImmutable;
 use JsonException;
 use SimpleFW\HTTP\Exception\HttpException;
@@ -22,9 +26,9 @@ final class EventController
 
     public function index(string $slug): Response
     {
-        $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $slug]);
+        $tournament = $this->entityManager->findOneBy(Tournament::class, ['slug' => $slug]);
         if ($tournament !== null) {
-            $events = $this->connection->find('event', ['id', 'start_date'], ['tournament_id' => $tournament['id']]);
+            $events = $this->entityManager->findBy(Event::class, ['tournamentId' => $tournament->getId()]);
         } else {
             throw new HttpException(404, "404 not found");
         }
@@ -41,7 +45,7 @@ final class EventController
 
     public function slug(string $slug): Response
     {
-        $event = $this->connection->find('event', ['id', 'slug', 'start_date', 'home_score', 'away_score'],  ['slug' => $slug]);
+        $event = $this->entityManager->findBy(Event::class, ['slug' => $slug]);
 
         if ($event === []) {
             throw new HttpException(404, "404 not found");
@@ -55,10 +59,9 @@ final class EventController
 
     public function update(string $slug): Response
     {
-        $event = $this->connection->findOne('event', ['id'],  ['slug' => $slug]);
-        $eventId = $event['id'];
+        $event = $this->entityManager->findOneBy(Event::class, ['slug' => $slug]);
 
-        if ($eventId === null) {
+        if ($event->getId() === null) {
             throw new HttpException(404, "404 not found");
         }
 
@@ -68,9 +71,15 @@ final class EventController
         } catch (JsonException $e) {
             throw new HttpException(404, "404 not found");
         }
-        $this->connection->update('event', ['home_score' => $payload['home_score'], 'away_score' => $payload['away_score']], $eventId);
 
-        $event = $this->connection->find('event', ['id', 'slug', 'start_date', 'home_score', 'away_score'],  ['slug' => $slug]);
+        if (isset($payload['home_score'])) {
+            $event->setHomeScore($payload['home_score']);
+        }
+        if (isset($payload['away_score'])) {
+            $event->setAwayScore($payload['away_score']);
+        }
+
+        $this->entityManager->flush();
         
         $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
@@ -79,32 +88,29 @@ final class EventController
     }
     public function delete(string $slug): Response
     {
-        $event = $this->connection->findOne('event', ['id'],  ['slug' => $slug]);
+        $event = $this->entityManager->findOneBy(Event::class, ['slug' => $slug]);
 
         if ($event === null) {
             throw new HttpException(404, "404 not found");
         }
 
-        $rowsAffected = $this->connection->delete('event', $event['id']);
+        $this->entityManager->remove($event);
+        $this->entityManager->flush();
 
-        if ($rowsAffected > 0) {
-            $response = new Response("200 OK", 200);
-        } else {
-            $response = new Response("500 Internal Server Error", 500);
-        }
-
+        $response = new Response(json_encode($event, JSON_PRETTY_PRINT));
         $response->addHeader('content-type', 'application/json');
+
         return $response;
     }
     
     public function team_tournament_slug(string $slug, string $tournamentSlug): Response
     {
-        $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
+        $team = $this->entityManager->findOneBy(Team::class, ['slug' => $slug]);
         if ($team !== null) {
-            $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $tournamentSlug]);
+            $tournament = $this->entityManager->findOneBy(Tournament::class, ['slug' => $tournamentSlug]);
             if ($tournament !== null) {
-                $events_home = $this->connection->find('event', ['id', 'start_date'],  ['home_team_id' => $team['id'], 'tournament_id' => $tournament['id']]); 
-                $events_away = $this->connection->find('event', ['id', 'start_date'],  ['away_team_id' => $team['id'], 'tournament_id' => $tournament['id']]);
+                $events_home = $this->entityManager->findBy(Event::class, ['homeTeamId' => $team->getId(), 'tournamentId' => $tournament->getId()]); 
+                $events_away = $this->entityManager->findBy(Event::class, ['awayTeamId' => $team->getId(), 'tournamentId' => $tournament->getId()]);
             } else {
                 throw new HttpException(404, "404 not found");
             }
@@ -126,10 +132,10 @@ final class EventController
 
     public function event_team(string $slug): Response
     {
-        $team = $this->connection->findOne('team', ['id'], ['slug' => $slug]);
+        $team = $this->entityManager->findOneBy(Team::class, ['slug' => $slug]);
         if ($team !== null) {
-            $events_home = $this->connection->find('event', ['id', 'start_date'], ['home_team_id' => $team['id']]);
-            $events_away = $this->connection->find('event', ['id', 'start_date'], ['away_team_id' => $team['id']]);
+            $events_home = $this->entityManager->findBy(Event::class, ['homeTeamId' => $team->getId()]);
+            $events_away = $this->entityManager->findBy(Event::class, ['awayTeamId' => $team->getId()]);
 
         } else {
             throw new HttpException(404, "404 not found");
@@ -150,12 +156,12 @@ final class EventController
     public function date_sport(string $slug, string $date): Response
     {
         $events = [];
-        $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
+        $sport = $this->entityManager->findOneBy(Sport::class, ['slug' => $slug]);
         if ($sport !== null) {
-            $tournament = $this->connection->find('tournament', ['id'], ['sport_id' => $sport['id']]);
+            $tournament = $this->entityManager->findBy(Tournament::class, ['sportId' => $sport->getId()]);
             if ($tournament !== []) {
                 foreach ($tournament as $t) {
-                    $result = $this->connection->find('event', ['id', 'start_date'], ['start_date' => $date, 'tournament_id' => $t['id']]);
+                    $result = $this->entityManager->findBy(Event::class, ['startDate' => $date, 'tournamentId' => $t->getId()]);
                     if ($result !== []) {
                         array_push($events, $result);
                     }
@@ -179,9 +185,9 @@ final class EventController
 
     public function date_tournament(string $slug, string $date): Response
     {
-        $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $slug]);
+        $tournament = $this->entityManager->findOneBy(Tournament::class, ['slug' => $slug]);
         if ($tournament !== null) {
-            $events = $this->connection->find('event', ['id', 'start_date'], ['start_date' => $date, 'tournament_id' => $tournament['id']]);
+            $events = $this->entityManager->findBy(Event::class, ['startDate' => $date, 'tournamentId' => $tournament->getId()]);
         } else {
             throw new HttpException(404, "404 not found");
         }

@@ -21,30 +21,33 @@ final class Event implements \JsonSerializable
     #[Column(name: 'away_score')]
     public ?int $awayScore;
     #[Column(name: 'start_date')]
-    public DateTimeImmutable $startDate;
+    public string $startDate;
     #[Column(name: 'external_id')]
     public string $externalId;
     #[Column(name: 'home_team_id')]
-    public string $homeTeamId;
+    public int $homeTeamId;
     #[Column(name: 'away_team_id')]
-    public string $awayTeamId;
-    #[Column(name: 'tournament_id')]
+    public int $awayTeamId;
     #[Column]
     public string $status;
 
+
+    #[Column(name: 'tournament_id')]
     public int $tournamentId;
 
-    public function __construct(string $slug, ?int $homeScore, ?int $awayScore, DateTimeImmutable $startDate,
-                                string $externalId, string $homeTeamId, string $awayTeamId, string $status)
+    public function __construct(string $slug, ?int $homeScore, ?int $awayScore, string $startDate,
+                                string $externalId, int $homeTeamId, int $awayTeamId, string $status, int $tournamentId)
     {
         $this->slug = $slug;
-        $this->homeScore = isset($homeScore) ? $homeScore : null;
+       // $this->homeScore = isset($homeScore) ? $homeScore : null;
+        $this->homeScore = $homeScore;
         $this->awayScore = isset($awayScore) ? $awayScore : null;
         $this->startDate = $startDate;
         $this->externalId = $externalId;
         $this->homeTeamId = $homeTeamId;
         $this->awayTeamId = $awayTeamId;
         $this->setStatus(EventStatusEnum::from($status) ?? EventStatusEnum::NotStarted);
+        $this->tournamentId = $tournamentId;
     }
 
     public function getId(): int
@@ -77,36 +80,36 @@ final class Event implements \JsonSerializable
         return $this;
     }
 
-    public function getHomeScore(): int
+    public function getHomeScore(): ?int
     {
         return $this->homeScore;
     }
 
-    public function setHomeScore(int $homeScore): self
+    public function setHomeScore(?int $homeScore): self
     {
         $this->homeScore = $homeScore;
 
         return $this;
     }
 
-    public function getAwayScore(): int
+    public function getAwayScore(): ?int
     {
         return $this->awayScore;
     }
 
-    public function setAwayScore(int $awayScore): self
+    public function setAwayScore(?int $awayScore): self
     {
         $this->awayScore = $awayScore;
 
         return $this;
     }
 
-    public function getStartDate(): DateTimeImmutable
+    public function getStartDate(): string
     {
         return $this->startDate;
     }
 
-    public function setStartDate(DateTimeImmutable $startDate): self
+    public function setStartDate(string $startDate): self
     {
         $this->startDate = $startDate;
 
@@ -125,24 +128,24 @@ final class Event implements \JsonSerializable
         return $this;
     }
 
-    public function getHomeTeamId(): string
+    public function getHomeTeamId(): int
     {
         return $this->homeTeamId;
     }
 
-    public function setHomeTeamId(string $homeTeamId): self
+    public function setHomeTeamId(int $homeTeamId): self
     {
         $this->homeTeamId = $homeTeamId;
 
         return $this;
     }
 
-    public function getAwayTeamId(): string
+    public function getAwayTeamId(): int
     {
         return $this->awayTeamId;
     }
 
-    public function setAwayTeamId(string $awayTeamId): self
+    public function setAwayTeamId(int $awayTeamId): self
     {
         $this->awayTeamId = $awayTeamId;
 

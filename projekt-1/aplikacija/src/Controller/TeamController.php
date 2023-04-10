@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Database\Connection;
+use App\Entity\Team;
 use SimpleFW\HTTP\Exception\HttpException;
 use SimpleFW\HTTP\Response;
 use SimpleFW\ORM\EntityManager;
@@ -19,7 +20,7 @@ final class TeamController
 
     public function slug(string $slug): Response
     {
-        $teams = $this->connection->find('team', ['name', 'slug'],  ['slug' => $slug]);
+        $teams = $this->entityManager->findBy(Team::class, ['slug' => $slug]);
 
         if ($teams === []) {
             throw new HttpException(404, "404 not found");

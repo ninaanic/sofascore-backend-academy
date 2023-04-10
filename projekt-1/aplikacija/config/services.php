@@ -117,7 +117,7 @@ return static function (Container $container) {
     $container->addFactory(Slugger::class, static fn () => new Slugger());
 
     $container->addFactory(JsonTeamParser::class, static fn (Container $container) => new JsonTeamParser(
-        $container->get(Slugger::class),
+        $container->get(Slugger::class),  $container->get(SimpleFW\ORM\EntityManager::class),
     ));
 
     $container->addFactory(JsonScheduleParser::class, static fn (Container $container) => new JsonScheduleParser(

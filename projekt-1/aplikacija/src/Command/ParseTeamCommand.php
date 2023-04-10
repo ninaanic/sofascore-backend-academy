@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use App\Database\Connection;
+use App\Entity\Player;
+use App\Entity\Sport;
+use App\Entity\Team;
 use App\Parser\JsonTeamParser;
 use App\Parser\XmlTeamParser;
 use SimpleFW\Console\CommandInterface;
@@ -59,71 +61,47 @@ final class ParseTeamCommand implements CommandInterface
         $sport = $parser->parse($content);
 
         try {
-            $this->connection->startTransaction();
-
-            $existingSport = $this->connection->findOne('sport', [], ['external_id' => $sport->externalId]);
-            if ($existingSport !== null) {
-                $sportId = $existingSport['id'];
-                $this->connection->update('sport', [
-                    'name' => $sport->name,
-                    'slug' => $sport->slug,
-                    'external_id' => $sport->externalId,
-                ], $sportId);
+            $sportEntity = $this->entityManager->findOneBy(Sport::class, ['externalId' => $sport->externalId]);
+            if ($sportEntity !== null) {
+                $sportEntity->setName($sport->name);
+                $sportEntity->setSlug($sport->slug);
             } else {
-                $sportId = $this->connection->insert('sport', [
-                    'name' => $sport->name,
-                    'slug' => $sport->slug,
-                    'external_id' => $sport->externalId,
-                ]);
+                $sportEntity = new Sport($sport->name, $sport->slug, $sport->externalId);
+                $this->entityManager->persist($sportEntity);
             }
 
-            foreach ($sport->teams as $team) {
+            foreach ($sport->getTeams() as $team) {
 
-                $existingTeam = $this->connection->findOne('team', [], ['external_id' => $team->externalId]);
-                if ($existingTeam !== null) {
-                    $teamId = $existingTeam['id'];
-                    $this->connection->update('team', [
-                        'name' => $team->name,
-                        'slug' => $team->slug,
-                        'external_id' => $team->externalId,
-                        'sport_id' => $sportId,
-                    ], $teamId);
+                $teamEntity = $this->entityManager->findOneBy(Team::class, ['externalId' => $team->externalId]);
+                if ($teamEntity !== null) {
+                    $teamEntity->setName($team->name);
+                    $teamEntity->setSlug($team->slug);
+                    $teamEntity->setSportId($sportEntity->getId());
                 } else {
-                    $teamId = $this->connection->insert('team', [
-                        'name' => $team->name,
-                        'slug' => $team->slug,
-                        'external_id' => $team->externalId,
-                        'sport_id' => $sportId,
-                    ]);
+                    $teamEntity = new Team($team->name, $team->slug, $team->externalId);
+                    $teamEntity->setSportId($sportEntity->getId());
+                    $this->entityManager->persist($teamEntity);
                 }
  
-                foreach ($team->players as $player) {
-                    $existingPlayer = $this->connection->findOne('player', [], ['external_id' => $player->externalId]);
-                    if ($existingPlayer !== null) {
-                        $playerId = $existingPlayer['id'];
-                        $this->connection->update('player', [
-                            'name' => $player->name,
-                            'slug' => $player->slug,
-                            'external_id' => $player->externalId,
-                            'team_id' => $teamId,
-                        ], $playerId);
+                foreach ($team->getPlayers() as $player) {
+                    $playerEntity = $this->entityManager->findOneBy(Player::class, ['externalId' => $player->externalId]);
+                    if ($playerEntity !== null) {
+                        $playerEntity->setName($player->name);
+                        $playerEntity->setSlug($player->slug);
+                        $playerEntity->setTeamId($teamEntity->getId());
                     } else {
-                        $this->connection->insert('player', [
-                            'name' => $player->name,
-                            'slug' => $player->slug,
-                            'external_id' => $player->externalId,
-                            'team_id' => $teamId,
-                        ]);
+                        $playerEntity = new Player($player->name, $player->slug, $player->externalId);
+                        $playerEntity->setTeamId($teamEntity->getId());
+                        $this->entityManager->persist($playerEntity);
                     }
                 }
             }
 
-            $this->connection->commit();
+            $this->entityManager->flush();
 
             $output->writeln('The file was successfully parsed.');
         } catch (\PDOException $e) {
-            $this->connection->rollback();
-
+            
             $output->writeln(sprintf('The following error occurred: %s', $e->getMessage()));
             $output->writeln($e->getTraceAsString());
 

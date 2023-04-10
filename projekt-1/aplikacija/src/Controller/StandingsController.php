@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Database\Connection;
+use App\Entity\Tournament;
+use App\Entity\Standings;
+use App\Entity\Team;
 use SimpleFW\HTTP\Exception\HttpException;
 use SimpleFW\HTTP\Response;
 use SimpleFW\ORM\EntityManager;
@@ -19,9 +22,9 @@ final class StandingsController
 
     public function index(string $slug): Response
     {
-        $tournament = $this->connection->findOne('tournament', ['id', 'name', 'slug'], ['slug' => $slug]);
+        $tournament = $this->entityManager->findOneBy(Tournament::class, ['slug' => $slug]);
         if ($tournament !== null) {
-            $standings = $this->connection->find('standings', [], ['tournament_id' => $tournament['id']]);
+            $standings = $this->entityManager->findBy(Standings::class, ['tournamentId' => $tournament->getId()]);
         } else {
             throw new HttpException(404, "404 not found");
         }
@@ -30,13 +33,13 @@ final class StandingsController
             throw new HttpException(404, "404 not found");
         } else {
             $result = array();
-            $result['tournament'] = $tournament;
+            $result['tournament'] = $tournament->jsonSerialize();
             $team_standings = array();
             foreach($standings as $standing) {
                 $tmp = array();
-                $team = $this->connection->find('team', ['id', 'name', 'slug'], ['id' => $standing['team_id']]);
+                $team = $this->entityManager->findBy(Team::class, ['id' => $standing->getTeamId()]);
                 $tmp['team'] = $team;
-                $arr_merge = array_merge($tmp, $standing);
+                $arr_merge = array_merge($tmp, $standing->jsonSerialize());
                 array_push($team_standings, $arr_merge);
             } 
             $result['rows'] = $team_standings;

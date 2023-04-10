@@ -23,13 +23,13 @@ final class Sport implements \JsonSerializable
     public array $tournaments;
     public array $teams;
 
-    public function __construct(string $name, string $slug, string $externalId, array $tournaments, array $teams)
+    public function __construct(string $name, string $slug, string $externalId)
     {
         $this->name = $name;
         $this->slug = $slug;
         $this->externalId = $externalId;
-        $this->tournaments = $tournaments;
-        $this->teams = $teams;
+        //$this->tournaments = $tournaments;
+        //$this->teams = $teams;
     }
 
     public function getId(): int
