@@ -21,12 +21,12 @@ final class JsonTeamParser
     public function parse(string $json): Sport
     {
         $sportData = json_decode($json, true);
+        
         $sport = new Sport(
             $sportData['sport']['name'],
             $this->slugger->slugify($sportData['sport']['name']),
             $sportData['sport']['id'],
         );
-        $sport->setTeams($sportData['teams']);
         $this->entityManager->persist($sport);
         $this->entityManager->flush();
 
@@ -72,6 +72,7 @@ final class JsonTeamParser
         );
         $player->setTeamId($team->getId());
         $this->entityManager->persist($player);
+        $this->entityManager->flush();
 
         return $player;
     }

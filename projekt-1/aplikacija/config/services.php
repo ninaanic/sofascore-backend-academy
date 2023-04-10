@@ -125,7 +125,7 @@ return static function (Container $container) {
     ));
 
     $container->addFactory(XmlTeamParser::class, static fn (Container $container) => new XmlTeamParser(
-        $container->get(Slugger::class),
+        $container->get(Slugger::class), $container->get(SimpleFW\ORM\EntityManager::class),
     ));
 
     $container->addFactory(XmlScheduleParser::class, static fn (Container $container) => new XmlScheduleParser(
