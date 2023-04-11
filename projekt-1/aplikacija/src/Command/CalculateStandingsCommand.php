@@ -145,22 +145,22 @@ final class CalculateStandingsCommand implements CommandInterface
                         }
                         $this->entityManager->persist($standing);
                         $this->entityManager->flush();
-
-                        // odredivanje pozicija (positions) po broju bodova (points)
-                        $standings = $this->entityManager->findBy(Standings::class, ['tournamentId' => $tournamentId]);
-                        $points = array();
-                        foreach($standings as $key => $val) {
-                            $points[$key] = $val->getPoints();
-                        }
-                        array_multisort($points, SORT_DESC, $standings);
-                        
-                        foreach($standings as $standing) {
-                            $position = array_search($standing, $standings) + 1;
-                            $standing->setPosition($position);
-                            $this->entityManager->persist($standing);
-                            $this->entityManager->flush();
-                        }
                     }
+                }
+
+                // odredivanje pozicija (positions) po broju bodova (points)
+                $standings = $this->entityManager->findBy(Standings::class, ['tournamentId' => $tournamentId]);
+                $points = array();
+                foreach($standings as $key => $val) {
+                    $points[$key] = $val->getPoints();
+                }
+                array_multisort($points, SORT_DESC, $standings);
+                
+                foreach($standings as $standing) {
+                    $position = array_search($standing, $standings) + 1;
+                    $standing->setPosition($position);
+                    $this->entityManager->persist($standing);
+                    $this->entityManager->flush();
                 }
             }
 

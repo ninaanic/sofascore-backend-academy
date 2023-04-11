@@ -62,7 +62,7 @@ final class XmlTeamParser
                         $player = new Player(
                             (string) $playerData->Name,
                             $this->slugger->slugify((string) $playerData->Name),
-                            $playerData['id'],
+                            (string) $playerData['id'],
                         );
                         $player->setTeamId($team->getId());
                     } else {

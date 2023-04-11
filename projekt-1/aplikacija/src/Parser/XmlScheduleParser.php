@@ -59,52 +59,54 @@ final class XmlScheduleParser
             $this->entityManager->flush();
 
             foreach ($tournamentData->Events->Event as $eventData) {
-                $eventExternalId = $eventData['id'];
-                $event = $this->entityManager->findOneBy(Event::class, ['externalId' => $eventExternalId]);
-                $homeTeam = $this->entityManager->findOneBy(Team::class, ['externalId' => $eventData->HomeTeamId]);
-                $awayTeam = $this->entityManager->findOneBy(Team::class, ['externalId' => $eventData->AwayTeamId]);
+                if (isset($eventData['id'])) {
+                    $eventExternalId = (string) $eventData['id'];
+                    $event = $this->entityManager->findOneBy(Event::class, ['externalId' => $eventExternalId]);
+                    $homeTeam = $this->entityManager->findOneBy(Team::class, ['externalId' => $eventData->HomeTeamId]);
+                    $awayTeam = $this->entityManager->findOneBy(Team::class, ['externalId' => $eventData->AwayTeamId]);
 
-                if (!$event) {
-                    if ($homeTeam !== null && $awayTeam !== null) {
-                        $HomeTeamId = $homeTeam->getId();
-                        $AwayTeamId = $awayTeam->getId();
+                    if (!$event) {
+                        if ($homeTeam !== null && $awayTeam !== null) {
+                            $HomeTeamId = $homeTeam->getId();
+                            $AwayTeamId = $awayTeam->getId();
 
-                        $string_to_hash = $tournament->getId() . $HomeTeamId . $AwayTeamId . $eventData->StartDate;
-                        $slug = hash('sha256', $string_to_hash);
-                        $status = isset($eventData->Status) ? (string) $eventData->Status : 'not-started';
+                            $string_to_hash = $tournament->getId() . $HomeTeamId . $AwayTeamId . $eventData->StartDate;
+                            $slug = hash('sha256', $string_to_hash);
+                            $status = isset($eventData->Status) ? (string) $eventData->Status : 'not-started';
 
-                        $event = new Event(
-                            (string) $slug,
-                            isset($eventData->HomeScore) ? (int) $eventData->HomeScore : null,
-                            isset($eventData->AwayScore) ? (int) $eventData->AwayScore : null,
-                            (string) $eventData->StartDate,
-                            (string) $eventData['id'],
-                            $HomeTeamId,
-                            $AwayTeamId,
-                            $status
-                        );
-                        $event->setTournamentId($tournament->getId());
-                        $this->entityManager->persist($event);
-                        $this->entityManager->flush();
-                    }
-                } else {
-                    if ($homeTeam !== null && $awayTeam !== null) {
-                        $HomeTeamId = $homeTeam->getId();
-                        $AwayTeamId = $awayTeam->getId();
+                            $event = new Event(
+                                (string) $slug,
+                                isset($eventData->HomeScore) ? (int) $eventData->HomeScore : null,
+                                isset($eventData->AwayScore) ? (int) $eventData->AwayScore : null,
+                                (string) $eventData->StartDate,
+                                (string) $eventData['id'],
+                                $HomeTeamId,
+                                $AwayTeamId,
+                                $status
+                            );
+                            $event->setTournamentId($tournament->getId());
+                            $this->entityManager->persist($event);
+                            $this->entityManager->flush();
+                        }
+                    } else {
+                        if ($homeTeam !== null && $awayTeam !== null) {
+                            $HomeTeamId = $homeTeam->getId();
+                            $AwayTeamId = $awayTeam->getId();
 
-                        $string_to_hash = $tournament->getId() . $HomeTeamId . $AwayTeamId . $eventData->StartDate;
-                        $slug = hash('sha256', $string_to_hash);
-                        $status = isset($eventData->Status) ? (string) $eventData->Status : 'not-started';
+                            $string_to_hash = $tournament->getId() . $HomeTeamId . $AwayTeamId . $eventData->StartDate;
+                            $slug = hash('sha256', $string_to_hash);
+                            $status = isset($eventData->Status) ? (string) $eventData->Status : 'not-started';
 
-                        $event->setSlug($slug);
-                        $event->setHomeScore( (int) $eventData->HomeScore);
-                        $event->setAwayScore( (int) $eventData->AwayScore);
-                        $event->setStartDate( (string) $eventData->StartDate);
-                        $event->setHomeTeamId($HomeTeamId);
-                        $event->setAwayTeamId($AwayTeamId);
-                        $event->setStatus(EventStatusEnum::from($status) ?? EventStatusEnum::NotStarted);
-                        $this->entityManager->persist($event);
-                        $this->entityManager->flush();
+                            $event->setSlug($slug);
+                            $event->setHomeScore( (int) $eventData->HomeScore);
+                            $event->setAwayScore( (int) $eventData->AwayScore);
+                            $event->setStartDate( (string) $eventData->StartDate);
+                            $event->setHomeTeamId($HomeTeamId);
+                            $event->setAwayTeamId($AwayTeamId);
+                            $event->setStatus(EventStatusEnum::from($status) ?? EventStatusEnum::NotStarted);
+                            $this->entityManager->persist($event);
+                            $this->entityManager->flush();
+                        }
                     }
                 }
             }

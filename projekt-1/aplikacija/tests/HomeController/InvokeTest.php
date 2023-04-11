@@ -31,8 +31,8 @@ final class InvokeTest extends KernelTestCase
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
         $this->assert(json_encode([
-            ['id' => 1, 'name' => 'Football'],
-            ['id' => 2, 'name' => 'Basketball'],
-        ], JSON_PRETTY_PRINT), $response->getContent());
+            ['id' => 1, 'name' => 'Football', 'slug' => 'football', 'externalId' => '791b5011-6978-420d-9762-cc5a4ca14470'],
+            ['id' => 2, 'name' => 'Basketball', 'slug' => 'basketball', 'externalId' => '377d37e0-5347-4992-a38e-f580c462361f'],
+        ]), $response->getContent());
     }
 }
