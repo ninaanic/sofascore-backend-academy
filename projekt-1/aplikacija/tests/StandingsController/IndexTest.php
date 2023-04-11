@@ -41,7 +41,9 @@ final class IndexTest extends KernelTestCase
                 "tournament" => [
                     "id" => 1,
                     "name" => "HNL",
-                    "slug" => "hnl"
+                    "slug" => "hnl", 
+                    "externalId" => "7903d21e-599f-428d-bf8a-5a9bb4e3be5c", 
+                    "sportId" => 1
                 ],
                 "rows" => [
                     [
@@ -49,7 +51,9 @@ final class IndexTest extends KernelTestCase
                             [
                                 "id" => 1,
                                 "name" => "GNK Dinamo Zagreb",
-                                "slug" => "gnk-dinamo-zagreb"
+                                "slug" => "gnk-dinamo-zagreb", 
+                                "externalId" => "a46fe41e-293b-4169-b6f7-3ff5313063e6", 
+                                "sportId" => 1
                             ]
                         ],
                         "id" => 1,
@@ -58,18 +62,20 @@ final class IndexTest extends KernelTestCase
                         "wins" => 357,
                         "looses" => 51,
                         "draws" => 93,
-                        "scores_for" => 1049,
-                        "scores_against" => 323,
+                        "scoresFor" => 1049,
+                        "scoresAgainst" => 323,
                         "points" => 1164,
-                        "tournament_id" => 1,
-                        "team_id" => 1
+                        "tournamentId" => 1,
+                        "teamId" => 1
                     ],
                     [
                         "team" => [
                             [
                                 "id" => 2,
                                 "name" => "HNK Hajduk Split",
-                                "slug" => "hnk-hajduk-split"
+                                "slug" => "hnk-hajduk-split", 
+                                "externalId" => "a6865d6e-9167-424d-b956-e18afd120b43", 
+                                "sportId" => 1
                             ]
                         ],
                         "id" => 2,
@@ -78,11 +84,11 @@ final class IndexTest extends KernelTestCase
                         "wins" => 259,
                         "looses" => 124,
                         "draws" => 119,
-                        "scores_for" => 834,
-                        "scores_against" => 506,
+                        "scoresFor" => 834,
+                        "scoresAgainst" => 506,
                         "points" => 896,
-                        "tournament_id" => 1,
-                        "team_id" => 2
+                        "tournamentId" => 1,
+                        "teamId" => 2
                     ]
                 ]
             ], JSON_PRETTY_PRINT), $response->getContent());

@@ -31,7 +31,7 @@ final class SlugTest extends KernelTestCase
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
         $this->assert(json_encode([
-            ['name' => 'NBA', 'slug' => 'nba'],
+            ['id' => 2, 'name' => 'NBA', 'slug' => 'nba', 'externalId' => '5c51df6a-a56f-4f93-bca5-523e184d97ee', 'sportId' => 2],
         ], JSON_PRETTY_PRINT), $response->getContent());
 
         $response = $controller->slug('laliga');
@@ -39,7 +39,7 @@ final class SlugTest extends KernelTestCase
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
         $this->assert(json_encode([
-            ['name' => 'LaLiga', 'slug' => 'laliga'],
+            ['id' => 1, 'name' => 'LaLiga', 'slug' => 'laliga', 'externalId' => '986813d8-1096-4e2e-963f-0d2348997bbc', 'sportId' => 1],
         ], JSON_PRETTY_PRINT), $response->getContent());
     }
 }

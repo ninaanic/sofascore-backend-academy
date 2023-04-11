@@ -32,8 +32,8 @@ final class IndexTest extends KernelTestCase
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
         $this->assert(json_encode([
-            ['id' => 1, 'name' => 'Premier League'],
-            ['id' => 2, 'name' => 'LaLiga'],
+            ['id' => 1, 'name' => 'Premier League', 'slug' => 'premier-league', 'externalId' => '0a3c8861-895b-4c19-8d12-2dd61fffa473', 'sportId' => 1],
+            ['id' => 2, 'name' => 'LaLiga', 'slug' => 'laliga', 'externalId' => '986813d8-1096-4e2e-963f-0d2348997bbc', 'sportId' => 1],
         ], JSON_PRETTY_PRINT), $response->getContent());
 
         $response = $controller->index('basketball');
@@ -41,7 +41,7 @@ final class IndexTest extends KernelTestCase
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
         $this->assert(json_encode([
-            ['id' => 3, 'name' => 'NBA'],
+            ['id' => 3, 'name' => 'NBA', 'slug' => 'nba', 'externalId' => '5c51df6a-a56f-4f93-bca5-523e184d97ee', 'sportId' => 2],
         ], JSON_PRETTY_PRINT), $response->getContent());
     }
 }

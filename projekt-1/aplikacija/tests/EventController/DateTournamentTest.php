@@ -31,7 +31,7 @@ final class DateTournamentTest extends KernelTestCase
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
         $this->assert(json_encode([
-            ['id' => 1, 'start_date' => '2003-12-14 16:00:00'],
+            ['id' => 1, 'slug' => 'a07cd475a337c1cd16e1e567f82d720b5d969a7238642ac14a5cfc73f1376a07', 'homeScore' => 0, 'awayScore' => 1, 'startDate' => '2003-12-14 16:00:00', 'externalId' => '996b9f2b-443f-45c1-b5ef-73d332d8a41c', 'homeTeamId' => 3, 'awayTeamId' => 4, 'status' => 'finished', 'tournamentId' => 1],
         ], JSON_PRETTY_PRINT), $response->getContent());
 
         $response = $controller->date_tournament('nba', '2009-04-03 23:00:00');
@@ -39,7 +39,7 @@ final class DateTournamentTest extends KernelTestCase
         $this->assert(200, $response->getStatusCode());
         $this->assert(['content-type' => 'application/json'], $response->getHeaders());
         $this->assert(json_encode([
-            ['id' => 2, 'start_date' => '2009-04-03 23:00:00'],
+            ['id' => 2, 'slug' => 'f8016e80ae66924ada6536c50072c8a67666b06c80bbd1e63f102761ff1d23d4', 'homeScore' => 92, 'awayScore' => 97, 'startDate' => '2009-04-03 23:00:00', 'externalId' => '84322fda-726c-431e-9bff-edd94663edbc', 'homeTeamId' => 5, 'awayTeamId' => 6, 'status' => 'finished', 'tournamentId' => 2],
         ], JSON_PRETTY_PRINT), $response->getContent());
     }
 }
