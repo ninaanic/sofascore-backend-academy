@@ -7,8 +7,10 @@ namespace App\Controller;
 use App\Database\Connection;
 use App\Tools\Templating\Templating;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[AsController]
 class HomeController
 {
     public function __construct(

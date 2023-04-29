@@ -24,4 +24,11 @@ class ApiResponseListener
 
         $event->setResponse(new JsonResponse($data, json: true));
     }
+
+    public function onApiResponse($data) : JsonResponse 
+    {
+        $data = $this->serializer->serialize($data, 'json', ['groups' => 'apiResponse']);
+
+        return new JsonResponse($data, json: true);
+    }
 }
