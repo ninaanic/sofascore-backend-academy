@@ -11,6 +11,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[ApiController]
@@ -29,9 +30,7 @@ final class EventController
         $tournament = $this->connection->findOne('tournament', ['id'], ['slug' => $slug]);
 
         if (null === $tournament) {
-            throw new HttpException(404, json_encode([
-                'error' => sprintf('A tournament with the slug "%s" doesn\'t exist.', $slug),
-            ]), headers: ['Content-Type' => 'application/json']);
+            throw new NotFoundHttpException("A tournament with the slug $slug does not exist.");
         }
 
         $events = $this->connection->find('event', ['id', 'start_date'], ['tournament_id' => $tournament['id']]);
@@ -45,9 +44,7 @@ final class EventController
         $event = $this->connection->findOne('event', [], ['id' => $id]);
 
         if (null === $event) {
-            throw new HttpException(404, json_encode([
-                'error' => sprintf('An event with the id "%d" doesn\'t exist.', $id),
-            ]), headers: ['Content-Type' => 'application/json']);
+            throw new NotFoundHttpException("An event with the id $id does not exist.");
         }
 
         return $this->apiResponseListener->onApiResponse($event);
@@ -59,17 +56,13 @@ final class EventController
         $event = $this->connection->findOne('event', [], ['id' => $id]);
 
         if (null === $event) {
-            throw new HttpException(404, json_encode([
-                'error' => sprintf('An event with the id "%d" doesn\'t exist.', $id),
-            ]), headers: ['Content-Type' => 'application/json']);
+            throw new NotFoundHttpException("An event with the id $id does not exist.");
         }
 
         try {
             $payload = json_decode($request->getContent(), true, flags: \JSON_THROW_ON_ERROR);
         } catch (\JsonException) {
-            throw new HttpException(400, json_encode([
-                'error' => 'Invalid json provided!',
-            ]), headers: ['Content-Type' => 'application/json']);
+            throw new NotFoundHttpException("Invalid json provided!");
         }
 
         $updateData = ['home_score' => $payload['home_score'], 'away_score' => $payload['away_score']];

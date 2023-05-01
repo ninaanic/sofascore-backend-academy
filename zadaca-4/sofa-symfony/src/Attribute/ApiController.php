@@ -7,5 +7,6 @@ namespace App\Attribute;
 use Attribute;
 
 #[Attribute]
-class ApiController {
+class ApiController 
+{
 }

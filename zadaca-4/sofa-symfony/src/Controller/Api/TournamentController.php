@@ -10,6 +10,7 @@ use App\Listener\ApiResponseListener;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[ApiController]
@@ -28,9 +29,7 @@ final class TournamentController
         $sport = $this->connection->findOne('sport', ['id'], ['slug' => $slug]);
 
         if (null === $sport) {
-            throw new HttpException(404, json_encode([
-                'error' => sprintf('A sport with the slug "%s" doesn\'t exist.', $slug),
-            ]), headers: ['Content-Type' => 'application/json']);
+            throw new NotFoundHttpException("A sport with the slug $slug does not exist.");
         }
 
         $tournaments = $this->connection->find('tournament', ['name', 'slug'], ['sport_id' => $sport['id']]);

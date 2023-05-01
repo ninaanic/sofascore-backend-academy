@@ -28,7 +28,10 @@ services:
             $apiToken: '%env(AUTH_TOKEN)%'
         tags: 
             - { name: kernel.event_listener, event: kernel.controller }
-        
+
+    App\Listener\ApiExceptionListener:
+        tags: 
+            - { name: kernel.event_listener, event: kernel.exception }
 
     App\Tools\Templating\Templating:
         arguments:
