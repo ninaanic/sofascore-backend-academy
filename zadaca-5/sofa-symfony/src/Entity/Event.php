@@ -18,10 +18,10 @@ class Event
     private ?string $externalId = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $homeTeamId = null;
+    private ?string $homeTeamExternalId = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $awayTeamId = null;
+    private ?string $awayTeamExternalId = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $startDate = null;
@@ -35,15 +35,21 @@ class Event
     #[ORM\Column]
     public ?int $tournamentId = null;
 
-    public function __construct(string $externalId, string $homeTeamId, string $awayTeamId, 
+    #[ORM\Column]
+    public ?int $homeTeamId = null;
+
+    #[ORM\Column]
+    public ?int $awayTeamId = null;
+
+    public function __construct(string $externalId, string $homeTeamExternalId, string $awayTeamExternalId, 
                                 \DateTimeInterface $startDate, ?int $homeScore, ?int $awayScore)
     {
         $this->homeScore = isset($homeScore) ? $homeScore : null;
         $this->awayScore = isset($awayScore) ? $awayScore : null;
         $this->startDate = $startDate;
         $this->externalId = $externalId;
-        $this->homeTeamId = $homeTeamId;
-        $this->awayTeamId = $awayTeamId;
+        $this->homeTeamExternalId = $homeTeamExternalId;
+        $this->awayTeamExternalId = $awayTeamExternalId;
     }
 
     public function getId(): ?int
@@ -63,26 +69,26 @@ class Event
         return $this;
     }
 
-    public function getHomeTeamId(): ?string
+    public function getHomeTeamExternalId(): ?string
     {
-        return $this->homeTeamId;
+        return $this->homeTeamExternalId;
     }
 
-    public function setHomeTeamId(string $homeTeamId): self
+    public function setHomeTeamExteranlId(string $homeTeamExternalId): self
     {
-        $this->homeTeamId = $homeTeamId;
+        $this->homeTeamExternalId = $homeTeamExternalId;
 
         return $this;
     }
 
-    public function getAwayTeamId(): ?string
+    public function getAwayTeamExteranlId(): ?string
     {
-        return $this->awayTeamId;
+        return $this->awayTeamExternalId;
     }
 
-    public function setAwayTeamId(string $awayTeamId): self
+    public function setAwayTeamExteranlId(string $awayTeamExternalId): self
     {
-        $this->awayTeamId = $awayTeamId;
+        $this->awayTeamExternalId = $awayTeamExternalId;
 
         return $this;
     }
@@ -131,6 +137,30 @@ class Event
     public function setTournamentId(int $tournamentId): self
     {
         $this->tournamentId = $tournamentId;
+
+        return $this;
+    }
+
+    public function getHomeTeamId(): int
+    {
+        return $this->homeTeamId;
+    }
+
+    public function setHomeTeamId(int $homeTeamId): self
+    {
+        $this->homeTeamId = $homeTeamId;
+
+        return $this;
+    }
+
+    public function getAwayTeamId(): int
+    {
+        return $this->tournamentId;
+    }
+
+    public function setAwayTeamId(int $awayTeamId): self
+    {
+        $this->awayTeamId = $awayTeamId;
 
         return $this;
     }

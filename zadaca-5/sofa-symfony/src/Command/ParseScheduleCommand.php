@@ -7,6 +7,7 @@ namespace App\Command;
 use App\Database\Connection;
 use App\Entity\Event;
 use App\Entity\Sport;
+use App\Entity\Team;
 use App\Entity\Tournament;
 use App\Parser\JsonFeedParser;
 use App\Parser\XmlFeedParser;
@@ -98,7 +99,7 @@ final class ParseScheduleCommand extends Command
 
         $sport->slug = $this->slugger->slugify($sport->name);
 
-        $sportEntity = $this->entityManager->getRepository(Sport::class)->findOneBy(['externalId' => $sport->id]);;
+        $sportEntity = $this->entityManager->getRepository(Sport::class)->findOneBy(['externalId' => $sport->id]);
         if (null === $sportEntity) {
             $sportEntity = new Sport($sport->name, $sport->slug, $sport->id, $sport->tournaments);
             $this->entityManager->persist($sportEntity);
@@ -111,9 +112,8 @@ final class ParseScheduleCommand extends Command
         
         foreach ($sport->tournaments as $tournament) {
             $tournament->slug = $this->slugger->slugify($tournament->name);
-            //dd($tournament->slug);
 
-            $tournamentEntity = $this->entityManager->getRepository(Tournament::class)->findOneBy(['externalId' => $tournament->id]);;
+            $tournamentEntity = $this->entityManager->getRepository(Tournament::class)->findOneBy(['externalId' => $tournament->id]);
 
             if (null === $tournamentEntity) {
                 $tournamentEntity = new Tournament($tournament->name, $tournament->slug, $tournament->id, $tournament->events);
@@ -128,16 +128,20 @@ final class ParseScheduleCommand extends Command
 
             foreach ($tournament->events as $event) {
 
-                $eventEntity = $this->entityManager->getRepository(Event::class)->findOneBy(['externalId' => $event->id]);;
+                $eventEntity = $this->entityManager->getRepository(Event::class)->findOneBy(['externalId' => $event->id]);
+                $homeTeamEntity = $this->entityManager->getRepository(Team::class)->findOneBy(['externalId' => $event->home_team_id]);;
+                $awayTeamEntity = $this->entityManager->getRepository(Team::class)->findOneBy(['externalId' => $event->away_team_id]);;
 
                 if (null === $eventEntity) {
                     $eventEntity = new Event($event->id, $event->home_team_id, $event->away_team_id, $event->start_date, $event->home_score, $event->away_score);
                     $eventEntity->setTournamentId($tournamentEntity->getId());
+                    $eventEntity->setHomeTeamId($homeTeamEntity->getId());
+                    $eventEntity->setAwayTeamId($awayTeamEntity->getId());
                     $this->entityManager->persist($eventEntity);
 
                 } else {
-                    $eventEntity->setHomeTeamId($event->home_team_id);
-                    $eventEntity->setAwayTeamId($event->away_team_id);
+                    $eventEntity->setHomeTeamExteranlId($event->home_team_id);
+                    $eventEntity->setAwayTeamExteranlId($event->away_team_id);
                     $eventEntity->setStartDate($event->start_date);
                     $eventEntity->setHomeScore($event->home_score);
                     $eventEntity->setAwayScore($event->away_score);
