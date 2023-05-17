@@ -1,4 +1,3 @@
-<body>
 <table>
     <tr>
         <td>Datum</td>
@@ -13,4 +12,3 @@
         <td><?= htmlspecialchars($event['away_score']); ?></td>
     </tr>
 </table>
-</body>

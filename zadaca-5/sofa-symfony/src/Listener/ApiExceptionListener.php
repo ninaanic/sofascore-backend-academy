@@ -6,19 +6,35 @@ namespace App\Listener;
 
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 #[AsEventListener]
-final class ApiExceptionListener
+class ApiExceptionListener 
 {
-    public function __invoke(ExceptionEvent $event): void
+    
+    public function __construct()
     {
-        $isApiController = $event->getRequest()->attributes->get('is-api-controller', false);
-        $exception = $event->getThrowable();
+    }
 
-        if ($isApiController && $exception instanceof HttpExceptionInterface) {
-            $event->setResponse(new JsonResponse(['error' => $exception->getMessage()], $exception->getStatusCode()));
+    public function __invoke(ExceptionEvent $event): void {
+
+        // ako controller ima ApiController atribut
+        if ($event->getRequest()->attributes->get('ApiController')) {
+
+            $exception = $event->getThrowable();
+
+            if ($exception instanceof HttpExceptionInterface) {
+                $statusCode = $exception->getStatusCode();
+            } else {
+                $statusCode = 500; // HTTP_INTERNAL_SERVICE_ERROR
+            }
+
+            $response = new JsonResponse(['error' => $exception->getMessage()]);
+            $response->setStatusCode($statusCode);
+            $response->headers->set('Content-Type', 'application/json');
+            $event->setResponse($response);
         }
     }
 }

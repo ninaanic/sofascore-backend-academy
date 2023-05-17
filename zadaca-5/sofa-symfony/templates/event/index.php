@@ -1,4 +1,3 @@
-<body>
 <table>
     <?php foreach ($events as $event): ?>
         <tr>
@@ -7,4 +6,3 @@
         </tr>
     <?php endforeach; ?>
 </table>
-</body>

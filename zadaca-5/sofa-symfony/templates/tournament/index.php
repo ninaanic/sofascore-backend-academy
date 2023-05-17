@@ -1,4 +1,3 @@
-<body>
 <table>
     <?php foreach ($tournaments as $tournament): ?>
         <tr>
@@ -7,4 +6,3 @@
         </tr>
     <?php endforeach; ?>
 </table>
-</body>

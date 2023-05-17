@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace App\Database;
 
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
-
 final class Connection
 {
     private \PDO $connection;
 
     public function __construct(
-        #[Autowire('%env(DATABASE_URL)%')]
         private readonly string $dsn,
     ) {
     }

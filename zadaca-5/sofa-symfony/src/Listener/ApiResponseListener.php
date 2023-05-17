@@ -10,11 +10,10 @@ use Symfony\Component\HttpKernel\Event\ViewEvent;
 use Symfony\Component\Serializer\SerializerInterface;
 
 #[AsEventListener]
-final class ApiResponseListener
+class ApiResponseListener
 {
-    public function __construct(
-        private readonly SerializerInterface $serializer,
-    ) {
+    public function __construct(private readonly SerializerInterface $serializer)
+    {
     }
 
     public function __invoke(ViewEvent $event): void
@@ -24,5 +23,12 @@ final class ApiResponseListener
         $data = $this->serializer->serialize($data, 'json', ['groups' => $event->getRequest()->attributes->get('groups', 'api')]);
 
         $event->setResponse(new JsonResponse($data, json: true));
+    }
+
+    public function onApiResponse($data) : JsonResponse 
+    {
+        $data = $this->serializer->serialize($data, 'json', ['groups' => 'apiResponse']);
+
+        return new JsonResponse($data, json: true);
     }
 }

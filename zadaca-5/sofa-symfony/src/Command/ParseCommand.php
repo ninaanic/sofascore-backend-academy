@@ -75,9 +75,9 @@ final class ParseCommand extends Command
             $this->connection->startTransaction();
 
             $sportId = $this->connection->insert('sport', [
-                'external_id' => $sport->id,
-                'name' => $sport->name,
-                'slug' => $sport->slug,
+                'external_id' => $sport->getExternalId(),
+                'name' => $sport->getName(),
+                'slug' => $sport->getSlug(),
             ]);
 
             foreach ($sport->tournaments as $tournament) {

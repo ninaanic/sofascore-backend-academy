@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Templating;
+namespace App\Tools\Templating;
 
-use App\Templating\Exception\FileNotFoundException;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use App\Tools\Templating\Exception\FileNotFoundException;
 
-final readonly class Templating
+final class Templating
 {
     public function __construct(
-        #[Autowire('%kernel.project_dir%/templates')]
         private string $basePath,
     ) {
     }

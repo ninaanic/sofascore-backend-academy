@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Templating\Exception;
+namespace App\Tools\Templating\Exception;
 
 class FileNotFoundException extends \RuntimeException
 {

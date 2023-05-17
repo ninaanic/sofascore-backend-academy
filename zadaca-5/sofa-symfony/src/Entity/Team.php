@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\TournamentRepository;
+use App\Repository\TeamRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: TournamentRepository::class)]
-class Tournament
+#[ORM\Entity(repositoryClass: TeamRepository::class)]
+class Team
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,22 +17,15 @@ class Tournament
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $slug = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $externalId = null;
 
-    #[ORM\Column]
-    private ?int $sportId = null;
+    //#[ORM\Column]
+    //public int $sportId;
 
-    public array $events;
-
-    public function __construct(string $name, string $slug, string $externalId, array $events)
+    public function __construct(string $name, string $externalId)
     {
         $this->name = $name;
-        $this->slug = $slug;
         $this->externalId = $externalId;
-        $this->events = $events;
     }
 
     public function getId(): ?int
@@ -52,18 +45,6 @@ class Tournament
         return $this;
     }
 
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
     public function getExternalId(): ?string
     {
         return $this->externalId;
@@ -76,6 +57,7 @@ class Tournament
         return $this;
     }
 
+    /*
     public function getSportId(): int
     {
         return $this->sportId;
@@ -87,16 +69,5 @@ class Tournament
 
         return $this;
     }
-
-    public function getEvents(): array
-    {
-        return $this->events;
-    }
-
-    public function setEvents(array $events): self
-    {
-        $this->events = $events;
-
-        return $this;
-    }
+    */
 }

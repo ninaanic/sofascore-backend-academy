@@ -5,30 +5,37 @@ declare(strict_types=1);
 namespace App\Listener;
 
 use App\Attribute\ApiController;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use ReflectionObject;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 #[AsEventListener]
-final class ApiControllerListener
+class ApiControllerListener 
 {
-    public function __construct(
-        #[Autowire('%env(API_TOKEN)%')]
-        private readonly string $apiToken,
-    ) {
+    private string $apiToken;
+    public function __construct(string $apiToken)
+    {
+        $this->apiToken = $apiToken;
     }
 
-    public function __invoke(ControllerEvent $event): void
-    {
-        if (!isset($event->getAttributes()[ApiController::class])) {
-            return;
-        }
+    public function __invoke(ControllerEvent $event): void {
 
-        $event->getRequest()->attributes->set('is-api-controller', true);
+        $attributes = $event->getAttributes();
 
-        if ($this->apiToken !== $event->getRequest()->headers->get('X-Authorization')) {
-            throw new AccessDeniedHttpException('Invalid token provided.');
+        foreach($attributes as $attribute) {
+
+            if (get_class($attribute[0]) === ApiController::class) {
+
+                $event->getRequest()->attributes->set('ApiController', true); // za ApiExceptionListener
+
+                $request = $event->getRequest();
+                $header = $request->headers->get('X-Authorization');
+
+                if ($header !== $this->apiToken) {
+                    throw new AccessDeniedException('Invalid API token');
+                }
+            }
         }
     }
 }
