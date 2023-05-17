@@ -132,19 +132,21 @@ final class ParseScheduleCommand extends Command
                 $homeTeamEntity = $this->entityManager->getRepository(Team::class)->findOneBy(['externalId' => $event->home_team_id]);;
                 $awayTeamEntity = $this->entityManager->getRepository(Team::class)->findOneBy(['externalId' => $event->away_team_id]);;
 
-                if (null === $eventEntity) {
-                    $eventEntity = new Event($event->id, $event->home_team_id, $event->away_team_id, $event->start_date, $event->home_score, $event->away_score);
-                    $eventEntity->setTournamentId($tournamentEntity->getId());
-                    $eventEntity->setHomeTeamId($homeTeamEntity->getId());
-                    $eventEntity->setAwayTeamId($awayTeamEntity->getId());
-                    $this->entityManager->persist($eventEntity);
+                if ($homeTeamEntity !== null && $awayTeamEntity !== null) {
+                    if (null === $eventEntity) {
+                        $eventEntity = new Event($event->id, $event->home_team_id, $event->away_team_id, $event->start_date, $event->home_score, $event->away_score);
+                        $eventEntity->setTournamentId($tournamentEntity->getId());
+                        $eventEntity->setHomeTeamId($homeTeamEntity->getId());
+                        $eventEntity->setAwayTeamId($awayTeamEntity->getId());
+                        $this->entityManager->persist($eventEntity);
 
-                } else {
-                    $eventEntity->setHomeTeamExteranlId($event->home_team_id);
-                    $eventEntity->setAwayTeamExteranlId($event->away_team_id);
-                    $eventEntity->setStartDate($event->start_date);
-                    $eventEntity->setHomeScore($event->home_score);
-                    $eventEntity->setAwayScore($event->away_score);
+                    } else {
+                        $eventEntity->setHomeTeamExteranlId($event->home_team_id);
+                        $eventEntity->setAwayTeamExteranlId($event->away_team_id);
+                        $eventEntity->setStartDate($event->start_date);
+                        $eventEntity->setHomeScore($event->home_score);
+                        $eventEntity->setAwayScore($event->away_score);
+                    }
                 }
             }
         }
