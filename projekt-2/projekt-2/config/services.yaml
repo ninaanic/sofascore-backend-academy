@@ -22,3 +22,27 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Database\Connection:
+        arguments:
+            $dsn: '%env(DATABASE_DSN)%'
+
+
+    App\Command\GetSportDataCommand:
+        arguments:
+            $messageBus: '@Symfony\Component\Messenger\MessageBusInterface'
+            $client: '@Symfony\Contracts\HttpClient\HttpClientInterface'
+        tags:
+            - { name: 'console.command' }
+
+    App\Handler\ParseFileHandler:
+        tags:
+            - { name: 'messenger.message_handler' }
+
+
+    App\Command\GetTournamentDataCommand:
+        arguments:
+            $messageBus: '@Symfony\Component\Messenger\MessageBusInterface'
+            $client: '@Symfony\Contracts\HttpClient\HttpClientInterface'
+        tags:
+            - { name: 'console.command' }

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 4,
+        "name": "NBA",
+        "slug": "nba",
+        "sport": {
+            "id": 2,
+            "name": "Basketball",
+            "slug": "basketball"
+        },
+        "country": {
+            "id": 254,
+            "name": "USA"
+        }
+    }
+]

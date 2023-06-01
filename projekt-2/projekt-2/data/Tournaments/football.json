@@ -1,0 +1,58 @@
+[
+    {
+        "id": 2,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "sport": {
+            "id": 1,
+            "name": "Football",
+            "slug": "football"
+        },
+        "country": {
+            "id": 250,
+            "name": "England"
+        }
+    },
+    {
+        "id": 3,
+        "name": "LaLiga",
+        "slug": "laliga",
+        "sport": {
+            "id": 1,
+            "name": "Football",
+            "slug": "football"
+        },
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        }
+    },
+    {
+        "id": 6,
+        "name": "HNL",
+        "slug": "hnl",
+        "sport": {
+            "id": 1,
+            "name": "Football",
+            "slug": "football"
+        },
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        }
+    },
+    {
+        "id": 7,
+        "name": "European Super League",
+        "slug": "european-super-league",
+        "sport": {
+            "id": 1,
+            "name": "Football",
+            "slug": "football"
+        },
+        "country": {
+            "id": 257,
+            "name": "International"
+        }
+    }
+]
