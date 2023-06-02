@@ -35,14 +35,27 @@ services:
         tags:
             - { name: 'console.command' }
 
-    App\Handler\ParseFileHandler:
-        tags:
-            - { name: 'messenger.message_handler' }
-
-
     App\Command\GetTournamentDataCommand:
         arguments:
             $messageBus: '@Symfony\Component\Messenger\MessageBusInterface'
             $client: '@Symfony\Contracts\HttpClient\HttpClientInterface'
         tags:
             - { name: 'console.command' }
+
+    App\Command\GetSportEventDataCommand:
+        arguments:
+            $messageBus: '@Symfony\Component\Messenger\MessageBusInterface'
+            $client: '@Symfony\Contracts\HttpClient\HttpClientInterface'
+        tags:
+            - { name: 'console.command' }
+
+    App\Command\GetTournamentEventDataCommand:
+        arguments:
+            $messageBus: '@Symfony\Component\Messenger\MessageBusInterface'
+            $client: '@Symfony\Contracts\HttpClient\HttpClientInterface'
+        tags:
+            - { name: 'console.command' }
+
+    App\Handler\ParseFileHandler:
+        tags:
+            - { name: 'messenger.message_handler' }

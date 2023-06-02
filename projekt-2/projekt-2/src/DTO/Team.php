@@ -12,15 +12,7 @@ class Team
         public ?string $venue,
         public int $id,
 
-        /** @var Event[] */
-        public array $events,
-
-        /** @var Player[] */
-        public array $players,
-
-        /** @var Tournament[] */
-        public array $tournaments
-
+        public Country $country,
         //TODO logo
     ) {
     }

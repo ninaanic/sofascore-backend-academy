@@ -1,0 +1,392 @@
+[
+    {
+        "id": 5669,
+        "slug": "nk-osijek-nk-istra-1961",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 90,
+            "name": "NK Osijek",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 87,
+            "name": "NK Istra 1961",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-03T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 5665,
+        "slug": "nk-slaven-belupo-gnk-dinamo-zagreb",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 89,
+            "name": "NK Slaven Belupo",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 91,
+            "name": "GNK Dinamo Zagreb",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-03T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 5673,
+        "slug": "hnk-gorica-hnk-rijeka",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 86,
+            "name": "HNK Gorica",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 88,
+            "name": "HNK Rijeka",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-03T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 5677,
+        "slug": "nk-lokomotiva-zagreb-hnk-hajduk-split",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 92,
+            "name": "NK Lokomotiva Zagreb",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 85,
+            "name": "HNK Hajduk Split",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-04T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 5681,
+        "slug": "nk-varazdin-hnk-sibenik",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 83,
+            "name": "NK Vara\u017edin",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 84,
+            "name": "HNK \u0160ibenik",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-04T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 5685,
+        "slug": "nk-lokomotiva-zagreb-nk-istra-1961",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 92,
+            "name": "NK Lokomotiva Zagreb",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 87,
+            "name": "NK Istra 1961",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-10T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 23
+    },
+    {
+        "id": 5689,
+        "slug": "nk-varazdin-hnk-hajduk-split",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 83,
+            "name": "NK Vara\u017edin",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 85,
+            "name": "HNK Hajduk Split",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-10T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 23
+    },
+    {
+        "id": 5693,
+        "slug": "nk-osijek-gnk-dinamo-zagreb",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 90,
+            "name": "NK Osijek",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 91,
+            "name": "GNK Dinamo Zagreb",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-10T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 23
+    },
+    {
+        "id": 5697,
+        "slug": "hnk-gorica-hnk-sibenik",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 86,
+            "name": "HNK Gorica",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 84,
+            "name": "HNK \u0160ibenik",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-11T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 23
+    },
+    {
+        "id": 5701,
+        "slug": "nk-slaven-belupo-hnk-rijeka",
+        "tournament": {
+            "id": 6,
+            "name": "HNL",
+            "slug": "hnl",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "homeTeam": {
+            "id": 89,
+            "name": "NK Slaven Belupo",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 88,
+            "name": "HNK Rijeka",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-11T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 23
+    }
+]

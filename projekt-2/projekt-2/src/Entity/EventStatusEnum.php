@@ -6,8 +6,8 @@ namespace App\Entity;
 
 enum EventStatusEnum: string
 {
-    case NotStarted = 'not-started';
-    case InProgress = 'in-progress';
+    case NotStarted = 'notstarted';
+    case InProgress = 'inprogress';
     case Finished = 'finished';
     case Canceled = 'canceled';
 }

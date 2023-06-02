@@ -7,18 +7,20 @@ namespace App\DTO;
 class Event
 {
     public function __construct(
-        public string $slug,
-        public string $start_date,
-        public string $status,
-        public ?string $winner_code,
-        public int $round,
         public int $id,
+        public string $slug,
+        public string $startDate,
+        public string $status,
+        public int $round,
 
-        /** @var Score[] */
-        public array $home_score,
+        public Tournament $tournament,
+        public Team $homeTeam,
+        public Team $awayTeam,
 
-        /** @var Score[] */
-        public array $away_score
+        public array $homeScore,
+        public array $awayScore,
+
+        public ?string $winnerCode
 
         // TODO incidents
     ) {

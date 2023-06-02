@@ -46,8 +46,6 @@ final class GetSportDataCommand extends Command
         file_put_contents($file, $data2);
         $this->messageBus->dispatch(new ParseFile($file));
 
-        
-        
         return self::SUCCESS;
     }
 

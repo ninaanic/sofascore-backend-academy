@@ -1,0 +1,314 @@
+[
+    {
+        "id": 6909,
+        "slug": "miami-dolphins-seattle-seahawks",
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 79,
+            "name": "Miami Dolphins",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 66,
+            "name": "Seattle Seahawks",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6910,
+        "slug": "houston-texans-baltimore-ravens",
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 75,
+            "name": "Houston Texans",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 72,
+            "name": "Baltimore Ravens",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6911,
+        "slug": "atlanta-falcons-tennessee-titans",
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 58,
+            "name": "Atlanta Falcons",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 61,
+            "name": "Tennessee Titans",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6912,
+        "slug": "new-york-jets-new-york-giants",
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 63,
+            "name": "New York Jets",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 62,
+            "name": "New York Giants",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6913,
+        "slug": "las-vegas-raiders-denver-broncos",
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 80,
+            "name": "Las Vegas Raiders",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 67,
+            "name": "Denver Broncos",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6914,
+        "slug": "washington-commanders-cleveland-browns",
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 55,
+            "name": "Washington Commanders",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 77,
+            "name": "Cleveland Browns",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6915,
+        "slug": "tampa-bay-buccaneers-detroit-lions",
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 69,
+            "name": "Tampa Bay Buccaneers",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 65,
+            "name": "Detroit Lions",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6916,
+        "slug": "san-francisco-49ers-los-angeles-rams",
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 57,
+            "name": "San Francisco 49ers",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 51,
+            "name": "Los Angeles Rams",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    }
+]

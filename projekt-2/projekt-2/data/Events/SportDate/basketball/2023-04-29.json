@@ -1,0 +1,314 @@
+[
+    {
+        "id": 6263,
+        "slug": "memphis-grizzlies-miami-heat",
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 44,
+            "name": "Memphis Grizzlies",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 41,
+            "name": "Miami Heat",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6265,
+        "slug": "dallas-mavericks-chicago-bulls",
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 36,
+            "name": "Dallas Mavericks",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 31,
+            "name": "Chicago Bulls",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6267,
+        "slug": "oklahoma-city-thunder-boston-celtics",
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 25,
+            "name": "Oklahoma City Thunder",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 30,
+            "name": "Boston Celtics",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6269,
+        "slug": "phoenix-suns-san-antonio-spurs",
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 22,
+            "name": "Phoenix Suns",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 45,
+            "name": "San Antonio Spurs",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6271,
+        "slug": "new-orleans-pelicans-new-york-knicks",
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 32,
+            "name": "New Orleans Pelicans",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 37,
+            "name": "New York Knicks",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6273,
+        "slug": "los-angeles-lakers-orlando-magic",
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 40,
+            "name": "Los Angeles Lakers",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 43,
+            "name": "Orlando Magic",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6275,
+        "slug": "houston-rockets-golden-state-warriors",
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 39,
+            "name": "Houston Rockets",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 23,
+            "name": "Golden State Warriors",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    },
+    {
+        "id": 6277,
+        "slug": "detroit-pistons-los-angeles-clippers",
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "homeTeam": {
+            "id": 34,
+            "name": "Detroit Pistons",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "awayTeam": {
+            "id": 47,
+            "name": "Los Angeles Clippers",
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-04-29T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 17
+    }
+]

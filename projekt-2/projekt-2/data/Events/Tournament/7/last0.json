@@ -1,0 +1,392 @@
+[
+    {
+        "id": 7313,
+        "slug": "nk-osijek-real-madrid",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 90,
+            "name": "NK Osijek",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 106,
+            "name": "Real Madrid",
+            "country": {
+                "id": 212,
+                "name": "Spain"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-24T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 12
+    },
+    {
+        "id": 7315,
+        "slug": "hnk-gorica-gnk-dinamo-zagreb",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 86,
+            "name": "HNK Gorica",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 91,
+            "name": "GNK Dinamo Zagreb",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-24T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 12
+    },
+    {
+        "id": 7311,
+        "slug": "arsenal-hnk-rijeka",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 13,
+            "name": "Arsenal",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 88,
+            "name": "HNK Rijeka",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-24T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 12
+    },
+    {
+        "id": 7321,
+        "slug": "barcelona-hnk-rijeka",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 100,
+            "name": "Barcelona",
+            "country": {
+                "id": 212,
+                "name": "Spain"
+            }
+        },
+        "awayTeam": {
+            "id": 88,
+            "name": "HNK Rijeka",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-30T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 13
+    },
+    {
+        "id": 7317,
+        "slug": "nk-osijek-chelsea",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 90,
+            "name": "NK Osijek",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 14,
+            "name": "Chelsea",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-30T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 13
+    },
+    {
+        "id": 7323,
+        "slug": "manchester-city-atletico-madrid",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 12,
+            "name": "Manchester City",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 112,
+            "name": "Atl\u00e9tico Madrid",
+            "country": {
+                "id": 212,
+                "name": "Spain"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-30T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 13
+    },
+    {
+        "id": 7319,
+        "slug": "gnk-dinamo-zagreb-hnk-hajduk-split",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 91,
+            "name": "GNK Dinamo Zagreb",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 85,
+            "name": "HNK Hajduk Split",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-30T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 13
+    },
+    {
+        "id": 7325,
+        "slug": "liverpool-real-madrid",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 19,
+            "name": "Liverpool",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 106,
+            "name": "Real Madrid",
+            "country": {
+                "id": 212,
+                "name": "Spain"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-31T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 13
+    },
+    {
+        "id": 7329,
+        "slug": "arsenal-manchester-united",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 13,
+            "name": "Arsenal",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 1,
+            "name": "Manchester United",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-31T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 13
+    },
+    {
+        "id": 7327,
+        "slug": "hnk-gorica-sevilla",
+        "tournament": {
+            "id": 7,
+            "name": "European Super League",
+            "slug": "european-super-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 257,
+                "name": "International"
+            }
+        },
+        "homeTeam": {
+            "id": 86,
+            "name": "HNK Gorica",
+            "country": {
+                "id": 56,
+                "name": "Croatia"
+            }
+        },
+        "awayTeam": {
+            "id": 102,
+            "name": "Sevilla",
+            "country": {
+                "id": 212,
+                "name": "Spain"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-05-31T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 13
+    }
+]

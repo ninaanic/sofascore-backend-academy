@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\TournamentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Sport;
+use App\Entity\Country;
 
 #[ORM\Entity(repositoryClass: TournamentRepository::class)]
 class Tournament
@@ -34,8 +36,8 @@ class Tournament
     #[ORM\Column]
     private ?int $country_id = null;
 
-    public array $standings;
-    public array $events;
+    //public Sport $sport;
+    //public Country $country;
 
     public function __construct(string $name, string $slug, int $external_id, ?int $number_of_competitors, ?int $head_to_head_count)
     {
@@ -44,6 +46,8 @@ class Tournament
         $this->external_id = $external_id;
         $this->number_of_competitors = $number_of_competitors;
         $this->head_to_head_count = $head_to_head_count;
+       // $this->sport = $sport;
+       // $this->country = $country;
     }
 
 
@@ -136,27 +140,30 @@ class Tournament
         return $this;
     }
 
-    public function getEvents(): array
+    /*
+
+    public function getSport(): Sport
     {
-        return $this->events;
+        return $this->sport;
     }
 
-    public function setEvents(array $events): self
+    public function setSport(Sport $sport): self
     {
-        $this->events = $events;
+        $this->sport = $sport;
 
         return $this;
     }
 
-    public function getStandings(): array
+    public function getCountry(): Country
     {
-        return $this->standings;
+        return $this->country;
     }
 
-    public function setStandings(array $standings): self
+    public function setCountry(Country $country): self
     {
-        $this->standings = $standings;
+        $this->country = $country;
 
         return $this;
     }
+    */
 }
