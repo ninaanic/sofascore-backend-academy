@@ -1,0 +1,392 @@
+[
+    {
+        "id": 4202,
+        "slug": "crystal-palace-aston-villa",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 16,
+            "name": "Crystal Palace",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 18,
+            "name": "Aston Villa",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-03T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4208,
+        "slug": "brentford-fulham",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 20,
+            "name": "Brentford",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 6,
+            "name": "Fulham",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-03T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4200,
+        "slug": "arsenal-leicester-city",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 13,
+            "name": "Arsenal",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 5,
+            "name": "Leicester City",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-03T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4206,
+        "slug": "liverpool-everton",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 19,
+            "name": "Liverpool",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 11,
+            "name": "Everton",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-03T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4204,
+        "slug": "west-ham-wolverhampton",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 3,
+            "name": "West Ham",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 9,
+            "name": "Wolverhampton",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-03T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4216,
+        "slug": "manchester-united-newcastle-united",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 1,
+            "name": "Manchester United",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 10,
+            "name": "Newcastle United",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-04T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4212,
+        "slug": "brighton-and-hove-albion-nottingham-forest",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 15,
+            "name": "Brighton & Hove Albion",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 4,
+            "name": "Nottingham Forest",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-04T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4218,
+        "slug": "chelsea-southampton",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 14,
+            "name": "Chelsea",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 17,
+            "name": "Southampton",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-04T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4210,
+        "slug": "bournemouth-leeds-united",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 2,
+            "name": "Bournemouth",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 7,
+            "name": "Leeds United",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-04T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    },
+    {
+        "id": 4214,
+        "slug": "manchester-city-tottenham-hotspur",
+        "tournament": {
+            "id": 2,
+            "name": "Premier League",
+            "slug": "premier-league",
+            "sport": {
+                "id": 1,
+                "name": "Football",
+                "slug": "football"
+            },
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "homeTeam": {
+            "id": 12,
+            "name": "Manchester City",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "awayTeam": {
+            "id": 8,
+            "name": "Tottenham Hotspur",
+            "country": {
+                "id": 250,
+                "name": "England"
+            }
+        },
+        "status": "notstarted",
+        "startDate": "2023-06-04T14:00:00+00:00",
+        "homeScore": [],
+        "awayScore": [],
+        "round": 22
+    }
+]

@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "name": "Manchester United",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Erik ten Hag",
+        "venue": "Old Trafford"
+    },
+    {
+        "id": 2,
+        "name": "Bournemouth",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Gary O'Neil",
+        "venue": "Vitality Stadium"
+    },
+    {
+        "id": 3,
+        "name": "West Ham",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "David Moyes",
+        "venue": "London Stadium"
+    },
+    {
+        "id": 4,
+        "name": "Nottingham Forest",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Steve Cooper",
+        "venue": "City Ground"
+    },
+    {
+        "id": 5,
+        "name": "Leicester City",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Dean Smith",
+        "venue": "King Power Stadium"
+    },
+    {
+        "id": 6,
+        "name": "Fulham",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Marco Silva",
+        "venue": "Craven Cottage"
+    },
+    {
+        "id": 7,
+        "name": "Leeds United",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Javi Gracia",
+        "venue": "Elland Road"
+    },
+    {
+        "id": 8,
+        "name": "Tottenham Hotspur",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Cristian Stellini",
+        "venue": "Tottenham Hotspur Stadium"
+    },
+    {
+        "id": 9,
+        "name": "Wolverhampton",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Julen Lopetegui",
+        "venue": "Molineux Stadium"
+    },
+    {
+        "id": 10,
+        "name": "Newcastle United",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Eddie Howe",
+        "venue": "St James' Park"
+    },
+    {
+        "id": 11,
+        "name": "Everton",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Sean Dyche",
+        "venue": "Goodison Park"
+    },
+    {
+        "id": 12,
+        "name": "Manchester City",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Pep Guardiola",
+        "venue": "Etihad Stadium"
+    },
+    {
+        "id": 13,
+        "name": "Arsenal",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Mikel Arteta",
+        "venue": "Emirates Stadium"
+    },
+    {
+        "id": 14,
+        "name": "Chelsea",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Frank Lampard",
+        "venue": "Stamford Bridge"
+    },
+    {
+        "id": 15,
+        "name": "Brighton & Hove Albion",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Roberto De Zerbi",
+        "venue": "American Express Community's Stadium"
+    },
+    {
+        "id": 16,
+        "name": "Crystal Palace",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Roy Hodgson",
+        "venue": "Selhurst Park"
+    },
+    {
+        "id": 17,
+        "name": "Southampton",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Rub\u00e9n Sell\u00e9s",
+        "venue": "St. Mary's Stadium"
+    },
+    {
+        "id": 18,
+        "name": "Aston Villa",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Unai Emery",
+        "venue": "Villa Park"
+    },
+    {
+        "id": 19,
+        "name": "Liverpool",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "J\u00fcrgen Klopp",
+        "venue": "Anfield"
+    },
+    {
+        "id": 20,
+        "name": "Brentford",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "managerName": "Thomas Frank",
+        "venue": "Brentford Community Stadium"
+    }
+]
