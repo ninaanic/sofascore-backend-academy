@@ -28,7 +28,7 @@ services:
             $dsn: '%env(DATABASE_DSN)%'
 
 
-    App\Command\GetSportDataCommand:
+    App\Command\GetDataFromProviderCommand:
         arguments:
             $messageBus: '@Symfony\Component\Messenger\MessageBusInterface'
             $client: '@Symfony\Contracts\HttpClient\HttpClientInterface'
