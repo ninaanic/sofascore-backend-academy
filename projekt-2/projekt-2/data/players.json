@@ -1,202 +1,352 @@
 [
     {
-        "id": 1,
-        "name": "Manchester United",
+        "id": 29,
+        "name": "Bruno Fernandes",
+        "slug": "bruno-fernandes",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 181,
+            "name": "Portugal"
         },
-        "managerName": "Erik ten Hag",
-        "venue": "Old Trafford"
+        "position": "M"
     },
     {
-        "id": 2,
-        "name": "Bournemouth",
+        "id": 31,
+        "name": "Marc Jurado",
+        "slug": "marc-jurado",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 212,
+            "name": "Spain"
         },
-        "managerName": "Gary O'Neil",
-        "venue": "Vitality Stadium"
+        "position": "D"
     },
     {
-        "id": 3,
-        "name": "West Ham",
+        "id": 58,
+        "name": "Fred",
+        "slug": "fred",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 32,
+            "name": "Brazil"
         },
-        "managerName": "David Moyes",
-        "venue": "London Stadium"
+        "position": "M"
     },
     {
-        "id": 4,
-        "name": "Nottingham Forest",
+        "id": 48,
+        "name": "Scott McTominay",
+        "slug": "scott-mctominay",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 251,
+            "name": "Scotland"
         },
-        "managerName": "Steve Cooper",
-        "venue": "City Ground"
+        "position": "M"
     },
     {
-        "id": 5,
-        "name": "Leicester City",
+        "id": 49,
+        "name": "Donny van de Beek",
+        "slug": "donny-van-de-beek",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 159,
+            "name": "Netherlands"
         },
-        "managerName": "Dean Smith",
-        "venue": "King Power Stadium"
+        "position": "M"
     },
     {
-        "id": 6,
-        "name": "Fulham",
+        "id": 46,
+        "name": "Williams, Brandon",
+        "slug": "williams-brandon",
         "country": {
             "id": 250,
             "name": "England"
         },
-        "managerName": "Marco Silva",
-        "venue": "Craven Cottage"
+        "position": "D"
     },
     {
-        "id": 7,
-        "name": "Leeds United",
+        "id": 55,
+        "name": "Aaron Wan-Bissaka",
+        "slug": "aaron-wan-bissaka",
         "country": {
             "id": 250,
             "name": "England"
         },
-        "managerName": "Javi Gracia",
-        "venue": "Elland Road"
+        "position": "D"
     },
     {
-        "id": 8,
-        "name": "Tottenham Hotspur",
+        "id": 59,
+        "name": "Teden Mengi",
+        "slug": "teden-mengi",
         "country": {
             "id": 250,
             "name": "England"
         },
-        "managerName": "Cristian Stellini",
-        "venue": "Tottenham Hotspur Stadium"
+        "position": "D"
     },
     {
-        "id": 9,
-        "name": "Wolverhampton",
+        "id": 51,
+        "name": "Victor Lindel\u00f6f",
+        "slug": "victor-lindelof",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 217,
+            "name": "Sweden"
         },
-        "managerName": "Julen Lopetegui",
-        "venue": "Molineux Stadium"
+        "position": "D"
     },
     {
-        "id": 10,
-        "name": "Newcastle United",
+        "id": 35,
+        "name": "Tom Heaton",
+        "slug": "tom-heaton",
         "country": {
             "id": 250,
             "name": "England"
         },
-        "managerName": "Eddie Howe",
-        "venue": "St James' Park"
+        "position": "G"
     },
     {
-        "id": 11,
-        "name": "Everton",
+        "id": 57,
+        "name": "Tyrell Malacia",
+        "slug": "tyrell-malacia",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 159,
+            "name": "Netherlands"
         },
-        "managerName": "Sean Dyche",
-        "venue": "Goodison Park"
+        "position": "D"
     },
     {
-        "id": 12,
-        "name": "Manchester City",
+        "id": 40,
+        "name": "Diogo Dalot",
+        "slug": "diogo-dalot",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 181,
+            "name": "Portugal"
         },
-        "managerName": "Pep Guardiola",
-        "venue": "Etihad Stadium"
+        "position": "D"
     },
     {
-        "id": 13,
-        "name": "Arsenal",
+        "id": 56,
+        "name": "Sancho, Jadon",
+        "slug": "sancho-jadon",
         "country": {
             "id": 250,
             "name": "England"
         },
-        "managerName": "Mikel Arteta",
-        "venue": "Emirates Stadium"
+        "position": "M"
     },
     {
-        "id": 14,
-        "name": "Chelsea",
+        "id": 43,
+        "name": "Lisandro Mart\u00ednez",
+        "slug": "lisandro-martinez",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 11,
+            "name": "Argentina"
         },
-        "managerName": "Frank Lampard",
-        "venue": "Stamford Bridge"
+        "position": "D"
     },
     {
-        "id": 15,
-        "name": "Brighton & Hove Albion",
+        "id": 45,
+        "name": "Anthony Elanga",
+        "slug": "anthony-elanga",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 217,
+            "name": "Sweden"
         },
-        "managerName": "Roberto De Zerbi",
-        "venue": "American Express Community's Stadium"
+        "position": "M"
     },
     {
-        "id": 16,
-        "name": "Crystal Palace",
+        "id": 36,
+        "name": "Casemiro",
+        "slug": "casemiro",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 32,
+            "name": "Brazil"
         },
-        "managerName": "Roy Hodgson",
-        "venue": "Selhurst Park"
+        "position": "M"
     },
     {
-        "id": 17,
-        "name": "Southampton",
+        "id": 28,
+        "name": "Anthony Martial",
+        "slug": "anthony-martial",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 77,
+            "name": "France"
         },
-        "managerName": "Rub\u00e9n Sell\u00e9s",
-        "venue": "St. Mary's Stadium"
+        "position": "F"
     },
     {
-        "id": 18,
-        "name": "Aston Villa",
+        "id": 42,
+        "name": "Harry Maguire",
+        "slug": "harry-maguire",
         "country": {
             "id": 250,
             "name": "England"
         },
-        "managerName": "Unai Emery",
-        "venue": "Villa Park"
+        "position": "D"
     },
     {
-        "id": 19,
-        "name": "Liverpool",
+        "id": 37,
+        "name": "Antony",
+        "slug": "antony",
         "country": {
-            "id": 250,
-            "name": "England"
+            "id": 32,
+            "name": "Brazil"
         },
-        "managerName": "J\u00fcrgen Klopp",
-        "venue": "Anfield"
+        "position": "M"
     },
     {
-        "id": 20,
-        "name": "Brentford",
+        "id": 30,
+        "name": "Rapha\u00ebl Varane",
+        "slug": "raphael-varane",
+        "country": {
+            "id": 77,
+            "name": "France"
+        },
+        "position": "D"
+    },
+    {
+        "id": 32,
+        "name": "David De Gea",
+        "slug": "david-de-gea",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "position": "G"
+    },
+    {
+        "id": 39,
+        "name": "Phil Jones",
+        "slug": "phil-jones",
         "country": {
             "id": 250,
             "name": "England"
         },
-        "managerName": "Thomas Frank",
-        "venue": "Brentford Community Stadium"
+        "position": "D"
+    },
+    {
+        "id": 27,
+        "name": "Marcus Rashford",
+        "slug": "marcus-rashford",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "position": "M"
+    },
+    {
+        "id": 34,
+        "name": "Luke Shaw",
+        "slug": "luke-shaw",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "position": "D"
+    },
+    {
+        "id": 47,
+        "name": "Christian Eriksen",
+        "slug": "christian-eriksen",
+        "country": {
+            "id": 61,
+            "name": "Denmark"
+        },
+        "position": "M"
+    },
+    {
+        "id": 44,
+        "name": "Wout Weghorst",
+        "slug": "wout-weghorst",
+        "country": {
+            "id": 159,
+            "name": "Netherlands"
+        },
+        "position": "F"
+    },
+    {
+        "id": 53,
+        "name": "Zidane Iqbal",
+        "slug": "zidane-iqbal",
+        "country": {
+            "id": 107,
+            "name": "Iraq"
+        },
+        "position": "M"
+    },
+    {
+        "id": 38,
+        "name": "Kobbie Mainoo",
+        "slug": "kobbie-mainoo",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "position": "M"
+    },
+    {
+        "id": 41,
+        "name": "Alejandro Garnacho",
+        "slug": "alejandro-garnacho",
+        "country": {
+            "id": 11,
+            "name": "Argentina"
+        },
+        "position": "M"
+    },
+    {
+        "id": 33,
+        "name": "Jack Butland",
+        "slug": "jack-butland",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "position": "G"
+    },
+    {
+        "id": 50,
+        "name": "Facundo Pellistri",
+        "slug": "facundo-pellistri",
+        "country": {
+            "id": 238,
+            "name": "Uruguay"
+        },
+        "position": "M"
+    },
+    {
+        "id": 54,
+        "name": "Marcel Sabitzer",
+        "slug": "marcel-sabitzer",
+        "country": {
+            "id": 15,
+            "name": "Austria"
+        },
+        "position": "M"
+    },
+    {
+        "id": 52,
+        "name": "Mason Greenwood",
+        "slug": "mason-greenwood",
+        "country": {
+            "id": 250,
+            "name": "England"
+        },
+        "position": "M"
+    },
+    {
+        "id": 117,
+        "name": "Andr\u00e9 Ayew",
+        "slug": "andre-ayew",
+        "country": {
+            "id": 85,
+            "name": "Ghana"
+        },
+        "position": "F"
+    },
+    {
+        "id": 141,
+        "name": "Keylor Navas",
+        "slug": "keylor-navas",
+        "country": {
+            "id": 54,
+            "name": "Costa Rica"
+        },
+        "position": "G"
     }
 ]

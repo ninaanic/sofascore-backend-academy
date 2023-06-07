@@ -13,9 +13,7 @@ class Player
         public ?string $date_of_birth,
         public int $id,
 
-        /** @var Event[] */
-        public array $events
-
+        public Country $country
         // TODO logo
     ) {
     }

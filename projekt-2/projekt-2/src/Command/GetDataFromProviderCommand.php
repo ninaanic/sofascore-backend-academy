@@ -79,7 +79,7 @@ final class GetDataFromProviderCommand extends Command
         foreach($team_ids_unique as $team_id) {
             $players += $this->load_json("team/$team_id/players");
         }
-        $this->save_json("players", $teams);
+        $this->save_json("players", $players);
 
         return self::SUCCESS;
     }
@@ -105,7 +105,7 @@ final class GetDataFromProviderCommand extends Command
         $file = "data/" . $filename . ".json";
         file_put_contents($file, $json_data);
 
-        //$this->messageBus->dispatch(new ParseFile($file));
+        $this->messageBus->dispatch(new ParseFile($file));
     }
 
     public function tournament_events (int $tournament_id, string $direction): array {
