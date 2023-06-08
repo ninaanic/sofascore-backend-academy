@@ -198,5 +198,925 @@
         },
         "managerName": "Thomas Frank",
         "venue": "Brentford Community Stadium"
+    },
+    {
+        "id": 21,
+        "name": "Atlanta Hawks",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Quin Snyder",
+        "venue": "State Farm Arena"
+    },
+    {
+        "id": 22,
+        "name": "Phoenix Suns",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Monty Williams",
+        "venue": "Footprint Centre "
+    },
+    {
+        "id": 23,
+        "name": "Golden State Warriors",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Steve Kerr",
+        "venue": "Chase Center"
+    },
+    {
+        "id": 24,
+        "name": "Indiana Pacers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Rick Carlisle",
+        "venue": "Gainbridge Fieldhouse"
+    },
+    {
+        "id": 25,
+        "name": "Oklahoma City Thunder",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Mark Daigneault",
+        "venue": "PayCom Center"
+    },
+    {
+        "id": 26,
+        "name": "Utah Jazz",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Will Hardy",
+        "venue": "Vivint Smart Home Arena"
+    },
+    {
+        "id": 27,
+        "name": "Milwaukee Bucks",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Mike Budenholzer",
+        "venue": "Fiserv Forum"
+    },
+    {
+        "id": 28,
+        "name": "Sacramento Kings",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Mike Brown",
+        "venue": "Golden 1 Center"
+    },
+    {
+        "id": 29,
+        "name": "Toronto Raptors",
+        "country": {
+            "id": 41,
+            "name": "Canada"
+        },
+        "managerName": "Nick Nurse",
+        "venue": "Scotiabank Arena"
+    },
+    {
+        "id": 30,
+        "name": "Boston Celtics",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Joe Mazzulla",
+        "venue": "TD Garden"
+    },
+    {
+        "id": 31,
+        "name": "Chicago Bulls",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Billy Donovan",
+        "venue": "United Center"
+    },
+    {
+        "id": 32,
+        "name": "New Orleans Pelicans",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Willie Green",
+        "venue": "Smoothie King Center"
+    },
+    {
+        "id": 33,
+        "name": "Philadelphia 76ers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Doc Rivers",
+        "venue": "Wells Fargo Center"
+    },
+    {
+        "id": 34,
+        "name": "Detroit Pistons",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Dwane Casey",
+        "venue": "Little Caesars Arena"
+    },
+    {
+        "id": 35,
+        "name": "Portland Trail Blazers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Chauncey Billups",
+        "venue": "Moda Center"
+    },
+    {
+        "id": 36,
+        "name": "Dallas Mavericks",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Jason Kidd",
+        "venue": "American Airlines Center"
+    },
+    {
+        "id": 37,
+        "name": "New York Knicks",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Tom Thibodeau",
+        "venue": "Madison Square Garden"
+    },
+    {
+        "id": 38,
+        "name": "Brooklyn Nets",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Jacque Vaughn",
+        "venue": "Barclays Center"
+    },
+    {
+        "id": 39,
+        "name": "Houston Rockets",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Stephen Silas",
+        "venue": "Toyota Center"
+    },
+    {
+        "id": 40,
+        "name": "Los Angeles Lakers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Darvin Ham",
+        "venue": "Crypto.com Arena"
+    },
+    {
+        "id": 41,
+        "name": "Miami Heat",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Erik Spoelstra",
+        "venue": "Miami-Dade Arena"
+    },
+    {
+        "id": 42,
+        "name": "Cleveland Cavaliers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "John-Blair Bickerstaff",
+        "venue": "Rocket Mortgage Fieldhouse"
+    },
+    {
+        "id": 43,
+        "name": "Orlando Magic",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Jamahl Mosley",
+        "venue": "Amway Center"
+    },
+    {
+        "id": 44,
+        "name": "Memphis Grizzlies",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Taylor Jenkins",
+        "venue": "FedExForum"
+    },
+    {
+        "id": 45,
+        "name": "San Antonio Spurs",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Gregg Popovich",
+        "venue": "AT&T Center"
+    },
+    {
+        "id": 46,
+        "name": "Charlotte Hornets",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Steve Clifford",
+        "venue": "Spectrum Center"
+    },
+    {
+        "id": 47,
+        "name": "Los Angeles Clippers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Tyronn Lue",
+        "venue": "Crypto.com Arena"
+    },
+    {
+        "id": 48,
+        "name": "Minnesota Timberwolves",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Chris Finch",
+        "venue": "Target Center"
+    },
+    {
+        "id": 49,
+        "name": "Washington Wizards",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Wes Unseld",
+        "venue": "Capital One Arena"
+    },
+    {
+        "id": 50,
+        "name": "Denver Nuggets",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Michael Malone",
+        "venue": "Ball Arena"
+    },
+    {
+        "id": 51,
+        "name": "Los Angeles Rams",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "McVay, Sean",
+        "venue": "SoFi Stadium"
+    },
+    {
+        "id": 52,
+        "name": "Carolina Panthers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Rhule, Matt",
+        "venue": "Bank of America Stadium"
+    },
+    {
+        "id": 53,
+        "name": "Los Angeles Chargers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Brandon Staley",
+        "venue": "SoFi Stadium"
+    },
+    {
+        "id": 54,
+        "name": "New England Patriots",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Belichick, Bill",
+        "venue": "Gillette Stadium"
+    },
+    {
+        "id": 55,
+        "name": "Washington Commanders",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Rivera, Ron",
+        "venue": "FedEx Field"
+    },
+    {
+        "id": 56,
+        "name": "Buffalo Bills",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "McDermott, Sean",
+        "venue": "Highmark Stadium"
+    },
+    {
+        "id": 57,
+        "name": "San Francisco 49ers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Shanahan, Kyle",
+        "venue": "Levi's Stadium"
+    },
+    {
+        "id": 58,
+        "name": "Atlanta Falcons",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Arthur Smith",
+        "venue": "Mercedes-Benz Stadium"
+    },
+    {
+        "id": 59,
+        "name": "Dallas Cowboys",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "McCarthy, Mike",
+        "venue": "AT&T Stadium"
+    },
+    {
+        "id": 60,
+        "name": "New Orleans Saints",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Payton, Sean",
+        "venue": "Caesars Superdome"
+    },
+    {
+        "id": 61,
+        "name": "Tennessee Titans",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Vrabel, Mike",
+        "venue": "Nissan Stadium"
+    },
+    {
+        "id": 62,
+        "name": "New York Giants",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Judge, Joe",
+        "venue": "MetLife Stadium"
+    },
+    {
+        "id": 63,
+        "name": "New York Jets",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Robert Saleh",
+        "venue": "MetLife Stadium"
+    },
+    {
+        "id": 64,
+        "name": "Green Bay Packers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "LaFleur, Matt",
+        "venue": "Lambeau Field"
+    },
+    {
+        "id": 65,
+        "name": "Detroit Lions",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Dan Campbell",
+        "venue": "Ford Field"
+    },
+    {
+        "id": 66,
+        "name": "Seattle Seahawks",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Carroll, Pete",
+        "venue": "Lumen Field"
+    },
+    {
+        "id": 67,
+        "name": "Denver Broncos",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Fangio, Vic",
+        "venue": "Empower Field at Mile High"
+    },
+    {
+        "id": 68,
+        "name": "Cincinnati Bengals",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Taylor, Zac",
+        "venue": "Paul Brown Stadium"
+    },
+    {
+        "id": 69,
+        "name": "Tampa Bay Buccaneers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Todd Bowles",
+        "venue": "Raymond James Stadium"
+    },
+    {
+        "id": 70,
+        "name": "Jacksonville Jaguars",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Urban Meyer",
+        "venue": "TIAA Bank Field"
+    },
+    {
+        "id": 71,
+        "name": "Chicago Bears",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Nagy, Matt",
+        "venue": "Soldier Field"
+    },
+    {
+        "id": 72,
+        "name": "Baltimore Ravens",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Harbaugh, John",
+        "venue": "M&T Bank Stadium"
+    },
+    {
+        "id": 73,
+        "name": "Kansas City Chiefs",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Reid, Andy",
+        "venue": "Arrowhead Stadium"
+    },
+    {
+        "id": 74,
+        "name": "Indianapolis Colts",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Reich, Frank",
+        "venue": "Lucas Oil Stadium"
+    },
+    {
+        "id": 75,
+        "name": "Houston Texans",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "David Culley",
+        "venue": "NRG Stadium"
+    },
+    {
+        "id": 76,
+        "name": "Philadelphia Eagles",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Nick Sirianni",
+        "venue": "Lincoln Financial Field"
+    },
+    {
+        "id": 77,
+        "name": "Cleveland Browns",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Stefanski, Kevin",
+        "venue": "FirstEnergy Stadium "
+    },
+    {
+        "id": 78,
+        "name": "Pittsburgh Steelers",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Tomlin, Mike",
+        "venue": "Heinz Field"
+    },
+    {
+        "id": 79,
+        "name": "Miami Dolphins",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Flores, Brian",
+        "venue": "Hard Rock Stadium"
+    },
+    {
+        "id": 80,
+        "name": "Las Vegas Raiders",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Gruden, Jon",
+        "venue": "Allegiant Stadium"
+    },
+    {
+        "id": 81,
+        "name": "Minnesota Vikings",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Zimmer, Mike",
+        "venue": "U.S. Bank Stadium"
+    },
+    {
+        "id": 82,
+        "name": "Arizona Cardinals",
+        "country": {
+            "id": 254,
+            "name": "USA"
+        },
+        "managerName": "Kingsbury, Kliff",
+        "venue": "University of Phoenix Stadium"
+    },
+    {
+        "id": 83,
+        "name": "NK Vara\u017edin",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Mario Kova\u010devi\u0107",
+        "venue": "Stadion Varteks"
+    },
+    {
+        "id": 84,
+        "name": "HNK \u0160ibenik",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Damir \u010canadi",
+        "venue": "Stadion \u0160ubi\u0107evac"
+    },
+    {
+        "id": 85,
+        "name": "HNK Hajduk Split",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Ivan Leko",
+        "venue": "Stadion Poljud"
+    },
+    {
+        "id": 86,
+        "name": "HNK Gorica",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "\u017deljko Sopi\u0107",
+        "venue": "Gradski stadion Velika Gorica"
+    },
+    {
+        "id": 87,
+        "name": "NK Istra 1961",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Gonzalo Garcia",
+        "venue": "Aldo Drosina Stadium"
+    },
+    {
+        "id": 88,
+        "name": "HNK Rijeka",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Sergej Jakirovic",
+        "venue": "Stadion Rujevica"
+    },
+    {
+        "id": 89,
+        "name": "NK Slaven Belupo",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Zoran Zeki\u0107",
+        "venue": "Gradski stadion Ivan Ku\u0161ek Apa\u0161"
+    },
+    {
+        "id": 90,
+        "name": "NK Osijek",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Borimir Perkovi\u0107",
+        "venue": "Stadion Gradski vrt"
+    },
+    {
+        "id": 91,
+        "name": "GNK Dinamo Zagreb",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Igor Bi\u0161\u0107an",
+        "venue": "Maksimir"
+    },
+    {
+        "id": 92,
+        "name": "NK Lokomotiva Zagreb",
+        "country": {
+            "id": 56,
+            "name": "Croatia"
+        },
+        "managerName": "Silvijo \u010cabraja",
+        "venue": "Kranj\u010devi\u0107eva"
+    },
+    {
+        "id": 93,
+        "name": "Elche",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Sebastian Beccacece",
+        "venue": "Estadio Mart\u00ednez Valero"
+    },
+    {
+        "id": 94,
+        "name": "Villarreal",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Quique Seti\u00e9n",
+        "venue": "Estadio de la Ceramica"
+    },
+    {
+        "id": 95,
+        "name": "Celta Vigo",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Carlos Carvalhal",
+        "venue": "Municipal de Balaidos"
+    },
+    {
+        "id": 96,
+        "name": "Real Valladolid",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Paulo Pezzolano",
+        "venue": "Jos\u00e9 Zorrilla"
+    },
+    {
+        "id": 97,
+        "name": "Osasuna",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Jagoba Arrasate",
+        "venue": "Estadio El Sadar"
+    },
+    {
+        "id": 98,
+        "name": "Real Betis",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Manuel Pellegrini",
+        "venue": "Benito Villamarin"
+    },
+    {
+        "id": 99,
+        "name": "Athletic Club",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Ernesto Valverde",
+        "venue": "San Mam\u00e9s"
+    },
+    {
+        "id": 100,
+        "name": "Barcelona",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Xavi",
+        "venue": "Spotify Camp Nou"
+    },
+    {
+        "id": 101,
+        "name": "Girona",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Michel",
+        "venue": "Estadi Montilivi"
+    },
+    {
+        "id": 102,
+        "name": "Sevilla",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Jose Luis Mendilibar",
+        "venue": "Ram\u00f3n S\u00e1nchez Pizju\u00e1n"
+    },
+    {
+        "id": 103,
+        "name": "Espanyol",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Luis Garc\u00eda Fern\u00e1ndez",
+        "venue": "RCDE Stadium"
+    },
+    {
+        "id": 104,
+        "name": "Almer\u00eda",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Rubi",
+        "venue": "Estadio del Mediterr\u00e1neo"
+    },
+    {
+        "id": 105,
+        "name": "Getafe",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Quique S\u00e1nchez Flores",
+        "venue": "Coliseum Alfonso P\u00e9rez"
+    },
+    {
+        "id": 106,
+        "name": "Real Madrid",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Carlo Ancelotti",
+        "venue": "Santiago Bernab\u00e9u"
+    },
+    {
+        "id": 107,
+        "name": "C\u00e1diz",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Sergio",
+        "venue": "Estadio Ramon de Carranza"
+    },
+    {
+        "id": 108,
+        "name": "Valencia",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Ruben Baraja",
+        "venue": "Mestalla"
+    },
+    {
+        "id": 109,
+        "name": "Mallorca",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Javier Aguirre",
+        "venue": "Estadi de Son Moix"
+    },
+    {
+        "id": 110,
+        "name": "Rayo Vallecano",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Andoni Iraola",
+        "venue": "Estadio de Vallecas"
+    },
+    {
+        "id": 111,
+        "name": "Real Sociedad",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Imanol Alguacil Barrenetxea",
+        "venue": "Reale Arena"
+    },
+    {
+        "id": 112,
+        "name": "Atl\u00e9tico Madrid",
+        "country": {
+            "id": 212,
+            "name": "Spain"
+        },
+        "managerName": "Diego Simeone",
+        "venue": "C\u00edvitas Metropolitano"
     }
 ]

@@ -8,7 +8,7 @@ class Team
 {
     public function __construct(
         public string $name,
-        public ?string $manager_name,
+        public ?string $managerName,
         public ?string $venue,
         public int $id,
 

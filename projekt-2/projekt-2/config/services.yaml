@@ -38,3 +38,7 @@ services:
     App\Handler\ParseFileHandler:
         tags:
             - { name: 'messenger.message_handler' }
+
+    App\Tools\Templating\Templating:
+        arguments:
+            $basePath: '%kernel.project_dir%/templates'

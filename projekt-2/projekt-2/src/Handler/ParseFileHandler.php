@@ -2,6 +2,7 @@
 
 namespace App\Handler;
 
+use App\Entity\EventStatusEnum;
 use App\Entity\Sport;
 use App\Message\ParseFile;
 use App\Database\Connection;
@@ -86,7 +87,7 @@ class ParseFileHandler
 
             if (null === $tournamentEntity) {
                 // create Entity
-                $tournamentEntity = new Tournament($tournament->name, $tournament->slug, $tournament->id, null, null);
+                $tournamentEntity = new Tournament($tournament->name, $tournament->slug, $tournament->id);
                 $tournamentEntity->setSportId($tournament->sport->id);
                 $tournamentEntity->setCountryId($tournament->country->id);
                 $this->entityManager->persist($tournamentEntity);
@@ -106,30 +107,39 @@ class ParseFileHandler
     public function parseEvents(string $data) {
 
         $events = $this->serializer->deserialize($data, \App\DTO\Event::class.'[]', 'json');
-        
-        foreach ($events as $event) {
-            // get Entity
-            $eventEntity = $this->entityManager->getRepository(Event::class)->findOneBy(['external_id' => $event->id]);
 
-            //var_dump($eventEntity);
+            foreach ($events as $event) {
+                // get Entity
+                $eventEntity = $this->entityManager->getRepository(Event::class)->findOneBy(['external_id' => $event->id]);
 
-            if (null === $eventEntity) {
-                // create Entity
-                $eventEntity = new Event($event->slug, $event->startDate, $event->status, null, $event->round, $event->id);
-                $eventEntity->setTournamentId($event->tournament->id);
-                $eventEntity->setHomeTeamId($event->homeTeam->id);
-                $eventEntity->setAwayTeamId($event->awayTeam->id);
-                $this->entityManager->persist($eventEntity);
-            } else {
-                // update Entity
-                $eventEntity->setSlug($event->slug);
-                $eventEntity->setStartDate($event->startDate);
-                //$eventEntity->setHomeScore($event->home_score);
-                //$eventEntity->setAwayScore($event->away_score);
+                $homescore = empty($event->homeScore) ? null : $event->homeScore["total"];
+                $awayscore = empty($event->awayScore) ? null : $event->awayScore["total"];
+
+                if (null === $eventEntity) {
+
+                    // create Entity
+                    $eventEntity = new Event($event->slug, $event->startDate, $event->status, $event->winnerCode, $event->round, $event->id);
+
+                    $eventEntity->setTournamentId($event->tournament->id);
+                    $eventEntity->setHomeTeamId($event->homeTeam->id);
+                    $eventEntity->setAwayTeamId($event->awayTeam->id);
+                    $eventEntity->setHomeScore($homescore);
+                    $eventEntity->setAwayScore($awayscore);
+
+                    $this->entityManager->persist($eventEntity);
+
+                } else {
+                    // update Entity
+                    $eventEntity->setSlug($event->slug);
+                    $eventEntity->setStartDate($event->startDate);
+                    $eventEntity->setStatus(EventStatusEnum::from($event->status) ?? EventStatusEnum::NotStarted);
+                    $eventEntity->setWinnerCode($event->winnerCode);
+                    $eventEntity->setHomeScore($homescore);
+                    $eventEntity->setAwayScore($awayscore);
+                }
             }
-        }
 
-        $this->entityManager->flush();
+            $this->entityManager->flush();
         
 
         echo 'Events persisted successfully.', \PHP_EOL;
@@ -139,24 +149,24 @@ class ParseFileHandler
 
         $teams = $this->serializer->deserialize($data, \App\DTO\Team::class.'[]', 'json');
     
-        foreach ($teams as $team) {
-            // get Entity
-            $teamEntity = $this->entityManager->getRepository(Team::class)->findOneBy(['external_id' => $team->id]);
+            foreach ($teams as $team) {
+                // get Entity
+                $teamEntity = $this->entityManager->getRepository(Team::class)->findOneBy(['external_id' => $team->id]);
 
-            if (null === $teamEntity) {
-                // create Entity
-                $teamEntity = new Team($team->name, $team->manager_name, $team->venue, $team->id);
-                $teamEntity->setCountryId($team->country->id);
-                $this->entityManager->persist($teamEntity);
-            } else {
-                // update Entity
-                $teamEntity->setName($team->name);
-                $teamEntity->setManagerName($team->manager_name);
-                $teamEntity->setVenue($team->venue);
+                if (null === $teamEntity) {
+                    // create Entity
+                    $teamEntity = new Team($team->name, $team->managerName, $team->venue, $team->id);
+                    $teamEntity->setCountryId($team->country->id);
+                    $this->entityManager->persist($teamEntity);
+                } else {
+                    // update Entity
+                    $teamEntity->setName($team->name);
+                    $teamEntity->setManagerName($team->managerName);
+                    $teamEntity->setVenue($team->venue);
+                }
             }
-        }
 
-        $this->entityManager->flush();
+            $this->entityManager->flush();
 
         echo 'Teams persisted successfully.', \PHP_EOL;
     }
@@ -164,25 +174,24 @@ class ParseFileHandler
     public function parsePlayers(string $data) {
         $players = $this->serializer->deserialize($data, \App\DTO\Player::class.'[]', 'json');
     
-        foreach ($players as $player) {
-            // get Entity
-            $playerEntity = $this->entityManager->getRepository(Player::class)->findOneBy(['external_id' => $player->id]);
+            foreach ($players as $player) {
+                // get Entity
+                $playerEntity = $this->entityManager->getRepository(Player::class)->findOneBy(['external_id' => $player->id]);
 
-            if (null === $playerEntity) {
-                // create Entity
-                $playerEntity = new Player($player->name, $player->slug, $player->position, null, $player->id);
-                $playerEntity->setCountryId($player->country->id);
-                $this->entityManager->persist($playerEntity);
-            } else {
-                // update Entity
-                $playerEntity->setName($player->name);
-                $playerEntity->setSlug($player->slug);
-                $playerEntity->setName($player->position);
-                $playerEntity->setSlug($player->date_of_birth);
+                if (null === $playerEntity) {
+                    // create Entity
+                    $playerEntity = new Player($player->name, $player->slug, $player->position, $player->id);
+                    $playerEntity->setCountryId($player->country->id);
+                    $this->entityManager->persist($playerEntity);
+                } else {
+                    // update Entity
+                    $playerEntity->setName($player->name);
+                    $playerEntity->setSlug($player->slug);
+                    $playerEntity->setPosition($player->position);
+                }
             }
-        }
 
-        $this->entityManager->flush();
+            $this->entityManager->flush();
 
         echo 'Players persisted successfully.', \PHP_EOL;
     }

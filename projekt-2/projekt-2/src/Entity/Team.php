@@ -27,16 +27,7 @@ class Team
     private ?int $external_id = null;
 
     #[ORM\Column]
-    private ?int $sport_id = null;
-
-    #[ORM\Column]
     private ?int $country_id = null;
-
-    private array $players = [];
-
-    private array $events = [];
-
-    private array $tournaments = [];
 
     public function __construct(string $name, ?string $manager_name, ?string $venue, int $external_id)
     {
@@ -99,18 +90,6 @@ class Team
         return $this;
     }
 
-    public function getSportId(): ?int
-    {
-        return $this->sport_id;
-    }
-
-    public function setSportId(int $sport_id): self
-    {
-        $this->sport_id = $sport_id;
-
-        return $this;
-    }
-
     public function getCountryId(): ?int
     {
         return $this->country_id;
@@ -119,42 +98,6 @@ class Team
     public function setCountryId(int $country_id): self
     {
         $this->country_id = $country_id;
-
-        return $this;
-    }
-
-    public function getPlayers(): array
-    {
-        return $this->players;
-    }
-
-    public function setPlayers(array $players): self
-    {
-        $this->players = $players;
-
-        return $this;
-    }
-
-    public function getEvents(): array
-    {
-        return $this->events;
-    }
-
-    public function setEvents(array $events): self
-    {
-        $this->events = $events;
-
-        return $this;
-    }
-
-    public function getTournaments(): array
-    {
-        return $this->tournaments;
-    }
-
-    public function setTournaments(array $tournaments): self
-    {
-        $this->tournaments = $tournaments;
 
         return $this;
     }

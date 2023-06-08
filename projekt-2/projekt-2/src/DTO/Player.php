@@ -10,7 +10,6 @@ class Player
         public string $name,
         public string $slug,
         public ?string $position,
-        public ?string $date_of_birth,
         public int $id,
 
         public Country $country

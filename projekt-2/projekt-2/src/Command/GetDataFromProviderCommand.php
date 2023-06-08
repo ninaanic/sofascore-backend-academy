@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Command;
 use App\Database\Connection;
+use App\Entity\Player;
+use App\Entity\Team;
+use App\Entity\Tournament;
 use App\Message\ParseFile;
 use App\Message\ProcessDataMessage;
 use Doctrine\DBAL\ArrayParameters\Exception;
@@ -20,6 +23,9 @@ use Symfony\Component\Messenger\Stamp\HandledStamp;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use App\Handler\ParseSportFileHandler;
 use Symfony\Contracts\HttpClient\ResponseInterface;
+use Symfony\Component\Serializer\SerializerInterface;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 #[AsCommand(
     name: 'app:get:data',
@@ -29,8 +35,10 @@ final class GetDataFromProviderCommand extends Command
 {
 
     public function __construct(
+        private readonly SerializerInterface $serializer,
+        private readonly EntityManagerInterface $entityManager,
         private readonly MessageBus $messageBus,
-        private readonly HttpClientInterface $client
+        private readonly HttpClientInterface $client,
     ) {
         parent::__construct();    
     }
@@ -45,7 +53,7 @@ final class GetDataFromProviderCommand extends Command
         $tournaments = [];
         foreach ($sports as $sport) {
             $sport_slug = $sport["slug"];
-            $tournaments += $this->load_json("sport/$sport_slug/tournaments");
+            $tournaments = array_merge($tournaments, $this->load_json("sport/$sport_slug/tournaments"));
         }
         $this->save_json("tournaments", $tournaments);
 
@@ -53,8 +61,8 @@ final class GetDataFromProviderCommand extends Command
         $events = [];
         foreach ($tournaments as $tournament) {
             $tournament_id = $tournament["id"];
-            $events += $this->tournament_events($tournament_id, "last");
-            $events += $this->tournament_events($tournament_id, "next");
+            $events = array_merge($events, $this->tournament_events($tournament_id, "last"));
+            $events = array_merge($events, $this->tournament_events($tournament_id, "next"));
         }
         $this->save_json("events", $events);
 
@@ -77,7 +85,7 @@ final class GetDataFromProviderCommand extends Command
         # get all players
         $players = [];
         foreach($team_ids_unique as $team_id) {
-            $players += $this->load_json("team/$team_id/players");
+            $players = array_merge($players, $this->load_json("team/$team_id/players"));
         }
         $this->save_json("players", $players);
 
@@ -119,7 +127,7 @@ final class GetDataFromProviderCommand extends Command
                 break;
             } 
 
-            $events += $page_events;
+            $events = array_merge($events, $page_events);
             $page += 1;
         }
 

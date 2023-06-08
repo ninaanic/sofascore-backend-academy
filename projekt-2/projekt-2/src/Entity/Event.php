@@ -32,11 +32,11 @@ class Event
     #[ORM\Column]
     private ?int $external_id = null;
 
-    #[ORM\Column]
-    private ?int $home_score_id = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $home_score = null;
 
-    #[ORM\Column]
-    private ?int $away_score_id = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $away_score = null;
 
     #[ORM\Column]
     private ?int $home_team_id = null;
@@ -46,12 +46,6 @@ class Event
 
     #[ORM\Column]
     private ?int $tournament_id = null;
-
-    private array $incidents = [];
-
-    private array $homeScore = [];
-
-    private array $awayScore = [];
 
     public function __construct(string $slug, string $start_date, string $status, ?string $winner_code, int $round, int $external_id)
     {
@@ -140,26 +134,26 @@ class Event
         return $this;
     }
 
-    public function getHomeScoreId(): ?int
+    public function getHomeScore(): ?int
     {
-        return $this->home_score_id;
+        return $this->home_score;
     }
 
-    public function setHomeScoreId(int $home_score_id): self
+    public function setHomeScore(?int $home_score): self
     {
-        $this->home_score_id = $home_score_id;
+        $this->home_score = $home_score;
 
         return $this;
     }
 
-    public function getAwayScoreId(): ?int
+    public function getAwayScore(): ?int
     {
-        return $this->away_score_id;
+        return $this->away_score;
     }
 
-    public function setAwayScoreId(int $away_score_id): self
+    public function setAwayScore(?int $away_score): self
     {
-        $this->away_score_id = $away_score_id;
+        $this->away_score = $away_score;
 
         return $this;
     }
@@ -196,42 +190,6 @@ class Event
     public function setTournamentId(int $tournament_id): self
     {
         $this->tournament_id = $tournament_id;
-
-        return $this;
-    }
-
-    public function getIncidents(): array
-    {
-        return $this->incidents;
-    }
-
-    public function setIncidents(array $incidents): self
-    {
-        $this->incidents = $incidents;
-
-        return $this;
-    }
-
-    public function getHomeScore(): array
-    {
-        return $this->homeScore;
-    }
-
-    public function setHomeScore(array $homeScore): self
-    {
-        $this->homeScore = $homeScore;
-
-        return $this;
-    }
-
-    public function getAwayScore(): array
-    {
-        return $this->awayScore;
-    }
-
-    public function setAwayScore(array $awayScore): self
-    {
-        $this->awayScore = $awayScore;
 
         return $this;
     }

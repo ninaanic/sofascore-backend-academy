@@ -22,9 +22,6 @@ class Sport
     #[ORM\Column]
     private ?int $external_id = null;
 
-    public array $tournaments;
-    public array $events;
-
     public function __construct(string $name, string $slug, int $external_id)
     {
         $this->name = $name;
@@ -73,29 +70,4 @@ class Sport
 
         return $this;
     }
-
-    public function getTournaments(): array
-    {
-        return $this->tournaments;
-    }
-
-    public function setTournaments(?array $tournaments): self
-    {
-        $this->tournaments = $tournaments;
-
-        return $this;
-    }
-
-    public function getEvents(): array
-    {
-        return $this->events;
-    }
-
-    public function setEvents(array $events): self
-    {
-        $this->events = $events;
-
-        return $this;
-    }
-
 }

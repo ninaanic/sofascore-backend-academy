@@ -54,5 +54,33 @@
             "id": 257,
             "name": "International"
         }
+    },
+    {
+        "id": 4,
+        "name": "NBA",
+        "slug": "nba",
+        "sport": {
+            "id": 2,
+            "name": "Basketball",
+            "slug": "basketball"
+        },
+        "country": {
+            "id": 254,
+            "name": "USA"
+        }
+    },
+    {
+        "id": 5,
+        "name": "NFL",
+        "slug": "nfl",
+        "sport": {
+            "id": 3,
+            "name": "American football",
+            "slug": "american-football"
+        },
+        "country": {
+            "id": 254,
+            "name": "USA"
+        }
     }
 ]

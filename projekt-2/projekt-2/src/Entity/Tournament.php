@@ -22,12 +22,6 @@ class Tournament
     private ?string $slug = null;
 
     #[ORM\Column]
-    private ?int $number_of_competitors = null;
-
-    #[ORM\Column]
-    private ?int $head_to_head_count = null;
-
-    #[ORM\Column]
     private ?int $external_id = null;
 
     #[ORM\Column]
@@ -36,18 +30,11 @@ class Tournament
     #[ORM\Column]
     private ?int $country_id = null;
 
-    //public Sport $sport;
-    //public Country $country;
-
-    public function __construct(string $name, string $slug, int $external_id, ?int $number_of_competitors, ?int $head_to_head_count)
+    public function __construct(string $name, string $slug, int $external_id)
     {
         $this->name = $name;
         $this->slug = $slug;
         $this->external_id = $external_id;
-        $this->number_of_competitors = $number_of_competitors;
-        $this->head_to_head_count = $head_to_head_count;
-       // $this->sport = $sport;
-       // $this->country = $country;
     }
 
 
@@ -92,30 +79,6 @@ class Tournament
         return $this;
     }
 
-    public function getNumberOfCompetitors(): ?int
-    {
-        return $this->number_of_competitors;
-    }
-
-    public function setNumberOfCompetitors(?int $number_of_competitors): self
-    {
-        $this->number_of_competitors = $number_of_competitors;
-
-        return $this;
-    }
-
-    public function getHeadToHeadCount(): ?int
-    {
-        return $this->head_to_head_count;
-    }
-
-    public function setHeadToHeadCount(?int $head_to_head_count): self
-    {
-        $this->head_to_head_count = $head_to_head_count;
-
-        return $this;
-    }
-
     public function getSportId(): int
     {
         return $this->sport_id;
@@ -139,31 +102,4 @@ class Tournament
 
         return $this;
     }
-
-    /*
-
-    public function getSport(): Sport
-    {
-        return $this->sport;
-    }
-
-    public function setSport(Sport $sport): self
-    {
-        $this->sport = $sport;
-
-        return $this;
-    }
-
-    public function getCountry(): Country
-    {
-        return $this->country;
-    }
-
-    public function setCountry(Country $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-    */
 }
