@@ -10,10 +10,12 @@ class Player
         public string $name,
         public string $slug,
         public ?string $position,
+        public ?string $dateOfBirth,
         public int $id,
 
+        public Sport $sport,
+        public Team $team,
         public Country $country
-        // TODO logo
     ) {
     }
 }

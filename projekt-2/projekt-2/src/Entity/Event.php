@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,8 +18,8 @@ class Event
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $start_date = null;
+    #[ORM\Column(nullable: true)]
+    private ?DateTime $start_date = null;
 
     #[ORM\Column(length: 255)]
     private ?string $status = null;
@@ -50,7 +51,7 @@ class Event
     public function __construct(string $slug, string $start_date, string $status, ?string $winner_code, int $round, int $external_id)
     {
         $this->slug = $slug;
-        $this->start_date = $start_date;
+        $this->setStartDate($start_date);
         $this->setStatus(EventStatusEnum::from($status) ?? EventStatusEnum::NotStarted);
         $this->winner_code = $winner_code;
         $this->round = $round;
@@ -74,14 +75,14 @@ class Event
         return $this;
     }
 
-    public function getStartDate(): ?string
+    public function getStartDate(): string
     {
-        return $this->start_date;
+        return is_null($this->start_date) ? null : $this->start_date->format("Y-m-d\TH:i:sP");
     }
 
     public function setStartDate(string $start_date): self
     {
-        $this->start_date = $start_date;
+        $this->start_date = is_null($start_date) ? null : DateTime::createFromFormat("Y-m-d\TH:i:sP", $start_date);
 
         return $this;
     }

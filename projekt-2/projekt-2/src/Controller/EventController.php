@@ -23,44 +23,21 @@ use Symfony\Component\Routing\Annotation\Route;
 final class EventController
 {
     public function __construct(
-        private readonly Templating $templating,
+        //private readonly Templating $templating,
         private readonly EntityManagerInterface $entityManager,
         private readonly ApiResponseListener $apiResponseListener,
     ) {
     }
 
-    #[Route('/sport/{slug}/events/{date}', name: 'sport', methods: 'GET')]
-    public function sportDate(string $slug, string $date): Response
+    #[Route('/event/{id}/details', name: 'event_details', methods: 'GET')]
+    public function details(int $id): Response
     {
-        $sport = $this->entityManager->getRepository(Sport::class)->findOneBy(['slug' => $slug]);
-
-        if (null === $sport) {
-            throw new HttpException(404, sprintf('A sport with the slug "%s" doesn\'t exist.', $slug));
-        }
-
-        $tournaments = $this->entityManager->getRepository(Tournament::class)->findBy(['sport_id' => $sport->getExternalId()]);
-        
-        $events = [];
-        foreach ($tournaments as $tournament) {
-            $events = array_merge($events, $this->entityManager->getRepository(Event::class)->findBy(['start_date' =>  $date, 'tournament_id' => $tournament->getExternalId()]));
-        }
-
-        return $this->apiResponseListener->onApiResponse($events);
-    }
-
-    /*
-    #[Route('/event/{id}', name: 'event', methods: 'GET')]
-    public function detail(int $id): Response
-    {
-        $event = $this->connection->findOne('event', [], ['id' => $id]);
+        $event = $this->entityManager->getRepository(Event::class)->findOneBy(['external_id' => $id]);
 
         if (null === $event) {
-            throw new HttpException(404, sprintf('An event with the id "%d" doesn\'t exist.', $id));
+            throw new HttpException(404, sprintf('A event with the id "%s" doesn\'t exist.', $id));
         }
 
-        return new Response($this->templating->render('event/detail.php', [
-            'event' => $event,
-        ]));
+        return $this->apiResponseListener->onApiResponse($event);
     }
-    */
 }

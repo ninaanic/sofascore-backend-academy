@@ -4,27 +4,28 @@ declare(strict_types=1);
 
 namespace App\Command;
 use App\Database\Connection;
+use App\Entity\Event;
+use App\Entity\EventStatusEnum;
 use App\Entity\Player;
 use App\Entity\Team;
 use App\Entity\Tournament;
+use App\Handler\ParseSportFileHandler;
 use App\Message\ParseFile;
 use App\Message\ProcessDataMessage;
 use Doctrine\DBAL\ArrayParameters\Exception;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpClient\HttpClient;
-use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
-use App\Handler\ParseSportFileHandler;
-use Symfony\Contracts\HttpClient\ResponseInterface;
 use Symfony\Component\Serializer\SerializerInterface;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 
 #[AsCommand(
@@ -35,6 +36,8 @@ final class GetDataFromProviderCommand extends Command
 {
 
     public function __construct(
+        private readonly SerializerInterface $serializer,
+        private readonly EntityManagerInterface $entityManager,
         private readonly MessageBus $messageBus,
         private readonly HttpClientInterface $client,
     ) {
@@ -80,13 +83,27 @@ final class GetDataFromProviderCommand extends Command
         }
         $this->save_json("teams", $teams);
 
+        # prepare players_ids from teams
+        $all_players = [];
+        foreach ($team_ids_unique as $team_id) {
+            $all_players = array_merge($all_players, $this->load_json("team/$team_id/players"));
+        }
+
+        $players_ids = [];
+        foreach ($all_players as $player_details) {
+            array_push($players_ids, $player_details["id"]);
+        }
+        $player_ids_unique = array_unique($players_ids);
+        sort($player_ids_unique);
+
         # get all players
         $players = [];
-        foreach($team_ids_unique as $team_id) {
-            $players = array_merge($players, $this->load_json("team/$team_id/players"));
+        foreach ($player_ids_unique as $player_id) {
+            array_push($players, $this->load_json("player/$player_id"));
         }
         $this->save_json("players", $players);
-
+        
+        
         return self::SUCCESS;
     }
 

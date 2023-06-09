@@ -180,14 +180,17 @@ class ParseFileHandler
 
                 if (null === $playerEntity) {
                     // create Entity
-                    $playerEntity = new Player($player->name, $player->slug, $player->position, $player->id);
+                    $playerEntity = new Player($player->name, $player->slug, $player->position, $player->dateOfBirth, $player->id);
                     $playerEntity->setCountryId($player->country->id);
+                    $playerEntity->setSportId($player->sport->id);
+                    $playerEntity->setTeamId($player->team->id);
                     $this->entityManager->persist($playerEntity);
                 } else {
                     // update Entity
                     $playerEntity->setName($player->name);
                     $playerEntity->setSlug($player->slug);
                     $playerEntity->setPosition($player->position);
+                    $playerEntity->setDateOfBirth($player->dateOfBirth);
                 }
             }
 

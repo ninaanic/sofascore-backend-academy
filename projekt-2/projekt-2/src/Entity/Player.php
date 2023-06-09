@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PlayerRepository;
 use Doctrine\DBAL\Types\Types;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PlayerRepository::class)]
@@ -23,17 +24,27 @@ class Player
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $position = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?DateTime $date_of_birth = null;
+
     #[ORM\Column]
     private ?int $external_id = null;
 
     #[ORM\Column]
+    private ?int $sport_id = null;
+
+    #[ORM\Column]
+    private ?int $team_id = null;
+
+    #[ORM\Column]
     private ?int $country_id = null;
 
-    public function __construct(string $name, string $slug, ?string $position, int $external_id)
+    public function __construct(string $name, string $slug, ?string $position, ?string $date_of_birth, int $external_id)
     {
         $this->name = $name;
         $this->slug = $slug;
         $this->position = $position;
+        $this->setDateOfBirth($date_of_birth);
         $this->external_id = $external_id;
     }
 
@@ -78,6 +89,18 @@ class Player
         return $this;
     }
 
+    public function getDateOfBirth(): ?string
+    {
+        return is_null($this->date_of_birth) ? null : $this->date_of_birth->format("Y-m-d\TH:i:sP");
+    }
+
+    public function setDateOfBirth(?string $date_of_birth): self
+    {
+        $this->date_of_birth = is_null($date_of_birth) ? null : DateTime::createFromFormat("Y-m-d\TH:i:sP", $date_of_birth);
+
+        return $this;
+    }
+
 
     public function getExternalId(): ?int
     {
@@ -99,6 +122,30 @@ class Player
     public function setCountryId(int $country_id): self
     {
         $this->country_id = $country_id;
+
+        return $this;
+    }
+
+    public function getSportId(): ?int
+    {
+        return $this->sport_id;
+    }
+
+    public function setSportId(int $sport_id): self
+    {
+        $this->sport_id = $sport_id;
+
+        return $this;
+    }
+
+    public function getTeamId(): ?int
+    {
+        return $this->team_id;
+    }
+
+    public function setTeamId(int $team_id): self
+    {
+        $this->team_id = $team_id;
 
         return $this;
     }
