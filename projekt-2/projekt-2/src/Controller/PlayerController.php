@@ -28,8 +28,7 @@ final class PlayerController
     ) {
     }
 
-    // TODO nap kad se tablica popravi
-    /*
+    
     #[Route('/player/{id}/events', name: 'player', methods: 'GET')]
     public function events(int $id): Response
     {
@@ -39,14 +38,15 @@ final class PlayerController
             throw new HttpException(404, sprintf('A player with the id "%s" doesn\'t exist.', $id));
         }
 
-        
+        $events_for_home_team = $this->entityManager->getRepository(Event::class)->findBy(['home_team_id' => $player->getTeamId()]);
+        $events_for_away_team = $this->entityManager->getRepository(Event::class)->findBy(['away_team_id' => $player->getTeamId()]);
 
         $events = [];
         $events = array_merge($events_for_home_team, $events_for_away_team);
 
         return $this->apiResponseListener->onApiResponse($events);
     }
-    */
+    
 
     #[Route('/player/{id}/details', name: 'player_details', methods: 'GET')]
     public function details(int $id): Response
