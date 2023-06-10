@@ -9,6 +9,7 @@ use App\Database\Connection;
 use App\Entity\Event;
 use App\Entity\Event as EntityEvent;
 use App\Entity\Player;
+use App\Entity\Standings;
 use App\Entity\Team;
 use App\Entity\Tournament;
 use App\Parser\JsonParser;
@@ -46,6 +47,9 @@ class ParseFileHandler
                 break;
             case "data/players.json":
                 $this->parsePlayers($data);
+                break;
+            case "data/standings.json":
+                $this->parseStandings($data);
                 break;
         }
     }
@@ -157,6 +161,10 @@ class ParseFileHandler
                     // create Entity
                     $teamEntity = new Team($team->name, $team->managerName, $team->venue, $team->id);
                     $teamEntity->setCountryId($team->country->id);
+
+                    $sport_id = $team->tournaments[0]["sport"]["id"];
+                    $teamEntity->setSportId($sport_id);
+                    
                     $this->entityManager->persist($teamEntity);
                 } else {
                     // update Entity
@@ -197,6 +205,43 @@ class ParseFileHandler
             $this->entityManager->flush();
 
         echo 'Players persisted successfully.', \PHP_EOL;
+    }
+
+    public function parseStandings(string $data) {
+        $standings = $this->serializer->deserialize($data, \App\DTO\Standing::class.'[]', 'json');
+
+        foreach ($standings as $standing) {
+            $tournament_id = $standing->tournament->id;
+
+            $sortedStandingsRows = $standing->sortedStandingsRows;
+            foreach ($sortedStandingsRows as $sortedStandingsRow) {
+
+                $standingEntity = $this->entityManager->getRepository(Standings::class)->findOneBy(['external_id' => $sortedStandingsRow["id"]]);
+
+                if (null === $standingEntity) {
+                    // create Entity
+                    $standingEntity = new Standings($sortedStandingsRow["scoresFor"], $sortedStandingsRow["scoresAgainst"], $sortedStandingsRow["played"], $sortedStandingsRow["wins"], $sortedStandingsRow["draws"], $sortedStandingsRow["losses"], $sortedStandingsRow["percentage"], $sortedStandingsRow["id"]);
+                    $standingEntity->setTournamentId($tournament_id);
+                    $standingEntity->setTeamId($sortedStandingsRow["team"]["id"]);
+                    $this->entityManager->persist($standingEntity);
+
+                } else {
+                    // update Entity
+                    $standingEntity->setScoresFor($sortedStandingsRow["scoresFor"]);
+                    $standingEntity->setScoresAgainst($sortedStandingsRow["scoresAgainst"]);
+                    $standingEntity->setPlayed($sortedStandingsRow["played"]);
+                    $standingEntity->setWins($sortedStandingsRow["wins"]);
+                    $standingEntity->setLooses($sortedStandingsRow["losses"]);
+                    $standingEntity->setDraws($sortedStandingsRow["draws"]);
+                    $standingEntity->setPercentage($sortedStandingsRow["percentage"]);
+                }
+            }
+        
+        }
+
+        $this->entityManager->flush();
+
+        echo 'Standings persisted successfully.', \PHP_EOL;
     }
 
 }

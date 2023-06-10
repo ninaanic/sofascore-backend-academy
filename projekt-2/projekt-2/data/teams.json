@@ -7,7 +7,37 @@
             "name": "England"
         },
         "managerName": "Erik ten Hag",
-        "venue": "Old Trafford"
+        "venue": "Old Trafford",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 2,
@@ -17,7 +47,23 @@
             "name": "England"
         },
         "managerName": "Gary O'Neil",
-        "venue": "Vitality Stadium"
+        "venue": "Vitality Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 3,
@@ -27,7 +73,23 @@
             "name": "England"
         },
         "managerName": "David Moyes",
-        "venue": "London Stadium"
+        "venue": "London Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 4,
@@ -37,7 +99,23 @@
             "name": "England"
         },
         "managerName": "Steve Cooper",
-        "venue": "City Ground"
+        "venue": "City Ground",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 5,
@@ -47,7 +125,23 @@
             "name": "England"
         },
         "managerName": "Dean Smith",
-        "venue": "King Power Stadium"
+        "venue": "King Power Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 6,
@@ -57,7 +151,23 @@
             "name": "England"
         },
         "managerName": "Marco Silva",
-        "venue": "Craven Cottage"
+        "venue": "Craven Cottage",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 7,
@@ -67,7 +177,23 @@
             "name": "England"
         },
         "managerName": "Javi Gracia",
-        "venue": "Elland Road"
+        "venue": "Elland Road",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 8,
@@ -77,7 +203,23 @@
             "name": "England"
         },
         "managerName": "Cristian Stellini",
-        "venue": "Tottenham Hotspur Stadium"
+        "venue": "Tottenham Hotspur Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 9,
@@ -87,7 +229,23 @@
             "name": "England"
         },
         "managerName": "Julen Lopetegui",
-        "venue": "Molineux Stadium"
+        "venue": "Molineux Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 10,
@@ -97,7 +255,23 @@
             "name": "England"
         },
         "managerName": "Eddie Howe",
-        "venue": "St James' Park"
+        "venue": "St James' Park",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 11,
@@ -107,7 +281,23 @@
             "name": "England"
         },
         "managerName": "Sean Dyche",
-        "venue": "Goodison Park"
+        "venue": "Goodison Park",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 12,
@@ -117,7 +307,37 @@
             "name": "England"
         },
         "managerName": "Pep Guardiola",
-        "venue": "Etihad Stadium"
+        "venue": "Etihad Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 13,
@@ -127,7 +347,37 @@
             "name": "England"
         },
         "managerName": "Mikel Arteta",
-        "venue": "Emirates Stadium"
+        "venue": "Emirates Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 14,
@@ -137,7 +387,37 @@
             "name": "England"
         },
         "managerName": "Frank Lampard",
-        "venue": "Stamford Bridge"
+        "venue": "Stamford Bridge",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 15,
@@ -147,7 +427,23 @@
             "name": "England"
         },
         "managerName": "Roberto De Zerbi",
-        "venue": "American Express Community's Stadium"
+        "venue": "American Express Community's Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 16,
@@ -157,7 +453,23 @@
             "name": "England"
         },
         "managerName": "Roy Hodgson",
-        "venue": "Selhurst Park"
+        "venue": "Selhurst Park",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 17,
@@ -167,7 +479,23 @@
             "name": "England"
         },
         "managerName": "Rub\u00e9n Sell\u00e9s",
-        "venue": "St. Mary's Stadium"
+        "venue": "St. Mary's Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 18,
@@ -177,7 +505,23 @@
             "name": "England"
         },
         "managerName": "Unai Emery",
-        "venue": "Villa Park"
+        "venue": "Villa Park",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 19,
@@ -187,7 +531,37 @@
             "name": "England"
         },
         "managerName": "J\u00fcrgen Klopp",
-        "venue": "Anfield"
+        "venue": "Anfield",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 20,
@@ -197,7 +571,23 @@
             "name": "England"
         },
         "managerName": "Thomas Frank",
-        "venue": "Brentford Community Stadium"
+        "venue": "Brentford Community Stadium",
+        "tournaments": [
+            {
+                "id": 2,
+                "name": "Premier League",
+                "slug": "premier-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 250,
+                    "name": "England"
+                }
+            }
+        ]
     },
     {
         "id": 21,
@@ -207,7 +597,23 @@
             "name": "USA"
         },
         "managerName": "Quin Snyder",
-        "venue": "State Farm Arena"
+        "venue": "State Farm Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 22,
@@ -217,7 +623,23 @@
             "name": "USA"
         },
         "managerName": "Monty Williams",
-        "venue": "Footprint Centre "
+        "venue": "Footprint Centre ",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 23,
@@ -227,7 +649,23 @@
             "name": "USA"
         },
         "managerName": "Steve Kerr",
-        "venue": "Chase Center"
+        "venue": "Chase Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 24,
@@ -237,7 +675,23 @@
             "name": "USA"
         },
         "managerName": "Rick Carlisle",
-        "venue": "Gainbridge Fieldhouse"
+        "venue": "Gainbridge Fieldhouse",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 25,
@@ -247,7 +701,23 @@
             "name": "USA"
         },
         "managerName": "Mark Daigneault",
-        "venue": "PayCom Center"
+        "venue": "PayCom Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 26,
@@ -257,7 +727,23 @@
             "name": "USA"
         },
         "managerName": "Will Hardy",
-        "venue": "Vivint Smart Home Arena"
+        "venue": "Vivint Smart Home Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 27,
@@ -267,7 +753,23 @@
             "name": "USA"
         },
         "managerName": "Mike Budenholzer",
-        "venue": "Fiserv Forum"
+        "venue": "Fiserv Forum",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 28,
@@ -277,7 +779,23 @@
             "name": "USA"
         },
         "managerName": "Mike Brown",
-        "venue": "Golden 1 Center"
+        "venue": "Golden 1 Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 29,
@@ -287,7 +805,23 @@
             "name": "Canada"
         },
         "managerName": "Nick Nurse",
-        "venue": "Scotiabank Arena"
+        "venue": "Scotiabank Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 30,
@@ -297,7 +831,23 @@
             "name": "USA"
         },
         "managerName": "Joe Mazzulla",
-        "venue": "TD Garden"
+        "venue": "TD Garden",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 31,
@@ -307,7 +857,23 @@
             "name": "USA"
         },
         "managerName": "Billy Donovan",
-        "venue": "United Center"
+        "venue": "United Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 32,
@@ -317,7 +883,23 @@
             "name": "USA"
         },
         "managerName": "Willie Green",
-        "venue": "Smoothie King Center"
+        "venue": "Smoothie King Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 33,
@@ -327,7 +909,23 @@
             "name": "USA"
         },
         "managerName": "Doc Rivers",
-        "venue": "Wells Fargo Center"
+        "venue": "Wells Fargo Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 34,
@@ -337,7 +935,23 @@
             "name": "USA"
         },
         "managerName": "Dwane Casey",
-        "venue": "Little Caesars Arena"
+        "venue": "Little Caesars Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 35,
@@ -347,7 +961,23 @@
             "name": "USA"
         },
         "managerName": "Chauncey Billups",
-        "venue": "Moda Center"
+        "venue": "Moda Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 36,
@@ -357,7 +987,23 @@
             "name": "USA"
         },
         "managerName": "Jason Kidd",
-        "venue": "American Airlines Center"
+        "venue": "American Airlines Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 37,
@@ -367,7 +1013,23 @@
             "name": "USA"
         },
         "managerName": "Tom Thibodeau",
-        "venue": "Madison Square Garden"
+        "venue": "Madison Square Garden",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 38,
@@ -377,7 +1039,23 @@
             "name": "USA"
         },
         "managerName": "Jacque Vaughn",
-        "venue": "Barclays Center"
+        "venue": "Barclays Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 39,
@@ -387,7 +1065,23 @@
             "name": "USA"
         },
         "managerName": "Stephen Silas",
-        "venue": "Toyota Center"
+        "venue": "Toyota Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 40,
@@ -397,7 +1091,23 @@
             "name": "USA"
         },
         "managerName": "Darvin Ham",
-        "venue": "Crypto.com Arena"
+        "venue": "Crypto.com Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 41,
@@ -407,7 +1117,23 @@
             "name": "USA"
         },
         "managerName": "Erik Spoelstra",
-        "venue": "Miami-Dade Arena"
+        "venue": "Miami-Dade Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 42,
@@ -417,7 +1143,23 @@
             "name": "USA"
         },
         "managerName": "John-Blair Bickerstaff",
-        "venue": "Rocket Mortgage Fieldhouse"
+        "venue": "Rocket Mortgage Fieldhouse",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 43,
@@ -427,7 +1169,23 @@
             "name": "USA"
         },
         "managerName": "Jamahl Mosley",
-        "venue": "Amway Center"
+        "venue": "Amway Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 44,
@@ -437,7 +1195,23 @@
             "name": "USA"
         },
         "managerName": "Taylor Jenkins",
-        "venue": "FedExForum"
+        "venue": "FedExForum",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 45,
@@ -447,7 +1221,23 @@
             "name": "USA"
         },
         "managerName": "Gregg Popovich",
-        "venue": "AT&T Center"
+        "venue": "AT&T Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 46,
@@ -457,7 +1247,23 @@
             "name": "USA"
         },
         "managerName": "Steve Clifford",
-        "venue": "Spectrum Center"
+        "venue": "Spectrum Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 47,
@@ -467,7 +1273,23 @@
             "name": "USA"
         },
         "managerName": "Tyronn Lue",
-        "venue": "Crypto.com Arena"
+        "venue": "Crypto.com Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 48,
@@ -477,7 +1299,23 @@
             "name": "USA"
         },
         "managerName": "Chris Finch",
-        "venue": "Target Center"
+        "venue": "Target Center",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 49,
@@ -487,7 +1325,23 @@
             "name": "USA"
         },
         "managerName": "Wes Unseld",
-        "venue": "Capital One Arena"
+        "venue": "Capital One Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 50,
@@ -497,7 +1351,23 @@
             "name": "USA"
         },
         "managerName": "Michael Malone",
-        "venue": "Ball Arena"
+        "venue": "Ball Arena",
+        "tournaments": [
+            {
+                "id": 4,
+                "name": "NBA",
+                "slug": "nba",
+                "sport": {
+                    "id": 2,
+                    "name": "Basketball",
+                    "slug": "basketball"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 51,
@@ -507,7 +1377,23 @@
             "name": "USA"
         },
         "managerName": "McVay, Sean",
-        "venue": "SoFi Stadium"
+        "venue": "SoFi Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 52,
@@ -517,7 +1403,23 @@
             "name": "USA"
         },
         "managerName": "Rhule, Matt",
-        "venue": "Bank of America Stadium"
+        "venue": "Bank of America Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 53,
@@ -527,7 +1429,23 @@
             "name": "USA"
         },
         "managerName": "Brandon Staley",
-        "venue": "SoFi Stadium"
+        "venue": "SoFi Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 54,
@@ -537,7 +1455,23 @@
             "name": "USA"
         },
         "managerName": "Belichick, Bill",
-        "venue": "Gillette Stadium"
+        "venue": "Gillette Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 55,
@@ -547,7 +1481,23 @@
             "name": "USA"
         },
         "managerName": "Rivera, Ron",
-        "venue": "FedEx Field"
+        "venue": "FedEx Field",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 56,
@@ -557,7 +1507,23 @@
             "name": "USA"
         },
         "managerName": "McDermott, Sean",
-        "venue": "Highmark Stadium"
+        "venue": "Highmark Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 57,
@@ -567,7 +1533,23 @@
             "name": "USA"
         },
         "managerName": "Shanahan, Kyle",
-        "venue": "Levi's Stadium"
+        "venue": "Levi's Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 58,
@@ -577,7 +1559,23 @@
             "name": "USA"
         },
         "managerName": "Arthur Smith",
-        "venue": "Mercedes-Benz Stadium"
+        "venue": "Mercedes-Benz Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 59,
@@ -587,7 +1585,23 @@
             "name": "USA"
         },
         "managerName": "McCarthy, Mike",
-        "venue": "AT&T Stadium"
+        "venue": "AT&T Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 60,
@@ -597,7 +1611,23 @@
             "name": "USA"
         },
         "managerName": "Payton, Sean",
-        "venue": "Caesars Superdome"
+        "venue": "Caesars Superdome",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 61,
@@ -607,7 +1637,23 @@
             "name": "USA"
         },
         "managerName": "Vrabel, Mike",
-        "venue": "Nissan Stadium"
+        "venue": "Nissan Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 62,
@@ -617,7 +1663,23 @@
             "name": "USA"
         },
         "managerName": "Judge, Joe",
-        "venue": "MetLife Stadium"
+        "venue": "MetLife Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 63,
@@ -627,7 +1689,23 @@
             "name": "USA"
         },
         "managerName": "Robert Saleh",
-        "venue": "MetLife Stadium"
+        "venue": "MetLife Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 64,
@@ -637,7 +1715,23 @@
             "name": "USA"
         },
         "managerName": "LaFleur, Matt",
-        "venue": "Lambeau Field"
+        "venue": "Lambeau Field",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 65,
@@ -647,7 +1741,23 @@
             "name": "USA"
         },
         "managerName": "Dan Campbell",
-        "venue": "Ford Field"
+        "venue": "Ford Field",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 66,
@@ -657,7 +1767,23 @@
             "name": "USA"
         },
         "managerName": "Carroll, Pete",
-        "venue": "Lumen Field"
+        "venue": "Lumen Field",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 67,
@@ -667,7 +1793,23 @@
             "name": "USA"
         },
         "managerName": "Fangio, Vic",
-        "venue": "Empower Field at Mile High"
+        "venue": "Empower Field at Mile High",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 68,
@@ -677,7 +1819,23 @@
             "name": "USA"
         },
         "managerName": "Taylor, Zac",
-        "venue": "Paul Brown Stadium"
+        "venue": "Paul Brown Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 69,
@@ -687,7 +1845,23 @@
             "name": "USA"
         },
         "managerName": "Todd Bowles",
-        "venue": "Raymond James Stadium"
+        "venue": "Raymond James Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 70,
@@ -697,7 +1871,23 @@
             "name": "USA"
         },
         "managerName": "Urban Meyer",
-        "venue": "TIAA Bank Field"
+        "venue": "TIAA Bank Field",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 71,
@@ -707,7 +1897,23 @@
             "name": "USA"
         },
         "managerName": "Nagy, Matt",
-        "venue": "Soldier Field"
+        "venue": "Soldier Field",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 72,
@@ -717,7 +1923,23 @@
             "name": "USA"
         },
         "managerName": "Harbaugh, John",
-        "venue": "M&T Bank Stadium"
+        "venue": "M&T Bank Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 73,
@@ -727,7 +1949,23 @@
             "name": "USA"
         },
         "managerName": "Reid, Andy",
-        "venue": "Arrowhead Stadium"
+        "venue": "Arrowhead Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 74,
@@ -737,7 +1975,23 @@
             "name": "USA"
         },
         "managerName": "Reich, Frank",
-        "venue": "Lucas Oil Stadium"
+        "venue": "Lucas Oil Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 75,
@@ -747,7 +2001,23 @@
             "name": "USA"
         },
         "managerName": "David Culley",
-        "venue": "NRG Stadium"
+        "venue": "NRG Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 76,
@@ -757,7 +2027,23 @@
             "name": "USA"
         },
         "managerName": "Nick Sirianni",
-        "venue": "Lincoln Financial Field"
+        "venue": "Lincoln Financial Field",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 77,
@@ -767,7 +2053,23 @@
             "name": "USA"
         },
         "managerName": "Stefanski, Kevin",
-        "venue": "FirstEnergy Stadium "
+        "venue": "FirstEnergy Stadium ",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 78,
@@ -777,7 +2079,23 @@
             "name": "USA"
         },
         "managerName": "Tomlin, Mike",
-        "venue": "Heinz Field"
+        "venue": "Heinz Field",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 79,
@@ -787,7 +2105,23 @@
             "name": "USA"
         },
         "managerName": "Flores, Brian",
-        "venue": "Hard Rock Stadium"
+        "venue": "Hard Rock Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 80,
@@ -797,7 +2131,23 @@
             "name": "USA"
         },
         "managerName": "Gruden, Jon",
-        "venue": "Allegiant Stadium"
+        "venue": "Allegiant Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 81,
@@ -807,7 +2157,23 @@
             "name": "USA"
         },
         "managerName": "Zimmer, Mike",
-        "venue": "U.S. Bank Stadium"
+        "venue": "U.S. Bank Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 82,
@@ -817,7 +2183,23 @@
             "name": "USA"
         },
         "managerName": "Kingsbury, Kliff",
-        "venue": "University of Phoenix Stadium"
+        "venue": "University of Phoenix Stadium",
+        "tournaments": [
+            {
+                "id": 5,
+                "name": "NFL",
+                "slug": "nfl",
+                "sport": {
+                    "id": 3,
+                    "name": "American football",
+                    "slug": "american-football"
+                },
+                "country": {
+                    "id": 254,
+                    "name": "USA"
+                }
+            }
+        ]
     },
     {
         "id": 83,
@@ -827,7 +2209,23 @@
             "name": "Croatia"
         },
         "managerName": "Mario Kova\u010devi\u0107",
-        "venue": "Stadion Varteks"
+        "venue": "Stadion Varteks",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            }
+        ]
     },
     {
         "id": 84,
@@ -837,7 +2235,23 @@
             "name": "Croatia"
         },
         "managerName": "Damir \u010canadi",
-        "venue": "Stadion \u0160ubi\u0107evac"
+        "venue": "Stadion \u0160ubi\u0107evac",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            }
+        ]
     },
     {
         "id": 85,
@@ -847,7 +2261,37 @@
             "name": "Croatia"
         },
         "managerName": "Ivan Leko",
-        "venue": "Stadion Poljud"
+        "venue": "Stadion Poljud",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 86,
@@ -857,7 +2301,37 @@
             "name": "Croatia"
         },
         "managerName": "\u017deljko Sopi\u0107",
-        "venue": "Gradski stadion Velika Gorica"
+        "venue": "Gradski stadion Velika Gorica",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 87,
@@ -867,7 +2341,23 @@
             "name": "Croatia"
         },
         "managerName": "Gonzalo Garcia",
-        "venue": "Aldo Drosina Stadium"
+        "venue": "Aldo Drosina Stadium",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            }
+        ]
     },
     {
         "id": 88,
@@ -877,7 +2367,37 @@
             "name": "Croatia"
         },
         "managerName": "Sergej Jakirovic",
-        "venue": "Stadion Rujevica"
+        "venue": "Stadion Rujevica",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 89,
@@ -887,7 +2407,23 @@
             "name": "Croatia"
         },
         "managerName": "Zoran Zeki\u0107",
-        "venue": "Gradski stadion Ivan Ku\u0161ek Apa\u0161"
+        "venue": "Gradski stadion Ivan Ku\u0161ek Apa\u0161",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            }
+        ]
     },
     {
         "id": 90,
@@ -897,7 +2433,37 @@
             "name": "Croatia"
         },
         "managerName": "Borimir Perkovi\u0107",
-        "venue": "Stadion Gradski vrt"
+        "venue": "Stadion Gradski vrt",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 91,
@@ -907,7 +2473,37 @@
             "name": "Croatia"
         },
         "managerName": "Igor Bi\u0161\u0107an",
-        "venue": "Maksimir"
+        "venue": "Maksimir",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 92,
@@ -917,7 +2513,23 @@
             "name": "Croatia"
         },
         "managerName": "Silvijo \u010cabraja",
-        "venue": "Kranj\u010devi\u0107eva"
+        "venue": "Kranj\u010devi\u0107eva",
+        "tournaments": [
+            {
+                "id": 6,
+                "name": "HNL",
+                "slug": "hnl",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 56,
+                    "name": "Croatia"
+                }
+            }
+        ]
     },
     {
         "id": 93,
@@ -927,7 +2539,23 @@
             "name": "Spain"
         },
         "managerName": "Sebastian Beccacece",
-        "venue": "Estadio Mart\u00ednez Valero"
+        "venue": "Estadio Mart\u00ednez Valero",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 94,
@@ -937,7 +2565,23 @@
             "name": "Spain"
         },
         "managerName": "Quique Seti\u00e9n",
-        "venue": "Estadio de la Ceramica"
+        "venue": "Estadio de la Ceramica",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 95,
@@ -947,7 +2591,23 @@
             "name": "Spain"
         },
         "managerName": "Carlos Carvalhal",
-        "venue": "Municipal de Balaidos"
+        "venue": "Municipal de Balaidos",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 96,
@@ -957,7 +2617,23 @@
             "name": "Spain"
         },
         "managerName": "Paulo Pezzolano",
-        "venue": "Jos\u00e9 Zorrilla"
+        "venue": "Jos\u00e9 Zorrilla",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 97,
@@ -967,7 +2643,23 @@
             "name": "Spain"
         },
         "managerName": "Jagoba Arrasate",
-        "venue": "Estadio El Sadar"
+        "venue": "Estadio El Sadar",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 98,
@@ -977,7 +2669,23 @@
             "name": "Spain"
         },
         "managerName": "Manuel Pellegrini",
-        "venue": "Benito Villamarin"
+        "venue": "Benito Villamarin",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 99,
@@ -987,7 +2695,23 @@
             "name": "Spain"
         },
         "managerName": "Ernesto Valverde",
-        "venue": "San Mam\u00e9s"
+        "venue": "San Mam\u00e9s",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 100,
@@ -997,7 +2721,37 @@
             "name": "Spain"
         },
         "managerName": "Xavi",
-        "venue": "Spotify Camp Nou"
+        "venue": "Spotify Camp Nou",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 101,
@@ -1007,7 +2761,23 @@
             "name": "Spain"
         },
         "managerName": "Michel",
-        "venue": "Estadi Montilivi"
+        "venue": "Estadi Montilivi",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 102,
@@ -1017,7 +2787,37 @@
             "name": "Spain"
         },
         "managerName": "Jose Luis Mendilibar",
-        "venue": "Ram\u00f3n S\u00e1nchez Pizju\u00e1n"
+        "venue": "Ram\u00f3n S\u00e1nchez Pizju\u00e1n",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 103,
@@ -1027,7 +2827,23 @@
             "name": "Spain"
         },
         "managerName": "Luis Garc\u00eda Fern\u00e1ndez",
-        "venue": "RCDE Stadium"
+        "venue": "RCDE Stadium",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 104,
@@ -1037,7 +2853,23 @@
             "name": "Spain"
         },
         "managerName": "Rubi",
-        "venue": "Estadio del Mediterr\u00e1neo"
+        "venue": "Estadio del Mediterr\u00e1neo",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 105,
@@ -1047,7 +2879,23 @@
             "name": "Spain"
         },
         "managerName": "Quique S\u00e1nchez Flores",
-        "venue": "Coliseum Alfonso P\u00e9rez"
+        "venue": "Coliseum Alfonso P\u00e9rez",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 106,
@@ -1057,7 +2905,37 @@
             "name": "Spain"
         },
         "managerName": "Carlo Ancelotti",
-        "venue": "Santiago Bernab\u00e9u"
+        "venue": "Santiago Bernab\u00e9u",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     },
     {
         "id": 107,
@@ -1067,7 +2945,23 @@
             "name": "Spain"
         },
         "managerName": "Sergio",
-        "venue": "Estadio Ramon de Carranza"
+        "venue": "Estadio Ramon de Carranza",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 108,
@@ -1077,7 +2971,23 @@
             "name": "Spain"
         },
         "managerName": "Ruben Baraja",
-        "venue": "Mestalla"
+        "venue": "Mestalla",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 109,
@@ -1087,7 +2997,23 @@
             "name": "Spain"
         },
         "managerName": "Javier Aguirre",
-        "venue": "Estadi de Son Moix"
+        "venue": "Estadi de Son Moix",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 110,
@@ -1097,7 +3023,23 @@
             "name": "Spain"
         },
         "managerName": "Andoni Iraola",
-        "venue": "Estadio de Vallecas"
+        "venue": "Estadio de Vallecas",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 111,
@@ -1107,7 +3049,23 @@
             "name": "Spain"
         },
         "managerName": "Imanol Alguacil Barrenetxea",
-        "venue": "Reale Arena"
+        "venue": "Reale Arena",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            }
+        ]
     },
     {
         "id": 112,
@@ -1117,6 +3075,36 @@
             "name": "Spain"
         },
         "managerName": "Diego Simeone",
-        "venue": "C\u00edvitas Metropolitano"
+        "venue": "C\u00edvitas Metropolitano",
+        "tournaments": [
+            {
+                "id": 3,
+                "name": "LaLiga",
+                "slug": "laliga",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 212,
+                    "name": "Spain"
+                }
+            },
+            {
+                "id": 7,
+                "name": "European Super League",
+                "slug": "european-super-league",
+                "sport": {
+                    "id": 1,
+                    "name": "Football",
+                    "slug": "football"
+                },
+                "country": {
+                    "id": 257,
+                    "name": "International"
+                }
+            }
+        ]
     }
 ]

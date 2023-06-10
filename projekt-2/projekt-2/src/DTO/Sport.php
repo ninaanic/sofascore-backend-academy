@@ -10,13 +10,6 @@ class Sport
         public int $id,
         public ?string $name,
         public ?string $slug,
-
-        ///** @var Tournament[] */
-        //public array $tournaments,
-//
-        ///** @var Event[] */
-        //public array $events,
-        
     ) {
     }
 }

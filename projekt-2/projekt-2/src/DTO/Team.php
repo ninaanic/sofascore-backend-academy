@@ -13,6 +13,7 @@ class Team
         public int $id,
 
         public Country $country,
+        public ?array $tournaments,
         //TODO logo
     ) {
     }

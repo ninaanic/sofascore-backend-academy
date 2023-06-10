@@ -13,20 +13,8 @@ class Standings
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $position = null;
-
-    #[ORM\Column]
-    private ?int $matches = null;
-
-    #[ORM\Column]
-    private ?int $wins = null;
-
-    #[ORM\Column]
-    private ?int $looses = null;
-
-    #[ORM\Column]
-    private ?int $draws = null;
+    #[ORM\Column (nullable: true)]
+    private ?int $points = null;
 
     #[ORM\Column]
     private ?int $scores_for = null;
@@ -35,7 +23,22 @@ class Standings
     private ?int $scores_against = null;
 
     #[ORM\Column]
-    private ?int $points = null;
+    private ?int $played = null;
+
+    #[ORM\Column]
+    private ?int $wins = null;
+
+    #[ORM\Column]
+    private ?int $draws = null;
+
+    #[ORM\Column]
+    private ?int $losses = null;
+
+    #[ORM\Column]
+    private ?float $percentage = null;
+
+    #[ORM\Column (nullable: true)]
+    private ?int $external_id = null;
 
     #[ORM\Column]
     private ?int $tournament_id = null;
@@ -43,16 +46,16 @@ class Standings
     #[ORM\Column]
     private ?int $team_id = null;
 
-    public function __construct(?int $position, ?int $matches, ?int $wins,  ?int $looses, ?int $draws, ?int $scores_for, ?int $scores_against, ?int $points)
+    public function __construct(?int $scores_for, ?int $scores_against, ?int $played, ?int $wins, ?int $draws, ?int $losses, ?float $percentage, ?int $external_id)
     {
-        $this->position = $position;
-        $this->matches = $matches;
-        $this->wins = $wins;
-        $this->looses = $looses;
-        $this->draws = $draws;
         $this->scores_for = $scores_for;
         $this->scores_against = $scores_against;
-        $this->points = $points;
+        $this->played = $played;
+        $this->wins = $wins;
+        $this->draws = $draws;
+        $this->losses = $losses;
+        $this->percentage = $percentage;
+        $this->external_id = $external_id;
     }
 
     public function getId(): ?int
@@ -60,62 +63,14 @@ class Standings
         return $this->id;
     }
 
-    public function getPosition(): ?int
+    public function getPoints(): ?int
     {
-        return $this->position;
+        return $this->points;
     }
 
-    public function setPosition(int $position): self
+    public function setPoints(?int $points): self
     {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    public function getMatches(): ?int
-    {
-        return $this->matches;
-    }
-
-    public function setMatches(int $matches): self
-    {
-        $this->matches = $matches;
-
-        return $this;
-    }
-
-    public function getWins(): ?int
-    {
-        return $this->wins;
-    }
-
-    public function setWins(int $wins): self
-    {
-        $this->wins = $wins;
-
-        return $this;
-    }
-
-    public function getLooses(): ?int
-    {
-        return $this->looses;
-    }
-
-    public function setLooses(int $looses): self
-    {
-        $this->looses = $looses;
-
-        return $this;
-    }
-
-    public function getDraws(): ?int
-    {
-        return $this->draws;
-    }
-
-    public function setDraws(int $draws): self
-    {
-        $this->draws = $draws;
+        $this->points = $points;
 
         return $this;
     }
@@ -144,14 +99,75 @@ class Standings
         return $this;
     }
 
-    public function getPoints(): ?int
+    public function getPlayed(): ?int
     {
-        return $this->points;
+        return $this->played;
     }
 
-    public function setPoints(int $points): self
+    public function setPlayed(int $played): self
     {
-        $this->points = $points;
+        $this->played = $played;
+
+        return $this;
+    }
+
+
+    public function getWins(): ?int
+    {
+        return $this->wins;
+    }
+
+    public function setWins(int $wins): self
+    {
+        $this->wins = $wins;
+
+        return $this;
+    }
+
+    public function getLooses(): ?int
+    {
+        return $this->losses;
+    }
+
+    public function setLooses(int $losses): self
+    {
+        $this->losses = $losses;
+
+        return $this;
+    }
+
+    public function getDraws(): ?int
+    {
+        return $this->draws;
+    }
+
+    public function setDraws(int $draws): self
+    {
+        $this->draws = $draws;
+
+        return $this;
+    }
+
+    public function getPercentage(): ?float
+    {
+        return $this->percentage;
+    }
+
+    public function setPercentage(float $percentage): self
+    {
+        $this->percentage = $percentage;
+
+        return $this;
+    }
+
+    public function getExternalId(): ?int
+    {
+        return $this->external_id;
+    }
+
+    public function setExternalId(?int $external_id): self
+    {
+        $this->external_id = $external_id;
 
         return $this;
     }

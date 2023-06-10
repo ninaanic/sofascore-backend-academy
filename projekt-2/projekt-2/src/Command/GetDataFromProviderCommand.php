@@ -7,6 +7,7 @@ use App\Database\Connection;
 use App\Entity\Event;
 use App\Entity\EventStatusEnum;
 use App\Entity\Player;
+use App\Entity\Standings;
 use App\Entity\Team;
 use App\Entity\Tournament;
 use App\Handler\ParseSportFileHandler;
@@ -45,6 +46,7 @@ final class GetDataFromProviderCommand extends Command
     }
 
     public function execute(InputInterface $input, OutputInterface $output): int {
+
         
         # get all sports
         $sports = $this->load_json("sports");
@@ -79,7 +81,7 @@ final class GetDataFromProviderCommand extends Command
         # get all teams
         $teams = [];
         foreach ($team_ids_unique as $team_id) {
-            array_push($teams, $this->load_json("team/$team_id"));
+            array_push($teams, $this->team_tournaments($team_id));
         }
         $this->save_json("teams", $teams);
 
@@ -102,7 +104,23 @@ final class GetDataFromProviderCommand extends Command
             array_push($players, $this->load_json("player/$player_id"));
         }
         $this->save_json("players", $players);
-        
+
+        # prepare tournament_ids from standings
+        $tournament_ids = [];
+        foreach ($tournaments as $tournament) {
+            if ($tournament["sport"]["id"] != 1) {
+                array_push($tournament_ids, $tournament["id"]);
+            }
+        }
+        $tournament_ids_unique = array_unique($tournament_ids);
+        sort($tournament_ids_unique);
+
+        # get standings for basketball and american football
+        $standings = [];
+        foreach ($tournament_ids_unique as $t_id) {
+            $standings = array_merge($standings, $this->load_json("tournament/$t_id/standings"));
+        }
+        $this->save_json("standings", $standings);
         
         return self::SUCCESS;
     }
@@ -149,4 +167,12 @@ final class GetDataFromProviderCommand extends Command
         return $events;
     }
 
+    public function team_tournaments (int $team_id): array {
+        $team_detials = $this->load_json("team/$team_id");
+        $team_tournaments = $this->load_json("team/$team_id/tournaments");
+
+        $team_detials["tournaments"] = $team_tournaments;
+
+        return $team_detials;
+    }
 }

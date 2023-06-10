@@ -29,6 +29,9 @@ class Team
     #[ORM\Column]
     private ?int $country_id = null;
 
+    #[ORM\Column]
+    private ?int $sport_id = null;
+
     public function __construct(string $name, ?string $manager_name, ?string $venue, int $external_id)
     {
         $this->name = $name;
@@ -98,6 +101,18 @@ class Team
     public function setCountryId(int $country_id): self
     {
         $this->country_id = $country_id;
+
+        return $this;
+    }
+
+    public function getSportId(): ?int
+    {
+        return $this->sport_id;
+    }
+
+    public function setSportId(int $sport_id): self
+    {
+        $this->sport_id = $sport_id;
 
         return $this;
     }
