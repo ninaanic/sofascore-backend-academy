@@ -29,7 +29,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
 #[AsCommand(
-    name: 'app:calculate_standings',
+    name: 'app:calculate:standings',
     description: 'Calculate standings for football.',
 )]
 final class CalculateStandingsCommand extends Command

@@ -11,6 +11,7 @@ use App\Database\Connection;
 use App\Tools\Templating\Templating;
 use App\Attribute\ApiController;
 use App\Listener\ApiResponseListener;
+use DateTime;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,6 +33,7 @@ final class SportController
     #[Route('/sport/{slug}/events/{date}', name: 'sport', methods: 'GET')]
     public function events(string $slug, string $date): Response
     {
+        $datetime = new DateTime($date);
         $sport = $this->entityManager->getRepository(Sport::class)->findOneBy(['slug' => $slug]);
 
         if (null === $sport) {
@@ -42,7 +44,7 @@ final class SportController
         
         $events = [];
         foreach ($tournaments as $tournament) {
-            $events = array_merge($events, $this->entityManager->getRepository(Event::class)->findBy(['start_date' =>  $date, 'tournament_id' => $tournament->getExternalId()]));
+            $events = array_merge($events, $this->entityManager->getRepository(Event::class)->findBy(['start_date' =>  $datetime, 'tournament_id' => $tournament->getExternalId()]));
         }
 
         return $this->apiResponseListener->onApiResponse($events);
