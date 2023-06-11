@@ -32,7 +32,7 @@ final class TeamController
     #[Route('/team/{id}/events', name: 'team', methods: 'GET')]
     public function events(int $id): Response
     {
-        $team = $this->entityManager->getRepository(Team::class)->findOneBy(['external_id' => $id]);
+        $team = $this->entityManager->getRepository(Team::class)->findOneBy(['id' => $id]);
 
         if (null === $team) {
             throw new HttpException(404, sprintf('A team with the id "%s" doesn\'t exist.', $id));
@@ -50,7 +50,7 @@ final class TeamController
     #[Route('/team/{id}/details', name: 'team_details', methods: 'GET')]
     public function details(int $id): Response
     {
-        $team = $this->entityManager->getRepository(Team::class)->findOneBy(['external_id' => $id]);
+        $team = $this->entityManager->getRepository(Team::class)->findOneBy(['id' => $id]);
 
         if (null === $team) {
             throw new HttpException(404, sprintf('A team with the id "%s" doesn\'t exist.', $id));
@@ -62,7 +62,7 @@ final class TeamController
     #[Route('/team/{id}/players', name: 'team_players', methods: 'GET')]
     public function players(int $id): Response
     {
-        $team = $this->entityManager->getRepository(Team::class)->findOneBy(['external_id' => $id]);
+        $team = $this->entityManager->getRepository(Team::class)->findOneBy(['id' => $id]);
 
         if (null === $team) {
             throw new HttpException(404, sprintf('A team with the id "%s" doesn\'t exist.', $id));

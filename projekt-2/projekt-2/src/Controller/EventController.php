@@ -32,7 +32,7 @@ final class EventController
     #[Route('/event/{id}/details', name: 'event_details', methods: 'GET')]
     public function details(int $id): Response
     {
-        $event = $this->entityManager->getRepository(Event::class)->findOneBy(['external_id' => $id]);
+        $event = $this->entityManager->getRepository(Event::class)->findOneBy(['id' => $id]);
 
         if (null === $event) {
             throw new HttpException(404, sprintf('A event with the id "%s" doesn\'t exist.', $id));

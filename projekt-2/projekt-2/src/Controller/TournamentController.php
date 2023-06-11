@@ -32,7 +32,7 @@ final class TournamentController
     #[Route('/tournament/{id}/events', name: 'tournament_events', methods: 'GET')]
     public function events(int $id): Response
     {
-        $tournament = $this->entityManager->getRepository(Tournament::class)->findOneBy(['external_id' => $id]);
+        $tournament = $this->entityManager->getRepository(Tournament::class)->findOneBy(['id' => $id]);
 
         if (null === $tournament) {
             throw new HttpException(404, sprintf('A tournament with the id "%s" doesn\'t exist.', $id));
@@ -47,7 +47,7 @@ final class TournamentController
     #[Route('/tournament/{id}/details', name: 'tournament_details', methods: 'GET')]
     public function details(int $id): Response
     {
-        $tournament = $this->entityManager->getRepository(Tournament::class)->findOneBy(['external_id' => $id]);
+        $tournament = $this->entityManager->getRepository(Tournament::class)->findOneBy(['id' => $id]);
 
         if (null === $tournament) {
             throw new HttpException(404, sprintf('A tournament with the id "%s" doesn\'t exist.', $id));

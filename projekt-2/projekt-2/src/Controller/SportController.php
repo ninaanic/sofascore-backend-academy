@@ -33,7 +33,6 @@ final class SportController
     #[Route('/sport/{slug}/events/{date}', name: 'sport', methods: 'GET')]
     public function events(string $slug, string $date): Response
     {
-        $datetime = new DateTime($date);
         $sport = $this->entityManager->getRepository(Sport::class)->findOneBy(['slug' => $slug]);
 
         if (null === $sport) {
@@ -41,6 +40,8 @@ final class SportController
         }
 
         $tournaments = $this->entityManager->getRepository(Tournament::class)->findBy(['sport_id' => $sport->getExternalId()]);
+        
+        $datetime = new DateTime($date);
         
         $events = [];
         foreach ($tournaments as $tournament) {

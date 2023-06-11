@@ -34,7 +34,7 @@ final class StandingsController
     #[Route('/tournament/{id}/standings', name: 'standings', methods: 'GET')]
     public function standings(int $id): Response
     {
-        $tournament = $this->entityManager->getRepository(Tournament::class)->findOneBy(['external_id' => $id]);
+        $tournament = $this->entityManager->getRepository(Tournament::class)->findOneBy(['id' => $id]);
 
         if (null === $tournament) {
             throw new HttpException(404, sprintf('A team with the id "%s" doesn\'t exist.', $id));

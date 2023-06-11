@@ -32,7 +32,7 @@ final class PlayerController
     #[Route('/player/{id}/events', name: 'player', methods: 'GET')]
     public function events(int $id): Response
     {
-        $player = $this->entityManager->getRepository(Player::class)->findOneBy(['external_id' => $id]);
+        $player = $this->entityManager->getRepository(Player::class)->findOneBy(['id' => $id]);
 
         if (null === $player) {
             throw new HttpException(404, sprintf('A player with the id "%s" doesn\'t exist.', $id));
@@ -51,7 +51,7 @@ final class PlayerController
     #[Route('/player/{id}/details', name: 'player_details', methods: 'GET')]
     public function details(int $id): Response
     {
-        $player = $this->entityManager->getRepository(Player::class)->findOneBy(['external_id' => $id]);
+        $player = $this->entityManager->getRepository(Player::class)->findOneBy(['id' => $id]);
 
         if (null === $player) {
             throw new HttpException(404, sprintf('A player with the id "%s" doesn\'t exist.', $id));
