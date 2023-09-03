@@ -1,1 +1,1 @@
-# sofa-akademija
+# Sofascore backend academy 2023.
