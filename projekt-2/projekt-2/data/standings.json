@@ -1,0 +1,1158 @@
+[
+    {
+        "id": 236,
+        "tournament": {
+            "id": 4,
+            "name": "NBA",
+            "slug": "nba",
+            "sport": {
+                "id": 2,
+                "name": "Basketball",
+                "slug": "basketball"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "type": "total",
+        "sortedStandingsRows": [
+            {
+                "id": 5020,
+                "team": {
+                    "id": 33,
+                    "name": "Philadelphia 76ers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1441,
+                "scoresAgainst": 1305,
+                "played": 15,
+                "wins": 12,
+                "draws": 0,
+                "losses": 3,
+                "percentage": 0.8
+            },
+            {
+                "id": 5004,
+                "team": {
+                    "id": 41,
+                    "name": "Miami Heat",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1405,
+                "scoresAgainst": 1328,
+                "played": 15,
+                "wins": 11,
+                "draws": 0,
+                "losses": 4,
+                "percentage": 0.73333333333333
+            },
+            {
+                "id": 5019,
+                "team": {
+                    "id": 39,
+                    "name": "Houston Rockets",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1379,
+                "scoresAgainst": 1330,
+                "played": 15,
+                "wins": 10,
+                "draws": 0,
+                "losses": 5,
+                "percentage": 0.66666666666667
+            },
+            {
+                "id": 5028,
+                "team": {
+                    "id": 42,
+                    "name": "Cleveland Cavaliers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1387,
+                "scoresAgainst": 1291,
+                "played": 15,
+                "wins": 10,
+                "draws": 0,
+                "losses": 5,
+                "percentage": 0.66666666666667
+            },
+            {
+                "id": 5008,
+                "team": {
+                    "id": 47,
+                    "name": "Los Angeles Clippers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1384,
+                "scoresAgainst": 1336,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 5011,
+                "team": {
+                    "id": 43,
+                    "name": "Orlando Magic",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1368,
+                "scoresAgainst": 1330,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 5012,
+                "team": {
+                    "id": 23,
+                    "name": "Golden State Warriors",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1335,
+                "scoresAgainst": 1302,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 5015,
+                "team": {
+                    "id": 49,
+                    "name": "Washington Wizards",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1368,
+                "scoresAgainst": 1341,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 5029,
+                "team": {
+                    "id": 46,
+                    "name": "Charlotte Hornets",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1359,
+                "scoresAgainst": 1295,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 5007,
+                "team": {
+                    "id": 26,
+                    "name": "Utah Jazz",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1391,
+                "scoresAgainst": 1364,
+                "played": 15,
+                "wins": 8,
+                "draws": 0,
+                "losses": 7,
+                "percentage": 0.53333333333333
+            },
+            {
+                "id": 5013,
+                "team": {
+                    "id": 34,
+                    "name": "Detroit Pistons",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1337,
+                "scoresAgainst": 1340,
+                "played": 15,
+                "wins": 8,
+                "draws": 0,
+                "losses": 7,
+                "percentage": 0.53333333333333
+            },
+            {
+                "id": 5016,
+                "team": {
+                    "id": 40,
+                    "name": "Los Angeles Lakers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1370,
+                "scoresAgainst": 1344,
+                "played": 15,
+                "wins": 8,
+                "draws": 0,
+                "losses": 7,
+                "percentage": 0.53333333333333
+            },
+            {
+                "id": 5027,
+                "team": {
+                    "id": 44,
+                    "name": "Memphis Grizzlies",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1378,
+                "scoresAgainst": 1347,
+                "played": 15,
+                "wins": 8,
+                "draws": 0,
+                "losses": 7,
+                "percentage": 0.53333333333333
+            },
+            {
+                "id": 5006,
+                "team": {
+                    "id": 25,
+                    "name": "Oklahoma City Thunder",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1356,
+                "scoresAgainst": 1333,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 5010,
+                "team": {
+                    "id": 32,
+                    "name": "New Orleans Pelicans",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1350,
+                "scoresAgainst": 1409,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 5017,
+                "team": {
+                    "id": 50,
+                    "name": "Denver Nuggets",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1372,
+                "scoresAgainst": 1390,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 5023,
+                "team": {
+                    "id": 36,
+                    "name": "Dallas Mavericks",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1344,
+                "scoresAgainst": 1345,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 5024,
+                "team": {
+                    "id": 22,
+                    "name": "Phoenix Suns",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1331,
+                "scoresAgainst": 1372,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 5030,
+                "team": {
+                    "id": 30,
+                    "name": "Boston Celtics",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1295,
+                "scoresAgainst": 1364,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 5031,
+                "team": {
+                    "id": 35,
+                    "name": "Portland Trail Blazers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1329,
+                "scoresAgainst": 1328,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 5003,
+                "team": {
+                    "id": 48,
+                    "name": "Minnesota Timberwolves",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1311,
+                "scoresAgainst": 1405,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 5009,
+                "team": {
+                    "id": 31,
+                    "name": "Chicago Bulls",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1369,
+                "scoresAgainst": 1372,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 5014,
+                "team": {
+                    "id": 37,
+                    "name": "New York Knicks",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1333,
+                "scoresAgainst": 1378,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 5018,
+                "team": {
+                    "id": 24,
+                    "name": "Indiana Pacers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1292,
+                "scoresAgainst": 1379,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 5021,
+                "team": {
+                    "id": 27,
+                    "name": "Milwaukee Bucks",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1335,
+                "scoresAgainst": 1365,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 5022,
+                "team": {
+                    "id": 38,
+                    "name": "Brooklyn Nets",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1350,
+                "scoresAgainst": 1398,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 5025,
+                "team": {
+                    "id": 45,
+                    "name": "San Antonio Spurs",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1318,
+                "scoresAgainst": 1352,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 5032,
+                "team": {
+                    "id": 29,
+                    "name": "Toronto Raptors",
+                    "country": {
+                        "id": 41,
+                        "name": "Canada"
+                    }
+                },
+                "scoresFor": 1378,
+                "scoresAgainst": 1357,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 5026,
+                "team": {
+                    "id": 21,
+                    "name": "Atlanta Hawks",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1310,
+                "scoresAgainst": 1382,
+                "played": 15,
+                "wins": 5,
+                "draws": 0,
+                "losses": 10,
+                "percentage": 0.33333333333333
+            },
+            {
+                "id": 5005,
+                "team": {
+                    "id": 28,
+                    "name": "Sacramento Kings",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 1317,
+                "scoresAgainst": 1410,
+                "played": 15,
+                "wins": 3,
+                "draws": 0,
+                "losses": 12,
+                "percentage": 0.2
+            }
+        ]
+    },
+    {
+        "id": 235,
+        "tournament": {
+            "id": 5,
+            "name": "NFL",
+            "slug": "nfl",
+            "sport": {
+                "id": 3,
+                "name": "American football",
+                "slug": "american-football"
+            },
+            "country": {
+                "id": 254,
+                "name": "USA"
+            }
+        },
+        "type": "total",
+        "sortedStandingsRows": [
+            {
+                "id": 4987,
+                "team": {
+                    "id": 70,
+                    "name": "Jacksonville Jaguars",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 516,
+                "scoresAgainst": 449,
+                "played": 15,
+                "wins": 12,
+                "draws": 0,
+                "losses": 3,
+                "percentage": 0.8
+            },
+            {
+                "id": 4999,
+                "team": {
+                    "id": 61,
+                    "name": "Tennessee Titans",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 574,
+                "scoresAgainst": 426,
+                "played": 15,
+                "wins": 12,
+                "draws": 0,
+                "losses": 3,
+                "percentage": 0.8
+            },
+            {
+                "id": 4986,
+                "team": {
+                    "id": 54,
+                    "name": "New England Patriots",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 535,
+                "scoresAgainst": 471,
+                "played": 15,
+                "wins": 11,
+                "draws": 0,
+                "losses": 4,
+                "percentage": 0.73333333333333
+            },
+            {
+                "id": 4994,
+                "team": {
+                    "id": 82,
+                    "name": "Arizona Cardinals",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 558,
+                "scoresAgainst": 481,
+                "played": 15,
+                "wins": 11,
+                "draws": 0,
+                "losses": 4,
+                "percentage": 0.73333333333333
+            },
+            {
+                "id": 4974,
+                "team": {
+                    "id": 79,
+                    "name": "Miami Dolphins",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 535,
+                "scoresAgainst": 463,
+                "played": 15,
+                "wins": 10,
+                "draws": 0,
+                "losses": 5,
+                "percentage": 0.66666666666667
+            },
+            {
+                "id": 4977,
+                "team": {
+                    "id": 52,
+                    "name": "Carolina Panthers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 486,
+                "scoresAgainst": 463,
+                "played": 15,
+                "wins": 10,
+                "draws": 0,
+                "losses": 5,
+                "percentage": 0.66666666666667
+            },
+            {
+                "id": 4989,
+                "team": {
+                    "id": 60,
+                    "name": "New Orleans Saints",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 501,
+                "scoresAgainst": 471,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 4998,
+                "team": {
+                    "id": 58,
+                    "name": "Atlanta Falcons",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 514,
+                "scoresAgainst": 489,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 5000,
+                "team": {
+                    "id": 75,
+                    "name": "Houston Texans",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 510,
+                "scoresAgainst": 519,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 5001,
+                "team": {
+                    "id": 73,
+                    "name": "Kansas City Chiefs",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 516,
+                "scoresAgainst": 474,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 5002,
+                "team": {
+                    "id": 53,
+                    "name": "Los Angeles Chargers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 558,
+                "scoresAgainst": 485,
+                "played": 15,
+                "wins": 9,
+                "draws": 0,
+                "losses": 6,
+                "percentage": 0.6
+            },
+            {
+                "id": 4984,
+                "team": {
+                    "id": 57,
+                    "name": "San Francisco 49ers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 508,
+                "scoresAgainst": 492,
+                "played": 15,
+                "wins": 8,
+                "draws": 0,
+                "losses": 7,
+                "percentage": 0.53333333333333
+            },
+            {
+                "id": 4991,
+                "team": {
+                    "id": 51,
+                    "name": "Los Angeles Rams",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 511,
+                "scoresAgainst": 485,
+                "played": 15,
+                "wins": 8,
+                "draws": 0,
+                "losses": 7,
+                "percentage": 0.53333333333333
+            },
+            {
+                "id": 4995,
+                "team": {
+                    "id": 68,
+                    "name": "Cincinnati Bengals",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 515,
+                "scoresAgainst": 536,
+                "played": 15,
+                "wins": 8,
+                "draws": 0,
+                "losses": 7,
+                "percentage": 0.53333333333333
+            },
+            {
+                "id": 4971,
+                "team": {
+                    "id": 81,
+                    "name": "Minnesota Vikings",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 471,
+                "scoresAgainst": 535,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 4979,
+                "team": {
+                    "id": 80,
+                    "name": "Las Vegas Raiders",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 452,
+                "scoresAgainst": 464,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 4981,
+                "team": {
+                    "id": 76,
+                    "name": "Philadelphia Eagles",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 529,
+                "scoresAgainst": 546,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 4982,
+                "team": {
+                    "id": 74,
+                    "name": "Indianapolis Colts",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 521,
+                "scoresAgainst": 500,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 4985,
+                "team": {
+                    "id": 77,
+                    "name": "Cleveland Browns",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 504,
+                "scoresAgainst": 470,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 4990,
+                "team": {
+                    "id": 64,
+                    "name": "Green Bay Packers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 506,
+                "scoresAgainst": 501,
+                "played": 15,
+                "wins": 7,
+                "draws": 0,
+                "losses": 8,
+                "percentage": 0.46666666666667
+            },
+            {
+                "id": 4972,
+                "team": {
+                    "id": 69,
+                    "name": "Tampa Bay Buccaneers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 476,
+                "scoresAgainst": 523,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 4978,
+                "team": {
+                    "id": 55,
+                    "name": "Washington Commanders",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 480,
+                "scoresAgainst": 551,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 4983,
+                "team": {
+                    "id": 66,
+                    "name": "Seattle Seahawks",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 523,
+                "scoresAgainst": 565,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 4988,
+                "team": {
+                    "id": 63,
+                    "name": "New York Jets",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 492,
+                "scoresAgainst": 535,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 4993,
+                "team": {
+                    "id": 72,
+                    "name": "Baltimore Ravens",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 477,
+                "scoresAgainst": 496,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 4997,
+                "team": {
+                    "id": 65,
+                    "name": "Detroit Lions",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 485,
+                "scoresAgainst": 509,
+                "played": 15,
+                "wins": 6,
+                "draws": 0,
+                "losses": 9,
+                "percentage": 0.4
+            },
+            {
+                "id": 4975,
+                "team": {
+                    "id": 56,
+                    "name": "Buffalo Bills",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 478,
+                "scoresAgainst": 525,
+                "played": 15,
+                "wins": 5,
+                "draws": 0,
+                "losses": 10,
+                "percentage": 0.33333333333333
+            },
+            {
+                "id": 4976,
+                "team": {
+                    "id": 78,
+                    "name": "Pittsburgh Steelers",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 491,
+                "scoresAgainst": 575,
+                "played": 15,
+                "wins": 5,
+                "draws": 0,
+                "losses": 10,
+                "percentage": 0.33333333333333
+            },
+            {
+                "id": 4992,
+                "team": {
+                    "id": 71,
+                    "name": "Chicago Bears",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 449,
+                "scoresAgainst": 516,
+                "played": 15,
+                "wins": 5,
+                "draws": 0,
+                "losses": 10,
+                "percentage": 0.33333333333333
+            },
+            {
+                "id": 4996,
+                "team": {
+                    "id": 62,
+                    "name": "New York Giants",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 478,
+                "scoresAgainst": 495,
+                "played": 15,
+                "wins": 5,
+                "draws": 0,
+                "losses": 10,
+                "percentage": 0.33333333333333
+            },
+            {
+                "id": 4980,
+                "team": {
+                    "id": 59,
+                    "name": "Dallas Cowboys",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 470,
+                "scoresAgainst": 529,
+                "played": 15,
+                "wins": 4,
+                "draws": 0,
+                "losses": 11,
+                "percentage": 0.26666666666667
+            },
+            {
+                "id": 4973,
+                "team": {
+                    "id": 67,
+                    "name": "Denver Broncos",
+                    "country": {
+                        "id": 254,
+                        "name": "USA"
+                    }
+                },
+                "scoresFor": 499,
+                "scoresAgainst": 579,
+                "played": 15,
+                "wins": 3,
+                "draws": 0,
+                "losses": 12,
+                "percentage": 0.2
+            }
+        ]
+    }
+]
